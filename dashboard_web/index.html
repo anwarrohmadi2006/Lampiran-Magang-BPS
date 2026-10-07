@@ -3,46 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Penelusuran Label Sentimen SE2026 &amp; Fasih BPS</title>
-<meta name="description" content="Web decision support penelitian analisis sentimen Sensus Ekonomi 2026 dan aplikasi Fasih BPS. Seluruh label dapat ditelusuri sampai bukti, alasan, dan penjelasan modelnya.">
+<title>SE2026 • Evidence & Decision Console BPS Sukoharjo</title>
+<meta name="description" content="Konsol penelitian untuk menelusuri label sentimen SE2026, mengaudit mutu label, memeriksa XAI, dan membuka dasbor tren serta rekomendasi.">
 <link rel="stylesheet" href="gaya.css">
 </head>
 <body>
 <a class="lewati" href="#utama">Lewati ke isi utama</a>
-
 <header class="kepala">
   <div class="kepala-dalam">
     <div class="merek">
       <span class="merek-tanda" aria-hidden="true">SE</span>
       <span class="merek-teks">
-        <strong>Penelusuran Label &amp; Audit XAI SE2026</strong>
-        <small>Sistem Pendukung Keputusan • BPS Kabupaten Sukoharjo • Anwar Rohmadi</small>
+        <strong>SE2026 • Evidence &amp; Decision Console</strong>
+        <small>BPS Kabupaten Sukoharjo • Audit label, XAI, dan dukungan keputusan • Anwar Rohmadi</small>
       </span>
     </div>
-
     <nav class="tab" id="tab" aria-label="Bagian laporan">
       <button type="button" class="tab-tombol" data-panel="ringkasan" aria-current="page">Ringkasan</button>
-      <button type="button" class="tab-tombol" data-panel="alur">Alur</button>
+      <button type="button" class="tab-tombol" data-panel="alur">Alur Penelitian</button>
       <button type="button" class="tab-tombol" data-panel="label">Penelusuran Label</button>
       <button type="button" class="tab-tombol" data-panel="mutu">Mutu Label</button>
-      <button type="button" class="tab-tombol" data-panel="model">Model</button>
+      <button type="button" class="tab-tombol" data-panel="model">Model &amp; XAI</button>
       <button type="button" class="tab-tombol" data-panel="banding">Perbandingan</button>
       <button type="button" class="tab-tombol" data-panel="keputusan">Keputusan</button>
-      <a href="dss_trendline.html" class="tab-tombol" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg, #1e3a8a, #2563eb); color:#ffffff; font-weight:700; border-radius:6px; padding:6px 14px; margin-left:8px; box-shadow:0 2px 4px rgba(37,99,235,0.25);">📊 Dasbor Tren &amp; Rekomendasi DSS</a>
+      <a href="dss_trendline.html" class="tab-tombol dss-nav" aria-label="Buka dasbor tren dan rekomendasi DSS">Dasbor Tren &amp; DSS ↗</a>
     </nav>
-
     <button type="button" class="tombol-tema" id="tombol-tema" aria-pressed="false">
-      <span class="tema-teks">Gelap</span>
-      <span class="ikon" id="ikon-tema" aria-hidden="true"></span>
+      <span class="tema-teks">Gelap</span><span class="ikon" id="ikon-tema" aria-hidden="true"></span>
     </button>
   </div>
 </header>
-
 <main id="utama" tabindex="-1">
-  <noscript>
-    <p class="catatan-kosong">Halaman ini memerlukan JavaScript untuk membaca berkas data di sebelahnya.</p>
-  </noscript>
-
+  <noscript><p class="catatan-kosong">Halaman ini memerlukan JavaScript untuk membaca data penelitian.</p></noscript>
   <section class="panel" id="panel-ringkasan" data-panel="ringkasan" aria-labelledby="judul-ringkasan"></section>
   <section class="panel" id="panel-alur" data-panel="alur" aria-labelledby="judul-alur" hidden></section>
   <section class="panel" id="panel-label" data-panel="label" aria-labelledby="judul-label" hidden></section>
@@ -51,32 +43,22 @@
   <section class="panel" id="panel-banding" data-panel="banding" aria-labelledby="judul-banding" hidden></section>
   <section class="panel" id="panel-keputusan" data-panel="keputusan" aria-labelledby="judul-keputusan" hidden></section>
 </main>
-
 <footer class="kaki">
   <div class="kaki-dalam">
     <p id="kaki-keterangan"></p>
     <p id="kaki-capaian" class="kaki-berkas"></p>
-    <p class="kaki-berkas">Berkas data: <code>data.js</code> · <code>label.js</code> · Kerja Praktik Badan Pusat Statistik Kabupaten Sukoharjo</p>
-    <p style="margin-top:6px; font-size:11.5px; color:var(--warna-teks-redup, #64748b);">Pengembang: <strong>Anwar Rohmadi</strong> (NIM: 247411027) • Program Studi Sains Data</p>
+    <p class="kaki-berkas">Data penelitian: <code>data.js</code> · <code>label.js</code> · Kerja Praktik BPS Kabupaten Sukoharjo</p>
+    <p class="kaki-berkas">Pengembang: <strong>Anwar Rohmadi</strong> • Program Studi Sains Data</p>
   </div>
 </footer>
-
 <div class="tabir" id="tabir" hidden></div>
-
 <aside class="laci" id="laci" aria-label="Rincian baris" hidden>
   <div class="laci-kepala">
-    <div>
-      <h2 id="laci-judul">Rincian baris</h2>
-      <p class="laci-uid" id="laci-uid"></p>
-    </div>
-    <button type="button" class="tombol-tutup" id="tombol-tutup" aria-label="Tutup rincian">
-      <span class="ikon" id="ikon-tutup" aria-hidden="true"></span>
-      <span>Tutup</span>
-    </button>
+    <div><h2 id="laci-judul">Rincian baris</h2><p class="laci-uid" id="laci-uid"></p></div>
+    <button type="button" class="tombol-tutup" id="tombol-tutup" aria-label="Tutup rincian"><span class="ikon" id="ikon-tutup" aria-hidden="true"></span><span>Tutup</span></button>
   </div>
   <div class="laci-isi" id="laci-isi"></div>
 </aside>
-
 <script src="data.js"></script>
 <script src="label.js"></script>
 <script src="konfigurasi.js"></script>
