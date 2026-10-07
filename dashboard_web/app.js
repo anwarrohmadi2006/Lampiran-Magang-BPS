@@ -261,7 +261,7 @@
 
     p.appendChild(h("div", { class: "pembuka" }, [
       h("h1", { id: "judul-ringkasan", teks: "Setiap label bisa ditelusuri sampai buktinya." }),
-      h("p", { class: "masuk", teks: "Delapan ribu tiga ratus lima puluh baris opini publik tentang Sensus Ekonomi 2026 dan aplikasi Fasih BPS, dari panen data sampai penjelasan model." }),
+      h("p", { class: "masuk", teks: "Delapan ribu tiga ratus lima puluh dua baris data publik tentang Sensus Ekonomi 2026 dan aplikasi Fasih BPS, dari panen data sampai penjelasan model." }),
       h("div", { class: "pembuka-kendali" }, [
         h("button", { class: "tombol tombol-utama", type: "button", onclick: function () { buka("label"); } }, "Telusuri label"),
         h("button", { class: "tombol tombol-samar", type: "button", onclick: function () { buka("alur"); } }, "Lihat alur penelitian")
@@ -276,6 +276,21 @@
       ]);
     }));
     p.appendChild(deret);
+
+    p.appendChild(h("div", { class: "konteks-ringkas", "aria-label": "Konteks data" }, [
+      h("span", { teks: "8.352 baris korpus" }),
+      h("span", { teks: "5.808 opini berlabel" }),
+      h("span", { teks: "3 sumber: YouTube, Google Play, Threads" }),
+      h("span", { teks: "XAI: LIME + peta atensi + BertViz" })
+    ]));
+
+    p.appendChild(h("div", { class: "dss-teaser" }, [
+      h("div", null, [
+        h("strong", { teks: "Lanjut ke Dasbor Tren & DSS" }),
+        h("p", { teks: "Lihat tren sentimen per periode, distribusi platform, topik utama, anomali, dan matriks prioritas respons. Dasbor ini membaca data riil dari berkas DSS yang sama." })
+      ]),
+      h("a", { class: "tombol tombol-utama", href: "dss_trendline.html", teks: "Buka dasbor ↗" })
+    ]));
 
     var klaim = D.klaim || { boleh: [], tidak: [] };
     p.appendChild(blok("Yang boleh dan tidak boleh diklaim", "Bagian ini yang paling sering ditanyakan penguji. Seluruh angka pada halaman ini harus dibaca bersama batas ini.",
