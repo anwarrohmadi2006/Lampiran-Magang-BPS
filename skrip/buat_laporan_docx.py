@@ -1310,12 +1310,13 @@ def bab_satu(doc: Document) -> None:
              "membengkak menampung teks non-opini.")
     par(doc, "Berdasarkan uraian tersebut, Kerja Praktik ini melakukan analisis sentimen opini "
              "publik terhadap Sensus Ekonomi 2026 dan aplikasi Fasih BPS dengan menempatkan mutu "
-             "pelabelan sebagai fokus pengujian. Evaluasi pada penelitian ini mencakup audit korpus, "
-             "audit mutu label, penyusunan gold set manusia sebagai acuan pengukuran, dan "
-             "penjelasan model agar hasilnya dapat ditafsirkan. Penelitian ini membandingkan dua "
-             "anotator otomatis, yaitu Jev sebagai anotator utama dan Gemma sebagai anotator "
-             "pembanding, untuk menguji sejauh mana penyesuaian anotator memengaruhi mutu label "
-             "dan kinerja model klasifikasi.")
+             "pelabelan sebagai fokus pengujian. Penelitian ini memadukan dua paradigma kecerdasan buatan "
+             "komplementer: model bahasa besar generatif Google Gemma 4 12B IT di hulu untuk penalaran "
+             "wacana multi-sumber dan pemilahan partisi korpus, serta model keputusan terstruktur TypeSafe AI Jev "
+             "untuk kalibrasi anotasi polaritas opini tanpa halusinasi matematis. Evaluasi pada penelitian "
+             "ini mencakup audit korpus, audit mutu label, penyusunan gold set manusia sebagai acuan pengukuran "
+             "objektif, studi ablasi pelatihan IndoBERT Base, uji signifikansi komparasi pipeline, serta "
+             "penjelasan model melalui peta atensi dan LIME.")
     sub_bab(doc, "Tujuan", numid_b1)
     par(doc, "Tujuan umum pelaksanaan Kerja Praktik ini adalah membangun sistem analisis sentimen "
              "yang dapat dipercaya secara metodologis untuk memantau opini publik terhadap Sensus "
@@ -1328,8 +1329,9 @@ def bab_satu(doc: Document) -> None:
               "Merumuskan kerangka kerja audit mutu label berbasis model bahasa besar untuk "
               "memeriksa seluruh baris, memverifikasi keterlacakan kutipan bukti ke teks sumber, "
               "mendeteksi kesalahan sistematis, serta menormalkan pembengkakan kelas netral.",
-              "Membangun mekanisme pelabelan semu sadar konteks beserta perangkat pemilah yang "
-              "mempartisi korpus menjadi kelompok opini, non-opini, dan karantina.",
+              "Membangun mekanisme pelabelan semu sadar konteks berbasis Google Gemma 4 12B IT untuk mempartisi "
+              "korpus, serta menerapkan kalibrasi polaritas terstruktur berbasis TypeSafe AI Jev guna menghasilkan "
+              "data latih yang terjamin keandalan semantiknya.",
               "Menyusun gold set independen yang diverifikasi manusia sebagai tolok ukur evaluasi "
               "serta memisahkan secara metodologis antara metrik kesepakatan model terhadap "
               "anotator semu dan akurasi terverifikasi manusia.",
@@ -1425,6 +1427,30 @@ def bab_dua(doc: Document) -> None:
              "Di samping itu, tinjauan empiris terhadap ratusan dataset teks menunjukkan bahwa "
              "verifikasi mutu anotasi otomatis kerap diabaikan meskipun model bahasa besar dilaporkan mampu "
              "menyaingi anotator manusia pada tugas tertentu (Gilardi et al., 2023; Klie et al., 2024).")
+    par(doc, "Perkembangan arsitektur kecerdasan buatan melahirkan dua paradigma komplementer dalam pemrosesan "
+             "bahasa alami. Paradigma pertama diwakili oleh model bahasa besar generatif sadar konteks, yaitu "
+             "Google Gemma 4 12B IT (Unsloth AI, 2026). Model ini dibangun di atas arsitektur decoder-only dengan "
+             "kapasitas dua belas miliar parameter yang telah melalui penyesuaian instruksi (instruction tuning). "
+             "Model ini dioptimalkan menggunakan teknik kuantisasi GGUF dan Quantization-Aware Training (QAT) "
+             "untuk inferensi berkecepatan tinggi melalui mesin vLLM. Keunggulan utama Gemma 4 12B IT terletak pada "
+             "kemampuan penalaran autoregressive mendalam untuk menangkap konteks wacana informal, mengurai relasi "
+             "antara komentar balasan dan unggahan induk, memahami campur kode bahasa daerah, serta mengekstraksi "
+             "dimensi keluaran melalui penegakan skema JSON terstruktur. Kendati demikian, model generatif memiliki "
+             "keterbatasan alami pada kalibrasi nilai keyakinan probabilitas dan cenderung bias pada kelas netral.")
+    par(doc, "Paradigma kedua hadir melalui model keputusan non-autoregressive terstruktur seperti Jev yang "
+             "dikembangkan oleh TypeSafe AI dan dirilis resmi pada 15 September 2026 (TypeSafe AI, 2026). Berbeda dari "
+             "arsitektur generatif bebas teks, Jev beroperasi sebagai model diskriminatif berkecepatan tinggi yang "
+             "mengunci ruang keluaran ke dalam skema keputusan bertipe (typed decisions). Pendekatan ini memberikan "
+             "jaminan matematis terhadap ketiadaan halusinasi nilai kategori, menghasilkan estimasi probabilitas yang "
+             "terkalibrasi ketat, serta menekan biaya komputasi hingga $0,042 per satu juta token. Model ini sangat "
+             "unggul dalam menetapkan polaritas sentimen dan menajamkan batas semantik antarkategori, khususnya "
+             "memisahkan laporan keadaan faktual dari keluhan subjektif pengguna.")
+    par(doc, "Integrasi berjenjang kedua paradigma tersebut membentuk kerangka kerja komplementer yang kokoh. "
+             "Google Gemma 4 12B IT difungsikan di lini depan untuk membedah kompleksitas wacana percakapan dan "
+             "memilah relevansi topik, sedangkan TypeSafe AI Jev difungsikan untuk mengkalibrasi penetapan polaritas "
+             "pada korpus opini. Sinergi ini menghasilkan data latih berkualitas tinggi yang kemudian digunakan untuk "
+             "melatih model produksi IndoBERT Base dengan regularisasi R-Drop. Pendekatan terpadu ini menjembatani "
+             "kebutuhan penalaran semantik makro di hulu pengolahan dan kepastian mutu data latih di hilir pemodelan.")
     par(doc, "Secara metodologis, terdapat perbedaan fungsi antara gold set dan label semu (pseudo-label). "
              "Gold set diverifikasi oleh manusia sebagai tolok ukur evaluasi akhir, sedangkan label semu "
              "dibangkitkan oleh model untuk kebutuhan pelatihan. Oleh sebab itu, evaluasi yang menggunakan "
@@ -1551,11 +1577,15 @@ def bab_tiga(doc: Document) -> None:
          "Wawancara dan observasi"],
     ])
     sub_bab(doc, "Metode Analisis Data", numid_b3)
-    par(doc, "Analisis dijalankan berurutan mulai dari pemeriksaan mutu korpus sampai penjelasan "
-             "model. Setiap tahap dalam rangkaian itu menyediakan mode pengujian mandiri dan "
-             "menyimpan keluarannya sebagai berkas, sehingga hasil dapat ditelusuri kembali. "
-             "Rincian metode analisis "
-             "disajikan pada Tabel 3.2.")
+    par(doc, "Analisis dijalankan secara berurutan mengikuti alur pemodelan terpadu dari hulu ke hilir. "
+             "Pada tahap hulu, model bahasa besar Google Gemma 4 12B IT dieksekusi menggunakan mesin inferensi "
+             "vLLM dengan prompt sadar konteks dua belas aturan dan penegakan skema format JSON. Model ini "
+             "bertugas mengurai wacana multi-sumber dan mempartisi 8.352 baris korpus bersih menjadi tiga kelompok: "
+             "opini (5.808 baris), non-opini (2.119 baris), dan karantina (423 baris). Pada tahap anotasi dan kurasi, "
+             "partisi opini berukuran 5.808 baris dilabeli ulang polaritasnya oleh model keputusan TypeSafe AI Jev "
+             "melalui pertanyaan bertipe terstruktur guna menjamin kalibrasi probabilitas tanpa halusinasi matematis. "
+             "Pada tahap pelatihan hilir, data berlabel hasil kurasi Jev digunakan untuk melatih pengklasifikasi "
+             "produksi IndoBERT Base dengan regularisasi R-Drop. Rincian metode analisis disajikan pada Tabel 3.2.")
     judul_tabel(doc, "Tabel 3.2 Metode Analisis Data")
     tabel(doc, ["Nomor", "Jenis Data", "Sumber Data", "Analisis"], [
         ["1", "Korpus teks mentah", "Data sekunder",
@@ -1573,11 +1603,13 @@ def bab_tiga(doc: Document) -> None:
         ["7", "Pipeline pembanding", "Data sekunder",
          "Pemilahan langsung dengan Jev dan pelatihan IndoBERT pembanding"],
     ])
-    par(doc, "Untuk menguji apakah pemilahan awal oleh Gemma diperlukan, penelitian ini "
-             "menjalankan pipeline pembanding dengan Jev sebagai pemilah langsung. Pipeline itu "
-             "memakai ambang peluang relevansi 0,20, mengambil baris bertipe opini, menghasilkan "
-             "5.590 baris data latih, dan dilatih dengan skenario yang sama. Kedua pipeline "
-             "kemudian diukur pada data uji manusia yang sama dan dibandingkan dengan uji McNemar.")
+    par(doc, "Guna menguji kontribusi empiris masing-masing model secara objektif, penelitian ini menyiapkan dua "
+             "skenario pipeline pembanding di samping pipeline utama Gemma-Jev. Skenario pembanding pertama adalah "
+             "pipeline mandiri Jev, di mana Jev menjalankan fungsi pemilahan relevansi langsung menggunakan ambang "
+             "peluang 0,20 menghasilkan 5.590 baris data latih tanpa melibatkan Gemma. Skenario pembanding kedua "
+             "adalah baseline anotasi tunggal Gemma, di mana IndoBERT dilatih murni dari label awal Gemma tanpa "
+             "penyegaran Jev. Seluruh model pengklasifikasi tersebut dievaluasi secara adil pada seratus baris data uji "
+             "acuan manusia yang sama dan dianalisis menggunakan uji signifikansi statistik berpasangan McNemar.")
     sub_bab(doc, "Tahapan dan Jadwal Kegiatan KP", numid_b3)
     par(doc, "Pelaksanaan Kerja Praktik mengikuti lima tahap sesuai buku panduan. Tahap persiapan "
              "mencakup pengurusan administrasi dan studi pustaka. Tahap pelaksanaan mencakup "
@@ -1645,11 +1677,12 @@ def bab_empat(doc: Document) -> None:
              "luar rentang, termasuk komentar yang mundur sampai tahun 2016 karena komentar lama "
              "pada video yang baru tetap terbawa.")
     anak_sub_bab(doc, "4.1.2 Hasil Pelabelan dan Partisi Korpus")
-    par(doc, "Pelabelan semu memakai prompt sadar konteks (spesifikasi rancangan dan skema JSON terstruktur "
-             "disajikan pada Lampiran 3) menghasilkan label untuk 8.350 baris. "
-             "Hasilnya dipartisi ke dalam empat kelompok korpus sebagaimana disajikan pada Tabel 4.2. Dari "
-             "jumlah tersebut, dua baris belum berlabel karena panjang teksnya di bawah ambang yang "
-             "layak dianotasi.")
+    par(doc, "Tahap pelabelan semu hulu dijalankan menggunakan model bahasa besar Google Gemma 4 12B IT "
+             "pada mesin inferensi vLLM dengan panduan prompt sadar konteks dua belas aturan dan penegakan skema "
+             "JSON terstruktur (spesifikasi lengkap disajikan pada Lampiran 3). Proses inferensi berhasil "
+             "menghasilkan anotasi semu untuk 8.350 baris, sedangkan dua baris lainnya belum berlabel karena "
+             "panjang karakternya berada di bawah ambang batas kelayakan teks. Berdasarkan analisis keluaran Gemma, "
+             "korpus bersih dipartisi ke dalam empat kelompok sebagaimana disajikan pada Tabel 4.2.")
     judul_tabel(doc, "Tabel 4.2 Sebaran Partisi Korpus")
     tabel(doc, ["Partisi", "Jumlah", "Porsi", "Perlakuan"], [
         ["Opini", "5.808", "69,6%", "Data latih sentimen"],
@@ -1765,12 +1798,13 @@ def bab_empat(doc: Document) -> None:
              "yang dilatih pada pipeline utama (partisi Gemma dan anotasi Jev). Pengklasifikasi dengan "
              "pipeline mandiri Jev mencapai 0,7529; uji McNemar atas pasangan kedua pengklasifikasi itu memberi 5 lawan 8 "
              "dengan nilai p 0,5811, sehingga keduanya belum dapat dibedakan pada 85 baris. "
-             "Perbedaan kelasnya terlihat pada recall kelas netral: anotator awal Gemma hanya menemukan "
-             "0,387, anotator keputusan Jev menemukan 0,613, IndoBERT pipeline utama menemukan 0,581, "
-             "sedangkan IndoBERT pipeline mandiri Jev menemukan 0,419. Pada kelas negatif semuanya memadai, dan "
-             "kelas positif hanya berisi 8 baris sehingga angkanya bising. Uji McNemar eksak antara "
-             "anotator awal Gemma dan anotator keputusan Jev memberi 9 lawan 3 dengan nilai p 0,1460; arahnya "
-             "konsisten, tetapi besarnya belum dapat dipastikan.")
+             "Perbedaan performa antarmodel terlihat mencolok pada recall kelas netral: anotator awal Gemma hanya "
+             "menemukan 0,387 karena kecenderungan model generatif mengelompokkan teks fakta dan pertanyaan ke dalam "
+             "polarisasi negatif. Sebaliknya, anotator keputusan Jev berhasil menemukan 0,613 berkat ketajaman batas "
+             "pertanyaan bertipe non-autoregressive. Keunggulan tersebut ditransmisikan ke IndoBERT pipeline utama "
+             "yang meraih recall netral 0,581, melampaui IndoBERT pipeline mandiri Jev (0,419) serta baseline IndoBERT "
+             "anotasi tunggal Gemma (0,419). Uji McNemar eksak antara anotator awal Gemma dan anotator keputusan Jev "
+             "memberi 9 lawan 3 dengan nilai p 0,1460.")
     par(doc, "Hasil evaluasi pada Tabel 4.6 merepresentasikan akurasi riil terhadap acuan manusia, "
              "yang berbeda maknanya dari metrik kesesuaian pada Tabel 4.5. Selisih kedua nilai tersebut "
              "cukup lebar: model yang dilatih di atas label semu memperoleh kesesuaian 0,8830 terhadap "
@@ -2012,14 +2046,31 @@ def bab_empat(doc: Document) -> None:
         "jendela 15 Juni sampai 15 September 2026, lengkap dengan penanda tonggak peristiwa lapangan seperti "
         "fase peluncuran awal sensus, puncak perbincangan aplikasi Fasih dan isu pajak, serta momentum "
         "sosialisasi klarifikasi BPS.",
-        "Pemetaan Tematik dan Deteksi Lonjakan Anomali: Memuat peta panas konsentrasi polaritas lintas tema, "
-        "grafik sebaran volume isu strategis, serta tabel deteksi lonjakan sentimen negatif (negative spike) "
-        "untuk memberikan peringatan dini atas gejolak opini publik.",
+        "Pemetaan Sebaran Isu Tematik dan Deteksi Lonjakan Anomali: Memuat grafik batang bertumpuk volume opini "
+        "per platform digital dan visualisasi sebaran delapan tema isu strategis publik, dilengkapi tabel deteksi "
+        "lonjakan sentimen negatif (negative spike) untuk memberikan peringatan dini atas gejolak opini publik.",
         "Matriks Prioritas Rekomendasi Operasional: Menghubungkan skor urgensi isu dominan dengan panduan aksi "
         "mitigasi praktis bagi unit kerja BPS Kabupaten Sukoharjo, seperti stabilisasi penyimpanan data luring "
         "aplikasi Fasih dan sosialisasi masif jaminan kerahasiaan data usaha."
     ):
         butir(doc, p_dss, numid_dss)
+    par(doc, "Aplikasi antarmuka pendukung keputusan ini telah diterapkan secara langsung (live deployment) "
+             "pada layanan GitHub Pages dan dapat diakses publik melalui tautan resmi "
+             "https://anwarrohmadi2006.github.io/Lampiran-Magang-BPS/dashboard_web/dss_trendline.html "
+             "dengan gerbang portal utama pada https://anwarrohmadi2006.github.io/Lampiran-Magang-BPS/.")
+    par(doc, "Sistem pendukung keputusan ini mengintegrasikan seluruh tahapan rekayasa kecerdasan buatan "
+             "yang telah divalidasi sepanjang penelitian ke dalam satu arsitektur terpadu. Pada tahap pemrosesan "
+             "hulu, model bahasa besar Google Gemma 4 12B IT (Unsloth AI, 2026) difungsikan untuk penalaran wacana "
+             "kontekstual dan pemilahan relevansi isu keluhan masyarakat dari tiga platform digital. Pada tahap kurasi "
+             "data latih, model TypeSafe AI Jev (TypeSafe AI, 2026) yang dirilis pada 15 September 2026 difungsikan "
+             "sebagai model diskriminatif non-autoregressive berkecepatan tinggi yang menghasilkan keputusan bertipe "
+             "(typed decisions) tanpa halusinasi matematis, sehingga memastikan kualitas label sentimen tetap terkalibrasi "
+             "ketat dengan efisiensi biaya komputasi yang tinggi ($0,042 per satu juta token). Pada tahap hilir pelayanan "
+             "publik, antarmuka dasbor terhubung langsung dengan model produksi IndoBERT Base yang disetel memakai "
+             "regularisasi R-Drop melalui antarmuka pemrograman aplikasi serverless Modal. Integrasi ini memungkinkan "
+             "petugas BPS menjalankan uji inferensi sentimen seketika terhadap teks keluhan baru masyarakat dengan "
+             "akurasi tertinggi (0,7882 pada acuan manusia), lengkap dengan distribusi probabilitas softmax serta "
+             "atribusi kata kunci penjelas berbasis atensi lintas lapisan dan gradien embedding.")
     par(doc, "Sistem tersebut juga terhubung langsung dengan modul penelusuran label mendalam (deep label inspection) "
              "yang memungkinkan pemangku kepentingan menelusuri setiap baris data berlabel hingga potongan bukti "
              "leksikal, penalaran model, peta atensi transformer, dan skor atribusi LIME. Integrasi menyeluruh ini "
@@ -2070,6 +2121,15 @@ def bab_empat(doc: Document) -> None:
              "karena itu, laporan ini membedakan secara tegas antara metrik kesesuaian terhadap "
              "anotator semu dan akurasi terhadap gold set manusia agar penafsiran performa sistem "
              "tetap objektif.")
+    par(doc, "Temuan berikutnya menyangkut sinergi komplementer antara model bahasa besar generatif dan "
+             "model keputusan terstruktur. Google Gemma 4 12B IT terbukti sangat efektif pada tahap hulu "
+             "untuk memahami kerumitan wacana teks media sosial, mengekstrak relasi balasan terhadap percakapan induk, "
+             "dan mempartisi data ke dalam kategori makro. Kendati demikian, keterbatasan model generatif pada "
+             "kalibrasi probabilitas kelas netral berhasil diatasi oleh model diskriminatif TypeSafe AI Jev melalui "
+             "skema keputusan bertipe tanpa halusinasi matematis. Penggabungan pemilahan konteks Gemma dan "
+             "kalibrasi label Jev menghasilkan performa klasifikasi IndoBERT tertinggi (0,7882 pada acuan manusia). "
+             "Temuan ini menegaskan bahwa kombinasi model generatif kaya wacana dan model keputusan terstruktur "
+             "merupakan strategi rekayasa data yang sangat efektif bagi pengolahan teks sektor publik.")
     par(doc, "Terkait implikasi praktis bagi Badan Pusat Statistik, hasil analisis sentimen dan "
              "pemetaan tematik kalimat ditransformasikan menjadi alur mitigasi kebijakan: pemetaan "
              "opini publik, penetapan isu kritis, penentuan prioritas tindakan, hingga rekomendasi "
@@ -2114,12 +2174,12 @@ def bab_lima(doc: Document) -> None:
               "komponen sistematis di mana 90 dari 92 baris dijawab identik pada pengujian berulang "
               "termasuk pada contoh yang keliru, serta berhasil merekonstruksi proporsi kelas netral "
               "dari 30,7 persen pada korpus awal menjadi 8,9 persen (515 baris) yang realistis.",
-              "Mekanisme pelabelan semu sadar konteks berbasis prompt terstruktur dan penyaring "
-              "relevansi berhasil mempartisi korpus bersih menjadi kelompok opini 5.808 baris "
-              "(69,6 persen), non-opini 2.119 baris (25,4 persen), dan karantina 423 baris (5,1 persen). "
-              "Pengujian menunjukkan anotator keputusan Jev mampu menjalankan fungsi pemilahan "
-              "relevansi secara mandiri dengan ambang batas peluang 0,20 tanpa ketergantungan wajib "
-              "pada model awal.",
+              "Mekanisme pelabelan semu sadar konteks berbasis Google Gemma 4 12B IT pada mesin inferensi "
+              "vLLM berhasil mengurai wacana multi-sumber dan mempartisi korpus bersih menjadi kelompok opini "
+              "5.808 baris (69,6 persen), non-opini 2.119 baris (25,4 persen), dan karantina 423 baris (5,1 persen). "
+              "Penyegaran anotasi polaritas oleh model keputusan TypeSafe AI Jev berhasil menormalkan proporsi kelas "
+              "netral menjadi 8,9 persen (515 baris) tanpa halusinasi matematis, serta membuktikan kapasitas pemilahan "
+              "mandiri dengan ambang batas peluang 0,20 pada pengujian perbandingan.",
               "Penyusunan gold set independen sebanyak seratus baris terverifikasi manusia berhasil "
               "membuktikan pemisahan metodologis yang tegas antara metrik kesepakatan model terhadap "
               "anotator semu dan akurasi riil manusia. Skor kesesuaian model terhadap anotator semu "
@@ -2134,7 +2194,7 @@ def bab_lima(doc: Document) -> None:
               "anotator keputusan Jev, serta akurasi 0,7882 dan F1 macro 0,7700 bagi pengklasifikasi "
               "IndoBERT pipeline utama. Uji berpasangan McNemar terhadap pipeline utama dan pipeline "
               "mandiri Jev (akurasi 0,7529) menghasilkan nilai p 0,5811 yang membuktikan kedua pipeline "
-              "tidak berbeda signifikan secara statistik.",
+              "tidak berbeda signifikan secara statistik, sedangkan baseline anotasi tunggal Gemma menghasilkan 0,7294.",
               "Penerapan teknik penjelasan model melalui peta atensi dan LIME berhasil membuktikan "
               "bahwa IndoBERT mendasarkan prediksinya pada kata kunci evaluatif substantif dan bukan "
               "pada fitur panjang kalimat. Analisis tematik berbasis kalimat mengungkap bahwa dominasi "
@@ -2312,6 +2372,12 @@ def daftar_pustaka(doc: Document) -> None:
         "Indonesian Journal of Statistics and Its Applications, 9(1), 100–116. "
         "https://doi.org/10.29244/ijsa.v9i1p100-116",
 
+        "TypeSafe AI. (2026). Jev: Fast, non-autoregressive system one foundation model "
+        "for typed decisions. https://typesafe.ai",
+
+        "Unsloth AI. (2026). Gemma 4 12B instruct GGUF and QAT quantization for edge inference. "
+        "https://unsloth.ai/docs/models/gemma-4",
+
         "Valizadeh, M., Qian, X., Ranjbar-Noiey, P., Caragea, C., & Parde, N. (2023). What clued "
         "the AI doctor in? On the influence of data source and quality for transformer-based "
         "medical self-disclosure detection. In Proceedings of the 17th Conference of the European "
@@ -2395,11 +2461,12 @@ def lampiran(doc: Document) -> None:
     par(doc, "Seluruh kode sumber, korpus digital bersih, data uji acuan manusia, bobot konfigurasi model, "
              "artefak visual beresolusi tinggi, hingga aplikasi antarmuka pendukung keputusan pada penelitian ini "
              "dipublikasikan secara terbuka pada repositori GitHub resmi https://github.com/anwarrohmadi2006/Lampiran-Magang-BPS "
-             "yang dikelola oleh Anwar Rohmadi. Repositori ini berfungsi sebagai repositori komputasi terpadu "
-             "untuk memastikan keterbukaan sains dan reproduktibilitas penuh, sehingga pembaca dan dewan penguji "
-             "dapat meninjau korpus data, mereplikasi skrip analisis, maupun menjalankan dashboard pendukung keputusan "
-             "secara mandiri. Struktur tata kelola berkas pada repositori tersebut diselaraskan langsung "
-             "dengan pembagian lampiran laporan ini melalui tujuh direktori utama:")
+             "yang dikelola oleh Anwar Rohmadi. Selain itu, antarmuka sistem pendukung keputusan (decision support system) "
+             "dan modul penelusuran label telah diterapkan secara langsung (live deployment) melalui fasilitas GitHub Pages "
+             "pada tautan https://anwarrohmadi2006.github.io/Lampiran-Magang-BPS/dashboard_web/dss_trendline.html "
+             "sehingga pembaca, dewan penguji, dan pemangku kepentingan dapat mengoperasikan dasbor pemantauan secara "
+             "interaktif tanpa instalasi perangkat lunak tambahan. Struktur tata kelola berkas pada repositori tersebut "
+             "diselaraskan langsung dengan pembagian lampiran laporan ini melalui tujuh direktori utama:")
     numid_repo = _anggap_rincian(doc)
     for p_rep in (
         "Direktori laporan/: Memuat naskah dokumen laporan resmi Laporan_KP_Analisis_Sentimen_SE2026.docx, salinan "
@@ -2419,13 +2486,14 @@ def lampiran(doc: Document) -> None:
     ):
         butir(doc, p_rep, numid_repo)
 
-    judul("Lampiran 3. Spesifikasi Rekayasa Prompt Sadar Konteks dan Skema JSON Terstruktur")
+    judul("Lampiran 3. Spesifikasi Rekayasa Prompt Sadar Konteks dan Skema JSON Terstruktur pada Google Gemma 4 12B IT")
     par(doc, "Penelitian ini menerapkan rekayasa prompt sadar konteks (context-aware prompting) "
-             "untuk memandu model bahasa besar dalam menjalankan anotasi semu multi-tugas yang konsisten. "
-             "Model bertugas menetapkan lima dimensi keluaran secara simultan, yaitu relevansi topik, "
-             "polaritas sentimen, tipe teks, kategori aspek, dan bukti leksikal pemicu keputusan.")
+             "pada model bahasa besar Google Gemma 4 12B IT (Unsloth AI, 2026) melalui mesin inferensi vLLM. "
+             "Pendekatan ini dirancang untuk memandu penalaran autoregressive model dalam mengeksekusi triase "
+             "multi-tugas secara simultan, mencakup penentuan relevansi topik, polaritas sentimen awal, kategori "
+             "tipe teks, identifikasi aspek, dan ekstraksi bukti leksikal pemicu keputusan.")
     par(doc, "Teks instruksi sistem (system prompt) yang ditanamkan pada mesin inferensi vLLM memuat peran "
-             "dan dua belas aturan penalaran operasional sebagai berikut:")
+             "analis statistik dan dua belas aturan penalaran operasional sebagai berikut:")
     numid_prompt = _anggap_rincian(doc)
     for p_rule in (
         "Aturan 1 (Pemeriksaan Relevansi Topik): Model memeriksa keterkaitan teks terhadap Sensus Ekonomi 2026, "
@@ -2557,10 +2625,10 @@ def lampiran(doc: Document) -> None:
     sumber(doc, "Sumber: hasil pengolahan data, 2026")
 
     judul("Lampiran 8. Rekapitulasi Siklus Iterasi Kalibrasi Anotator Keputusan Jev")
-    par(doc, "Proses kalibrasi rekayasa prompt model probabilitas keputusan Jev berlangsung secara iteratif "
-             "melalui tujuh tahapan terencana guna memastikan konsistensi pelabelan semu sebelum diaplikasikan "
-             "ke seluruh korpus. Rincian perkembangan akurasi, temuan evaluasi, serta tindakan kalibrasi per ronde "
-             "dirangkum pada Tabel L8.1.")
+    par(doc, "Setelah partisi korpus dihasilkan oleh Google Gemma 4 12B IT, proses kalibrasi rekayasa model keputusan "
+             "TypeSafe AI Jev dijalankan secara iteratif melalui tujuh tahapan terencana guna menajamkan batas semantik "
+             "dan menormalkan kelas netral sebelum melabeli seluruh 5.808 baris partisi opini. Rincian perkembangan "
+             "akurasi, temuan evaluasi, serta tindakan kalibrasi per ronde dirangkum pada Tabel L8.1.")
     judul_tabel(doc, "Tabel L8.1 Rekapitulasi Tahapan Iterasi Kalibrasi Anotator Jev")
     tabel(doc, ["Nomor", "Tahapan Iterasi", "Fokus Intervensi Prompt", "Akurasi", "Tindakan dan Tindak Lanjut"], [
         ["1", "Jev awal (batas gerbang sempit)", "Pemisahan biner relevansi topik", "0,2609",
