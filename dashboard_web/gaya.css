@@ -16,42 +16,42 @@
    apa pun, sehingga memanggil penyedia font pihak ketiga akan melanggar janji
    itu. Bila berkasnya tidak ada, tumpukan sistem pada --font tetap dipakai. */
 @font-face {
-  font-family: "Geist";
+  font-family: "BPS Sans";
   src: url("aset/font/Geist-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Geist";
+  font-family: "BPS Sans";
   src: url("aset/font/Geist-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Geist";
+  font-family: "BPS Sans";
   src: url("aset/font/Geist-SemiBold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Geist";
+  font-family: "BPS Sans";
   src: url("aset/font/Geist-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Geist Mono";
+  font-family: "BPS Mono";
   src: url("aset/font/GeistMono-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Geist Mono";
+  font-family: "BPS Mono";
   src: url("aset/font/GeistMono-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
@@ -70,7 +70,7 @@
   /* Teks samar banyak dipakai pada ukuran 11 sampai 12 piksel, sehingga ambang
      kontrasnya 4,5:1, bukan 3:1. Nilainya digelapkan sampai lulus terhadap
      permukaan paling gelap yang ditempatinya, yaitu --latar-turun. */
-  --tinta-samar: #606774;
+  --tinta-samar: #475569;
 
   --aksen: #1d4f9e;
   --aksen-kuat: #163c79;
@@ -92,8 +92,8 @@
 
   --bayang: 0 1px 2px rgba(23, 24, 28, .05), 0 10px 24px -18px rgba(23, 24, 28, .3);
 
-  --font: "Geist", ui-sans-serif, "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
-  --mono: "Geist Mono", ui-monospace, "Cascadia Mono", "Cascadia Code", Consolas, "SF Mono", Menlo, monospace;
+  --font: "BPS Sans", ui-sans-serif, "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono: "BPS Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
 
   --lebar: 1400px;
   --kepala-tinggi: 66px;
@@ -145,6 +145,7 @@ body {
 }
 
 h1, h2, h3, h4 { margin: 0; font-weight: 650; line-height: 1.2; letter-spacing: -0.011em; }
+h1 { font-size: 32px; }
 p { margin: 0; }
 a { color: var(--aksen); text-underline-offset: 2px; }
 code, .mono { font-family: var(--mono); font-size: .92em; }
@@ -212,8 +213,8 @@ code, .mono { font-family: var(--mono); font-size: .92em; }
 [data-tema="gelap"] .merek-tanda { color: #10131a; background: var(--aksen-kuat); }
 
 .merek-teks { display: flex; flex-direction: column; min-width: 0; }
-.merek-teks strong { font-size: 13.5px; font-weight: 650; white-space: nowrap; }
-.merek-teks small { font-size: 11.5px; color: var(--tinta-samar); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.merek-teks strong { font-size: 14px; font-weight: 650; white-space: nowrap; }
+.merek-teks small { font-size: 12px; color: var(--tinta-samar); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .tab { display: flex; gap: 2px; margin-left: auto; overflow-x: auto; scrollbar-width: none; }
 .tab::-webkit-scrollbar { display: none; }
@@ -224,7 +225,7 @@ code, .mono { font-family: var(--mono); font-size: .92em; }
   background: none;
   color: var(--tinta-lemah);
   font: inherit;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 550;
   padding: 7px 11px;
   border-radius: var(--r-kendali);
@@ -246,7 +247,7 @@ code, .mono { font-family: var(--mono); font-size: .92em; }
   background: var(--latar-naik);
   color: var(--tinta-lemah);
   font: inherit;
-  font-size: 12.5px;
+  font-size: 14px;
   font-weight: 550;
   border-radius: var(--r-kendali);
   padding: 7px 10px;
@@ -285,7 +286,7 @@ main { display: block; }
 }
 .blok > .ket {
   color: var(--tinta-lemah);
-  font-size: 13px;
+  font-size: 14px;
   margin-bottom: 16px;
   max-width: 76ch;
 }
@@ -304,6 +305,7 @@ main { display: block; }
 
 .pembuka { padding: 56px 0 34px; max-width: 62ch; }
 .pembuka h1 {
+  font-size: 32px;
   font-size: clamp(30px, 4.4vw, 46px);
   line-height: 1.06;
   letter-spacing: -0.028em;
@@ -319,7 +321,7 @@ main { display: block; }
 .tombol {
   appearance: none;
   font: inherit;
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 600;
   border-radius: var(--r-kendali);
   padding: 10px 16px;
@@ -344,7 +346,7 @@ main { display: block; }
 }
 .tombol-samar:hover { border-color: var(--aksen-garis); color: var(--aksen-kuat); }
 
-.tombol-kecil { font-size: 12.5px; padding: 6px 10px; font-weight: 550; }
+.tombol-kecil { font-size: 14px; padding: 6px 10px; font-weight: 550; }
 
 /* --------------------------------------------------------------------------
    Deret ukuran utama
@@ -366,7 +368,7 @@ main { display: block; }
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
-.ukuran .ket { font-size: 11.5px; color: var(--tinta-samar); margin-top: 4px; }
+.ukuran .ket { font-size: 12px; color: var(--tinta-samar); margin-top: 4px; }
 .ukuran.sorot .nilai { color: var(--aksen); }
 
 /* --------------------------------------------------------------------------
@@ -376,13 +378,13 @@ main { display: block; }
 .klaim { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--garis-kuat); }
 .klaim-kolom { padding: 22px 26px 22px 0; }
 .klaim-kolom + .klaim-kolom { padding-left: 26px; border-left: 1px solid var(--garis); }
-.klaim-kolom h4 { font-size: 13px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.klaim-kolom h4 { font-size: 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
 .klaim-kolom.ya h4 { color: var(--pos); }
 .klaim-kolom.tidak h4 { color: var(--neg); }
 .klaim-kolom ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
 .klaim-kolom li { padding-left: 2px; }
-.klaim-kolom li strong { display: block; font-weight: 600; font-size: 13.5px; }
-.klaim-kolom li span { display: block; font-size: 12.5px; color: var(--tinta-lemah); margin-top: 2px; }
+.klaim-kolom li strong { display: block; font-weight: 600; font-size: 14px; }
+.klaim-kolom li span { display: block; font-size: 14px; color: var(--tinta-lemah); margin-top: 2px; }
 
 /* --------------------------------------------------------------------------
    Alur tahap
@@ -400,13 +402,13 @@ main { display: block; }
 .tahap:hover { background: var(--latar-sel); }
 .tahap-no {
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--tinta-samar);
   padding-top: 2px;
 }
-.tahap-isi h4 { font-size: 15px; margin-bottom: 3px; }
-.tahap-isi p.ringkas { color: var(--tinta-lemah); font-size: 13px; }
-.tahap-isi ul { margin: 12px 0 0; padding-left: 17px; color: var(--tinta-lemah); font-size: 12.5px; display: grid; gap: 5px; }
+.tahap-isi h4 { font-size: 16px; margin-bottom: 3px; }
+.tahap-isi p.ringkas { color: var(--tinta-lemah); font-size: 14px; }
+.tahap-isi ul { margin: 12px 0 0; padding-left: 17px; color: var(--tinta-lemah); font-size: 14px; display: grid; gap: 5px; }
 .tahap-isi ul li::marker { color: var(--tinta-samar); }
 .tahap-sisi { display: flex; flex-direction: column; gap: 8px; }
 .tahap-angka { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -415,17 +417,16 @@ main { display: block; }
   background: var(--latar-naik);
   border-radius: var(--r-penanda);
   padding: 4px 8px;
-  font-size: 11.5px;
+  font-size: 12px;
   color: var(--tinta-lemah);
 }
-.tahap-angka .pil b { font-family: var(--mono); color: var(--tinta); font-weight: 600; }
 .tahap-catatan {
   font-size: 12px;
   color: var(--tinta-lemah);
-  border-left: 2px solid var(--rel);
-  background: var(--rel-lemah);
-  padding: 7px 10px;
-  border-radius: 0 var(--r-penanda) var(--r-penanda) 0;
+  border: 1px solid var(--garis);
+  background: var(--latar-sel);
+  padding: 8px 12px;
+  border-radius: var(--r-kendali);
 }
 
 /* --------------------------------------------------------------------------
@@ -433,13 +434,13 @@ main { display: block; }
    -------------------------------------------------------------------------- */
 
 .bungkus-tabel { overflow-x: auto; border: 1px solid var(--garis); border-radius: var(--r-panel); background: var(--latar-naik); }
-table.data { width: 100%; border-collapse: collapse; font-size: 13px; }
-table.data caption { text-align: left; padding: 14px 16px 0; color: var(--tinta-lemah); font-size: 12.5px; }
+table.data { width: 100%; border-collapse: collapse; font-size: 14px; }
+table.data caption { text-align: left; padding: 14px 16px 0; color: var(--tinta-lemah); font-size: 14px; }
 table.data th, table.data td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--garis); }
 table.data thead th {
   /* Konvensi tabel data, bukan label bagian: huruf kecil semua dan renggang
      tipis hanya pada tajuk kolom supaya angka mudah dibandingkan menurun. */
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: .05em;
   text-transform: uppercase;
@@ -463,7 +464,7 @@ table.data .kecil { color: var(--tinta-samar); font-size: 12px; }
   gap: 5px;
   border-radius: var(--r-penanda);
   padding: 2px 7px;
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 1.7;
   white-space: nowrap;
@@ -494,10 +495,10 @@ table.data .kecil { color: var(--tinta-samar); font-size: 12px; }
   border-bottom: 0;
 }
 .kolom-saring { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
-.kolom-saring label { font-size: 11.5px; color: var(--tinta-lemah); font-weight: 550; }
+.kolom-saring label { font-size: 12px; color: var(--tinta-lemah); font-weight: 550; }
 .kolom-saring input, .kolom-saring select {
   font: inherit;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--tinta);
   background: var(--latar-naik);
   border: 1px solid var(--garis-kuat);
@@ -540,7 +541,7 @@ table.data .kecil { color: var(--tinta-samar); font-size: 12px; }
   border: 1px solid var(--garis);
   border-top: 0;
   border-bottom: 1px solid var(--garis);
-  font-size: 12.5px;
+  font-size: 14px;
   color: var(--tinta-lemah);
   flex-wrap: wrap;
 }
@@ -586,19 +587,19 @@ table.data .kecil { color: var(--tinta-samar); font-size: 12px; }
 .baris-label:hover { background: var(--latar-sel); }
 .baris-label[aria-current="true"] { background: var(--aksen-lemah); }
 .baris-label .teks {
-  font-size: 13px;
+  font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.baris-label .meta { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--tinta-samar); }
+.baris-label .meta { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--tinta-samar); }
 .baris-label .ya { font-family: var(--mono); font-size: 12px; color: var(--tinta-lemah); text-align: right; }
 .baris-label .tanda { display: flex; gap: 4px; justify-content: flex-end; }
 .titik { width: 7px; height: 7px; border-radius: 50%; display: block; flex: none; }
 .titik.audit { background: var(--rel); }
 .titik.gold { background: var(--aksen); }
 .titik.xai { background: var(--pos); }
-.kosong { padding: 40px 16px; text-align: center; color: var(--tinta-samar); font-size: 13px; }
+.kosong { padding: 40px 16px; text-align: center; color: var(--tinta-samar); font-size: 14px; }
 
 /* --------------------------------------------------------------------------
    Matriks konfusi
@@ -629,11 +630,11 @@ table.data .kecil { color: var(--tinta-samar); font-size: 12px; }
   color: var(--tinta-lemah);
   border-bottom: 1px solid var(--garis);
 }
-.matriks-kartu figcaption b { display: block; color: var(--tinta); font-size: 13px; margin-bottom: 2px; }
+.matriks-kartu figcaption b { display: block; color: var(--tinta); font-size: 14px; margin-bottom: 2px; }
 
 .matriks-bungkus { overflow-x: auto; }
 
-table.matriks { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+table.matriks { width: 100%; border-collapse: collapse; font-size: 14px; }
 table.matriks th, table.matriks td {
   padding: 6px 9px;
   text-align: right;
@@ -641,7 +642,7 @@ table.matriks th, table.matriks td {
   font-variant-numeric: tabular-nums;
 }
 table.matriks thead th {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: .04em;
   text-transform: uppercase;
@@ -662,7 +663,7 @@ table.matriks td.sel.diag { font-weight: 650; box-shadow: inset 0 0 0 1px var(--
 table.matriks td.sel.nol { color: var(--tinta-samar); }
 table.matriks td.jumlah, table.matriks tfoot td { color: var(--tinta-samar); }
 table.matriks tbody tr + tr td { border-top: 1px solid var(--garis); }
-table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.5px; }
+table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 12px; }
 
 /* --------------------------------------------------------------------------
    Laci rincian
@@ -704,13 +705,13 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
   padding: 18px 20px 14px;
   border-bottom: 1px solid var(--garis);
 }
-.laci-kepala h2 { font-size: 15px; }
-.laci-uid { font-family: var(--mono); font-size: 11px; color: var(--tinta-samar); margin-top: 3px; word-break: break-all; }
+.laci-kepala h2 { font-size: 16px; }
+.laci-uid { font-family: var(--mono); font-size: 12px; color: var(--tinta-samar); margin-top: 3px; word-break: break-all; }
 
 .tombol-tutup {
   appearance: none;
   font: inherit;
-  font-size: 12.5px;
+  font-size: 14px;
   font-weight: 550;
   border: 1px solid var(--garis-kuat);
   background: var(--latar-naik);
@@ -728,7 +729,7 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
 .laci-isi { overflow-y: auto; padding: 18px 20px 40px; display: grid; gap: 22px; }
 
 .bagian-laci > h3 {
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: .05em;
   text-transform: uppercase;
@@ -753,26 +754,26 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
   border-left: 2px solid var(--garis-kuat);
   padding: 2px 0 2px 12px;
   color: var(--tinta-lemah);
-  font-size: 13px;
+  font-size: 14px;
 }
-.konteks .nama { font-size: 11.5px; color: var(--tinta-samar); display: block; margin-bottom: 2px; }
+.konteks .nama { font-size: 12px; color: var(--tinta-samar); display: block; margin-bottom: 2px; }
 
 .kutipan {
   border: 1px solid var(--garis);
   background: var(--latar-sel);
   border-radius: var(--r-kendali);
   padding: 10px 12px;
-  font-size: 13px;
+  font-size: 14px;
   display: grid;
   gap: 8px;
 }
-.kutipan .label { font-size: 11.5px; color: var(--tinta-samar); display: block; margin-bottom: 3px; }
-.kutipan .isi { font-size: 13px; }
+.kutipan .label { font-size: 12px; color: var(--tinta-samar); display: block; margin-bottom: 3px; }
+.kutipan .isi { font-size: 14px; }
 
 .petak-kunci { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--garis); border: 1px solid var(--garis); border-radius: var(--r-kendali); overflow: hidden; }
 .petak-kunci div { background: var(--latar-naik); padding: 9px 11px; }
-.petak-kunci .k { font-size: 11px; color: var(--tinta-samar); }
-.petak-kunci .v { font-size: 13px; font-weight: 550; }
+.petak-kunci .k { font-size: 12px; color: var(--tinta-samar); }
+.petak-kunci .v { font-size: 14px; font-weight: 550; }
 .petak-kunci .v.mono { font-family: var(--mono); }
 
 /* --------------------------------------------------------------------------
@@ -788,7 +789,7 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
   font-size: 12px;
 }
 .batang-baris .tok { font-family: var(--mono); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.batang-baris .nil { font-family: var(--mono); text-align: right; font-size: 11.5px; color: var(--tinta-lemah); }
+.batang-baris .nil { font-family: var(--mono); text-align: right; font-size: 12px; color: var(--tinta-lemah); }
 .batang-rel { position: relative; height: 14px; border-left: 1px solid var(--garis-kuat); }
 /* Batang digambar dari garis nol, tanpa jalur latar, supaya arah dan besarnya
    dapat dibandingkan tanpa menambah derau visual. */
@@ -797,7 +798,7 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
 .batang-rel i.n { background: var(--neg); }
 .batang-rel i.a { background: var(--aksen); }
 
-.legenda { display: flex; gap: 14px; flex-wrap: wrap; font-size: 11.5px; color: var(--tinta-lemah); margin-top: 10px; }
+.legenda { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--tinta-lemah); margin-top: 10px; }
 .legenda span { display: inline-flex; align-items: center; gap: 5px; }
 
 /* --------------------------------------------------------------------------
@@ -808,12 +809,12 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
 .kurva { width: 100%; height: auto; display: block; overflow: visible; }
 .kurva .kisi { stroke: var(--garis); stroke-width: 1; }
 .kurva .sumbu { stroke: var(--garis-kuat); stroke-width: 1; }
-.kurva .tanda-sumbu { fill: var(--tinta-samar); font-size: 10.5px; font-family: var(--mono); }
-.kurva .judul-sumbu { fill: var(--tinta-lemah); font-size: 11px; }
+.kurva .tanda-sumbu { fill: var(--tinta-samar); font-size: 12px; font-family: var(--mono); }
+.kurva .judul-sumbu { fill: var(--tinta-lemah); font-size: 12px; }
 .kurva .jejak { stroke: var(--aksen-garis); stroke-width: 1.5; stroke-dasharray: 4 4; fill: none; }
 .kurva .titik { fill: var(--aksen); }
-.kurva .label-titik { fill: var(--tinta); font-size: 11px; font-weight: 600; }
-.kurva .nilai-titik { fill: var(--tinta-samar); font-size: 10px; font-family: var(--mono); }
+.kurva .label-titik { fill: var(--tinta); font-size: 12px; font-weight: 600; }
+.kurva .nilai-titik { fill: var(--tinta-samar); font-size: 12px; font-family: var(--mono); }
 
 /* --------------------------------------------------------------------------
    Kartu artefak dan gambar
@@ -827,8 +828,8 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
   overflow: hidden;
 }
 .gambar-kartu img { display: block; width: 100%; height: auto; background: var(--latar-turun); }
-.gambar-kartu figcaption { padding: 12px 14px; font-size: 12.5px; color: var(--tinta-lemah); border-top: 1px solid var(--garis); }
-.gambar-kartu figcaption b { display: block; color: var(--tinta); font-size: 13px; margin-bottom: 2px; }
+.gambar-kartu figcaption { padding: 12px 14px; font-size: 14px; color: var(--tinta-lemah); border-top: 1px solid var(--garis); }
+.gambar-kartu figcaption b { display: block; color: var(--tinta); font-size: 14px; margin-bottom: 2px; }
 
 .grid-dua { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
 
@@ -838,22 +839,22 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
   background: var(--latar-naik);
   padding: 16px 18px;
 }
-.kotak h4 { font-size: 13.5px; margin-bottom: 8px; }
-.kotak p, .kotak li { font-size: 13px; color: var(--tinta-lemah); }
+.kotak h4 { font-size: 14px; margin-bottom: 8px; }
+.kotak p, .kotak li { font-size: 14px; color: var(--tinta-lemah); }
 .kotak ul { margin: 0; padding-left: 17px; display: grid; gap: 6px; }
 
 .daftar-keputusan { display: grid; gap: 1px; background: var(--garis); border: 1px solid var(--garis); border-radius: var(--r-panel); overflow: hidden; }
 .keputusan-baris { background: var(--latar-naik); padding: 14px 16px; display: grid; grid-template-columns: 52px 1fr; gap: 14px; }
 .keputusan-baris .kode { font-family: var(--mono); font-size: 12px; color: var(--aksen-kuat); font-weight: 600; }
-.keputusan-baris .isi { font-size: 13.5px; }
-.keputusan-baris .alasan { font-size: 12.5px; color: var(--tinta-lemah); margin-top: 3px; }
+.keputusan-baris .isi { font-size: 14px; }
+.keputusan-baris .alasan { font-size: 14px; color: var(--tinta-lemah); margin-top: 3px; }
 
 .daftar-terbuka { display: grid; gap: 10px; }
 .terbuka-baris {
   display: grid;
   grid-template-columns: 20px 1fr;
   gap: 10px;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--tinta-lemah);
   align-items: start;
 }
@@ -864,7 +865,7 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
    -------------------------------------------------------------------------- */
 
 .kaki { border-top: 1px solid var(--garis); background: var(--latar-turun); }
-.kaki-dalam { max-width: var(--lebar); margin: 0 auto; padding: 22px 24px 30px; font-size: 12.5px; color: var(--tinta-lemah); }
+.kaki-dalam { max-width: var(--lebar); margin: 0 auto; padding: 22px 24px 30px; font-size: 14px; color: var(--tinta-lemah); }
 .kaki-berkas { margin-top: 6px; color: var(--tinta-samar); }
 
 /* --------------------------------------------------------------------------
@@ -957,7 +958,7 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
 .uji-kepala h4 { font-size: 14px; }
 .uji-kepala .capaian {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--tinta-samar);
   word-break: break-all;
 }
@@ -983,7 +984,7 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
 .uji-hitung { font-size: 12px; color: var(--tinta-samar); margin-left: auto; font-family: var(--mono); }
 
 .uji-contoh { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
-.uji-contoh .nama { font-size: 11.5px; color: var(--tinta-samar); }
+.uji-contoh .nama { font-size: 12px; color: var(--tinta-samar); }
 .uji-contoh button {
   appearance: none;
   font: inherit;
@@ -1010,7 +1011,7 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
   grid-template-columns: 76px 62px 1fr;
   gap: 10px;
   align-items: center;
-  font-size: 12.5px;
+  font-size: 14px;
 }
 .peluang-baris .nilai { font-family: var(--mono); text-align: right; color: var(--tinta-lemah); }
 .peluang-rel { height: 16px; border-left: 1px solid var(--garis-kuat); position: relative; }
@@ -1020,14 +1021,34 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
 .peluang-baris.unggul .nilai { color: var(--tinta); font-weight: 600; }
 
 .uji-catatan {
-  font-size: 12.5px;
+  font-size: 14px;
   color: var(--tinta-lemah);
-  border-left: 2px solid var(--rel);
-  background: var(--rel-lemah);
-  padding: 9px 11px;
-  border-radius: 0 var(--r-penanda) var(--r-penanda) 0;
+  border: 1px solid var(--garis);
+  background: var(--latar-sel);
+  padding: 10px 14px;
+  border-radius: var(--r-kendali);
 }
 .uji-catatan b { color: var(--tinta); }
+
+.tombol-dss-link {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #1e3a8a;
+  color: #ffffff !important;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 6px 14px;
+  margin-left: 8px;
+  box-shadow: 0 2px 4px rgba(30, 58, 138, 0.25);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.tombol-dss-link:hover, .tombol-dss-link:focus {
+  background: #1d4ed8 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
 
 /* Keadaan memuat berbentuk kerangka dengan bentuk yang sama seperti hasil
    akhirnya, bukan pemintal berputar yang tidak memberi tahu apa yang ditunggu. */
@@ -1058,7 +1079,7 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
   color: var(--neg);
   border-radius: var(--r-kendali);
   padding: 11px 13px;
-  font-size: 13px;
+  font-size: 14px;
 }
 .uji-galat b { display: block; margin-bottom: 3px; }
 
@@ -1080,7 +1101,7 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
   font-size: 12px;
 }
 .leksikal-baris .tok { font-family: var(--mono); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.leksikal-baris .nil { font-family: var(--mono); text-align: right; font-size: 11.5px; color: var(--tinta-lemah); }
+.leksikal-baris .nil { font-family: var(--mono); text-align: right; font-size: 12px; color: var(--tinta-lemah); }
 .leksikal-rel { height: 14px; border-left: 1px solid var(--garis-kuat); position: relative; }
 .leksikal-rel i { position: absolute; top: 3px; height: 8px; border-radius: 2px; display: block; }
 .leksikal-rel i.p { background: var(--pos); }
@@ -1095,7 +1116,7 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
   box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--neg) 46%, transparent);
 }
 
-.kunci-warna { display: flex; gap: 16px; flex-wrap: wrap; font-size: 11.5px; color: var(--tinta-lemah); }
+.kunci-warna { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--tinta-lemah); }
 .kunci-warna span { display: inline-flex; align-items: center; gap: 6px; }
 .kunci-warna i { width: 22px; height: 10px; border-radius: 2px; display: block; }
 .kunci-warna i.bukti { background: color-mix(in srgb, var(--aksen) 24%, transparent); box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--aksen) 50%, transparent); }
@@ -1116,7 +1137,7 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
   grid-template-columns: minmax(120px, 190px) 1fr;
   gap: 12px;
   align-items: center;
-  font-size: 12.5px;
+  font-size: 14px;
 }
 .komposisi-baris .nama { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--tinta-lemah); }
 .komposisi-rel { display: flex; height: 18px; border-radius: 3px; overflow: hidden; }
@@ -1124,7 +1145,7 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
 .komposisi-rel i.negatif { background: var(--neg); }
 .komposisi-rel i.netral { background: var(--net); }
 .komposisi-rel i.positif { background: var(--pos); }
-.komposisi-nilai { font-family: var(--mono); font-size: 11px; color: var(--tinta-samar); }
+.komposisi-nilai { font-family: var(--mono); font-size: 12px; color: var(--tinta-samar); }
 
 /* ==========================================================================
    Deret bulanan
@@ -1133,8 +1154,8 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
 .bulanan { width: 100%; height: auto; display: block; overflow: visible; }
 .bulanan .kisi { stroke: var(--garis); stroke-width: 1; }
 .bulanan .sumbu { stroke: var(--garis-kuat); stroke-width: 1; }
-.bulanan .tanda { fill: var(--tinta-samar); font-size: 10.5px; font-family: var(--mono); }
-.bulanan .judul { fill: var(--tinta-lemah); font-size: 11px; }
+.bulanan .tanda { fill: var(--tinta-samar); font-size: 12px; font-family: var(--mono); }
+.bulanan .judul { fill: var(--tinta-lemah); font-size: 12px; }
 .bulanan rect.negatif { fill: var(--neg); }
 .bulanan rect.netral { fill: var(--net); }
 .bulanan rect.positif { fill: var(--pos); }
@@ -1144,25 +1165,25 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
    Peta matriks dan kalibrasi
    ========================================================================== */
 
-.matriks-peta { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.matriks-peta { width: 100%; border-collapse: collapse; font-size: 14px; }
 .matriks-peta th, .matriks-peta td { padding: 7px 10px; text-align: center; border-bottom: 1px solid var(--garis); }
-.matriks-peta thead th { font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--tinta-samar); font-weight: 600; }
-.matriks-peta tbody th { text-align: left; font-weight: 550; font-size: 12.5px; }
+.matriks-peta thead th { font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--tinta-samar); font-weight: 600; }
+.matriks-peta tbody th { text-align: left; font-weight: 550; font-size: 14px; }
 .matriks-peta td { font-family: var(--mono); }
 .matriks-peta td.peta { background: color-mix(in srgb, var(--aksen) var(--kekuatan, 6%), var(--latar-naik)); }
 
 .kalibrasi { display: grid; gap: 8px; }
-.kalibrasi-baris { display: grid; grid-template-columns: 150px 1fr 96px; gap: 12px; align-items: center; font-size: 12.5px; }
+.kalibrasi-baris { display: grid; grid-template-columns: 150px 1fr 96px; gap: 12px; align-items: center; font-size: 14px; }
 .kalibrasi-rel { height: 18px; border-left: 1px solid var(--garis-kuat); position: relative; }
 .kalibrasi-rel i { position: absolute; left: 0; top: 2px; height: 14px; border-radius: 2px; background: var(--aksen); }
 .kalibrasi-rel i.kosong { background: var(--garis-kuat); }
-.kalibrasi-nilai { font-family: var(--mono); font-size: 11.5px; color: var(--tinta-lemah); text-align: right; }
+.kalibrasi-nilai { font-family: var(--mono); font-size: 12px; color: var(--tinta-lemah); text-align: right; }
 
 /* ==========================================================================
    Kesepakatan antar penilai
    ========================================================================== */
 
-.tafsir { font-size: 11.5px; color: var(--tinta-samar); }
+.tafsir { font-size: 12px; color: var(--tinta-samar); }
 
 @media (max-width: 900px) {
   .komposisi-baris { grid-template-columns: 1fr; gap: 5px; }
@@ -1170,21 +1191,3 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
   .uji-hitung { margin-left: 0; width: 100%; }
 }
 
-
-/* === SE2026 UI refresh: unified evidence console === */
-.kepala-dalam{position:relative;flex-wrap:wrap;min-height:66px;height:auto;padding-top:10px;padding-bottom:10px}
-.merek{flex:0 0 auto}
-.tab{order:3;flex:1 1 100%;margin-left:0;padding-top:6px;border-top:1px solid var(--garis);scroll-snap-type:x proximity}
-.tab-tombol{scroll-snap-align:start}
-.tab-tombol.dss-nav{background:var(--aksen);color:#fff;border-color:var(--aksen);font-weight:650}
-.tab-tombol.dss-nav:hover{background:var(--aksen-kuat);color:#fff}
-.status-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 28px}
-.status-chip{border:1px solid var(--garis);background:var(--latar-naik);border-radius:var(--r-kendali);padding:10px 12px;box-shadow:var(--bayang)}
-.status-chip small{display:block;color:var(--tinta-samar);font-size:11px;margin-bottom:3px}
-.status-chip strong{font-family:var(--mono);font-size:14px}
-.konteks-ringkas{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.konteks-ringkas span{font-size:11.5px;padding:5px 9px;border:1px solid var(--garis);border-radius:999px;color:var(--tinta-lemah);background:var(--latar-naik)}
-.dss-teaser{margin:18px 0 0;border:1px solid var(--aksen-garis);background:linear-gradient(180deg,var(--aksen-lemah),var(--latar-naik));border-radius:var(--r-panel);padding:16px 18px;display:flex;gap:14px;align-items:flex-start;justify-content:space-between}
-.dss-teaser strong{display:block;margin-bottom:3px}.dss-teaser p{color:var(--tinta-lemah);font-size:12.5px;max-width:72ch}.dss-teaser a{flex:none}
-@media (max-width:900px){.status-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.kepala-dalam{padding-left:14px;padding-right:14px}.panel{padding-left:16px;padding-right:16px}.dss-teaser{flex-direction:column}}
-@media (max-width:620px){.status-strip{grid-template-columns:1fr}.merek-teks strong,.merek-teks small{white-space:normal}.tombol-tema{margin-left:auto}.pembuka{padding-top:38px}}

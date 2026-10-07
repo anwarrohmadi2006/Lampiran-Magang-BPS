@@ -26,3 +26,4 @@ Thumbs.db
 *.log
 .pytest_cache/
 .ipynb_checkpoints/
+.agents/

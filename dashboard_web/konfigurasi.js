@@ -6,6 +6,6 @@
 window.DSS_KONFIG = {
   "endpoint": "https://nurwachid1977--sensus-ekonomi-sentimen-api.modal.run",
   "aplikasi": "sensus-ekonomi-sentimen",
-  "diterbitkan": "2026-09-20 06:25:49 +0700",
+  "diterbitkan": "2026-10-07 12:43:42 +0700",
   "catatan": ""
 };
