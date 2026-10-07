@@ -1170,3 +1170,21 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 11.
   .uji-hitung { margin-left: 0; width: 100%; }
 }
 
+
+/* === SE2026 UI refresh: unified evidence console === */
+.kepala-dalam{position:relative;flex-wrap:wrap;min-height:66px;height:auto;padding-top:10px;padding-bottom:10px}
+.merek{flex:0 0 auto}
+.tab{order:3;flex:1 1 100%;margin-left:0;padding-top:6px;border-top:1px solid var(--garis);scroll-snap-type:x proximity}
+.tab-tombol{scroll-snap-align:start}
+.tab-tombol.dss-nav{background:var(--aksen);color:#fff;border-color:var(--aksen);font-weight:650}
+.tab-tombol.dss-nav:hover{background:var(--aksen-kuat);color:#fff}
+.status-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 28px}
+.status-chip{border:1px solid var(--garis);background:var(--latar-naik);border-radius:var(--r-kendali);padding:10px 12px;box-shadow:var(--bayang)}
+.status-chip small{display:block;color:var(--tinta-samar);font-size:11px;margin-bottom:3px}
+.status-chip strong{font-family:var(--mono);font-size:14px}
+.konteks-ringkas{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.konteks-ringkas span{font-size:11.5px;padding:5px 9px;border:1px solid var(--garis);border-radius:999px;color:var(--tinta-lemah);background:var(--latar-naik)}
+.dss-teaser{margin:18px 0 0;border:1px solid var(--aksen-garis);background:linear-gradient(180deg,var(--aksen-lemah),var(--latar-naik));border-radius:var(--r-panel);padding:16px 18px;display:flex;gap:14px;align-items:flex-start;justify-content:space-between}
+.dss-teaser strong{display:block;margin-bottom:3px}.dss-teaser p{color:var(--tinta-lemah);font-size:12.5px;max-width:72ch}.dss-teaser a{flex:none}
+@media (max-width:900px){.status-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.kepala-dalam{padding-left:14px;padding-right:14px}.panel{padding-left:16px;padding-right:16px}.dss-teaser{flex-direction:column}}
+@media (max-width:620px){.status-strip{grid-template-columns:1fr}.merek-teks strong,.merek-teks small{white-space:normal}.tombol-tema{margin-left:auto}.pembuka{padding-top:38px}}
