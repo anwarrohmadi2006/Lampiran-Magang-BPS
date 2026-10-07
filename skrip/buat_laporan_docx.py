@@ -2335,8 +2335,8 @@ def lampiran(doc: Document) -> None:
     doc.add_page_break()
     bab(doc, "LAMPIRAN")
     judul("Lampiran 1. Catatan Log dan Bukti Pelaksanaan Harian Kerja Praktik")
-    par(doc, "Pelaksanaan Kerja Praktik di Badan Pusat Statistik Kabupaten Sukoharjo berlangsung "
-             "selama tiga bulan dan didokumentasikan secara terstruktur ke dalam tiga fase kegiatan utama:")
+    par(doc, "Pelaksanaan Kerja Praktik di Badan Pusat Statistik Kabupaten Sukoharjo oleh Anwar Rohmadi "
+             "berlangsung selama tiga bulan dan didokumentasikan secara terstruktur ke dalam tiga fase kegiatan utama:")
     numid_log = _anggap_rincian(doc)
     for p_log in (
         "Fase I (15 Juni sampai 15 Juli 2026): Melaksanakan orientasi instansi, koordinasi bersama pembimbing "
@@ -2351,22 +2351,31 @@ def lampiran(doc: Document) -> None:
     ):
         butir(doc, p_log, numid_log)
 
-    judul("Lampiran 2. Struktur Repositori dan Berkas Kode Program")
-    par(doc, "Arsitektur repositori perangkat lunak dikelompokkan secara modular untuk memastikan reproduksibilitas "
-             "dan kemudahan pemeliharaan kode:")
+    judul("Lampiran 2. Struktur Repositori Daring GitHub dan Tata Kelola Berkas")
+    par(doc, "Seluruh kode sumber, korpus digital bersih, data uji acuan manusia, bobot konfigurasi model, "
+             "artefak visual beresolusi tinggi, hingga aplikasi antarmuka pendukung keputusan pada penelitian ini "
+             "dipublikasikan secara terbuka pada repositori GitHub resmi https://github.com/anwarrohmadi2006/Lampiran-Magang-BPS "
+             "yang dikelola oleh Anwar Rohmadi. Repositori ini berfungsi sebagai repositori komputasi terpadu "
+             "untuk memastikan keterbukaan sains dan reproduktibilitas penuh, sehingga pembaca dan dewan penguji "
+             "dapat meninjau korpus data, mereplikasi skrip analisis, maupun menjalankan dashboard pendukung keputusan "
+             "secara mandiri. Struktur tata kelola berkas pada repositori tersebut diselaraskan langsung "
+             "dengan pembagian lampiran laporan ini melalui tujuh direktori utama:")
     numid_repo = _anggap_rincian(doc)
     for p_rep in (
-        "Direktori scraper/: Memuat skrip schema.py untuk penegakan jendela waktu, serta berkas playstore.py, "
-        "youtube.py, threads_cli.py, reddit.py, dan twitter.py untuk pengunduhan data mentah. Eksekusi alur "
-        "pengumpulan dipandu oleh skrip pipeline_SE2026.py.",
-        "Direktori modeling/: Memuat modul pseudo_label.py untuk inferensi pelabelan otomatis berbasis prompt, "
-        "audit_label.py untuk penjaminan mutu label korpus, serta skrip pelatihan IndoBERT berbasis PyTorch.",
-        "Direktori analisis/: Memuat 29 berkas skrip Python bernomor urut yang mereproduksi seluruh angka tabel, "
-        "diagram alir, matriks konfusi, awan kata, dan uji signifikansi statistik laporan secara deterministik.",
-        "Direktori final/: Menyimpan 28 artefak keluaran kanonik, mencakup korpus teks bersih, partisi data latih "
-        "dan uji, bobot model final, laporan audit mutu mandiri, serta berkas laporan dokumen resmi.",
-        "Direktori reports/: Menyimpan seluruh artefak visual beresolusi tinggi, berkas SVG diagram alir, "
-        "serta registri log eksperimen komputasi."
+        "Direktori laporan/: Memuat naskah dokumen laporan resmi Laporan_KP_Analisis_Sentimen_SE2026.docx, salinan "
+        "laporan_kp.docx, serta catatan audit penjamin mutu label korpus dan pedoman penetapan keputusan metodologi.",
+        "Direktori data/: Memuat korpus bersih 8.352 baris (korpus_bersih_8352.csv), partisi data latih opini "
+        "5.808 baris (korpus_opini_5808.csv), partisi non-opini, partisi karantina, serta data uji acuan emas manusia 100 baris.",
+        "Direktori hasil_evaluasi/: Memuat berkas evaluasi resmi evaluasi_gold.json, lembar anotasi interaktif web, "
+        "laporan audit label mandiri, gambar matriks konfusi, serta hasil pengukuran Cohen's Kappa antar-penilai.",
+        "Direktori model_dan_prediksi/: Memuat panduan teknis model, konfigurasi arsitektur config.json, kamus subkata "
+        "vocab.txt, token khusus tokenizer, serta catatan rekaman prediksi kelima sistem pembanding pada data uji.",
+        "Direktori artefak_visual/: Memuat diagram alur metodologi penelitian 300 DPI, berkas vektor SVG bagan pipeline, "
+        "diagram evolusi ronde kalibrasi Jev, awan kata representasi leksikal, galeri peta atensi, dan visualisasi LIME.",
+        "Direktori skrip/: Memuat skrip Python modular untuk eksekusi pra-pemrosesan korpus, audit mutu, perhitungan "
+        "metrik dengan selang kepercayaan bootstrap, uji signifikansi statistik McNemar, serta penyusun dokumen laporan.",
+        "Direktori dashboard_web/: Memuat aplikasi sistem pendukung keputusan (decision support system) interaktif "
+        "berbasis web yang menyajikan analisis sentimen per aspek, tren persepsi publik, dan ringkasan eksekutif instansi."
     ):
         butir(doc, p_rep, numid_repo)
 
@@ -2457,27 +2466,31 @@ def lampiran(doc: Document) -> None:
     ])
 
     judul("Lampiran 5. Daftar Berkas Keluaran dan Artefak Penelitian")
-    par(doc, "Seluruh artefak keluaran dihimpun secara terstruktur pada direktori final dan reports, "
-             "dengan penamaan kanonik yang bersih dari penanda versi pengembangan.")
+    par(doc, "Seluruh artefak keluaran dihimpun secara terstruktur pada repositori GitHub resmi "
+             "https://github.com/anwarrohmadi2006/Lampiran-Magang-BPS dengan penamaan berkas kanonik "
+             "yang terpetakan langsung ke dalam direktori repositori:")
     numid_lampiran = _anggap_rincian(doc)
-    for t in ("final/korpus.csv: korpus teks bersih siap anotasi (8.352 baris)",
-              "final/korpus_opini.csv: partisi opini sebagai data latih IndoBERT berlabel Jev (5.808 baris)",
-              "final/korpus_non_opini.csv: partisi non-opini (pertanyaan, sapaan, informasi)",
-              "final/korpus_karantina.csv: partisi karantina di luar topik pendataan",
-              "final/gold_uji.csv: data uji manusia seratus baris dengan penyamaran identitas",
-              "final/evaluasi_uji.json: hasil pengukuran performa lima sistem pada data uji",
-              "final/prediksi_uji_prompt_v2.csv dan empat berkas sejenis: catatan prediksi tiap sistem",
-              "final/audit_label.html: laporan mandiri audit penjamin mutu label semu",
-              "final/atensi/: peta atensi multi-head model final beserta galeri visualisasinya",
-              "final/lime/: penjelasan atribusi fitur lokal LIME pada tingkat token",
-              "reports/modal/ablasi_jev/: hasil eksperimen enam skenario studi ablasi IndoBERT",
-              "reports/gambar/: awan kata visualisasi leksikal dan representasi grafis",
-              "reports/diagram_alur_pelabelan.png: diagram pipeline utama dan pipeline ablation",
-              "reports/eksperimen/: registri eksperimen dan riwayat log komputasi",
-              "reports/kesesuaian_template.md: catatan audit format terhadap pedoman resmi",
-              "reports/uji_routing.md: hasil pengujian pemilahan relevansi anotator",
-              "final/STATUS_EKSPERIMEN.md: daftar berkas kanonik dan status integritas",
-              "final/manifest.json: daftar berkas kanonik beserta sidik jari SHA-256"):
+    for t in (
+        "data/korpus_bersih_8352.csv: korpus teks bersih siap anotasi pascadeduplikasi (8.352 baris)",
+        "data/korpus_opini_5808.csv: partisi opini sebagai data latih IndoBERT berlabel Jev (5.808 baris)",
+        "data/korpus_non_opini_2119.csv: partisi non-opini yang memuat pertanyaan, sapaan, dan informasi",
+        "data/korpus_karantina_423.csv: partisi karantina untuk teks di luar topik pendataan sensus",
+        "data/data_uji_manusia_100.csv: data uji acuan manusia seratus baris dengan penyamaran identitas",
+        "hasil_evaluasi/evaluasi_gold.json: hasil pengukuran performa lima sistem pada data uji acuan",
+        "hasil_evaluasi/audit_label.html: laporan mandiri interaktif audit penjamin mutu label semu",
+        "hasil_evaluasi/matriks_konfusi.png: visualisasi matriks konfusi model IndoBERT terbaik",
+        "hasil_evaluasi/kappa_gold.json: hasil pengukuran reliabilitas kesepakatan antar-anotator manusia",
+        "model_dan_prediksi/config.json: konfigurasi arsitektur model klasifikasi IndoBERT",
+        "model_dan_prediksi/vocab.txt: kosakata subkata tokenizer IndoBERT (30.521 token)",
+        "model_dan_prediksi/prediksi_prompt_v2.csv: catatan inferensi sistem pembanding pada data uji",
+        "artefak_visual/diagram_alur_penelitian.png: diagram alur metodologi penelitian 300 DPI",
+        "artefak_visual/diagram_alur_pelabelan.png: diagram bagan pipeline pra-pemrosesan dan ablasi",
+        "artefak_visual/atensi/: peta atensi multi-head model final beserta galeri visualisasinya",
+        "artefak_visual/lime/: penjelasan atribusi fitur lokal LIME pada tingkat token",
+        "skrip/: kumpulan skrip Python modular untuk pembersihan data, pengujian, dan visualisasi",
+        "dashboard_web/: aplikasi antarmuka sistem pendukung keputusan interaktif berbasis web",
+        "laporan/: naskah dokumen resmi Laporan_KP_Analisis_Sentimen_SE2026.docx dan catatan metodologi",
+    ):
         butir(doc, t, numid_lampiran)
 
     judul("Lampiran 6. Pedoman Baku Penentuan Kelas Sentimen Anotator Manusia")
@@ -2490,7 +2503,7 @@ def lampiran(doc: Document) -> None:
              "sindiran sinis, maupun kendala aplikasi yang dibungkus dalam bentuk pertanyaan. Teks diklasifikasikan "
              "netral apabila evaluasi bersifat datar atau memuat keseimbangan antara apresiasi dan catatan tanpa "
              "sisi yang dominan. Pedoman operasional komprehensif beserta contoh penerapannya terdokumentasi "
-             "pada berkas reports/aturan_anotasi_gold.md.")
+             "pada berkas laporan/catatan_audit_dan_keputusan.md di repositori GitHub.")
 
     judul("Lampiran 7. Contoh Tambahan Peta Atensi dan Interpretabilitas Model")
     par(doc, "Dua contoh berikut memperlihatkan cara model IndoBERT terbaik menimbang bobot perhatian antar-token "
@@ -2532,15 +2545,15 @@ def lampiran(doc: Document) -> None:
              "penuh. Tiga prosedur algoritma kunci didokumentasikan sebagai berikut:")
     numid_kode = _anggap_rincian(doc)
     for p_kd in (
-        "Prosedur 1 (Penyaringan dan Normalisasi Korpus): Modul scraper/schema.py menegakkan batasan rentang "
+        "Prosedur 1 (Penyaringan dan Normalisasi Korpus): Modul skrip/01_penyusunan_korpus.py menegakkan batasan rentang "
         "waktu pengumpulan (15 Juni sampai 15 September 2026), memvalidasi bahasa Indonesia melalui pustaka "
         "identifikasi bahasa, menyaring kata kunci relevansi sensus ekonomi dan aplikasi Fasih, serta "
         "menjalankan deduplikasi berbasis sidik jari teks MD5 guna menghasilkan korpus bersih final 8.352 baris.",
-        "Prosedur 2 (Pengukuran Kinerja Multikelas dan Kalibrasi Keyakinan): Modul analisis/09_ukur_kinerja.py "
+        "Prosedur 2 (Pengukuran Kinerja Multikelas dan Kalibrasi Keyakinan): Modul skrip/09_ukur_kinerja.py "
         "menghitung metrik presisi, recall, F1 makro, akurasi seimbang, serta nilai Brier score kalibrasi multi-kelas "
         "secara objektif terhadap 100 baris data uji manusia emas dengan selang kepercayaan bootstrap 95 persen "
         "dan uji signifikansi statistik berpasangan McNemar.",
-        "Prosedur 3 (Ekstraksi Bobot Peta Atensi Multi-Head): Modul analisis/21_peta_atensi.py mengekstraksi "
+        "Prosedur 3 (Ekstraksi Bobot Peta Atensi Multi-Head): Modul skrip/21_peta_atensi.py mengekstraksi "
         "matriks perhatian antar-token pada lapisan Transformer terakhir model IndoBERT untuk menghasilkan "
         "profil atensi visual yang menjelaskan kontribusi leksikal kata terhadap keputusan klasifikasi sentimen."
     ):

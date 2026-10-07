@@ -1,14 +1,13 @@
-# Lampiran Kerja Praktik: Analisis Sentimen Publik terhadap Sensus Ekonomi 2026 dan Aplikasi Fasih BPS
+# Laporan Magang BPS Analisis Sentimen Ekonomi 2026
 
 [![Python 3.13](https://img.shields.io/badge/Python-3.13-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c.svg)](https://pytorch.org/)
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Transformers-yellow.svg)](https://huggingface.co/)
 [![Akurasi Uji](https://img.shields.io/badge/Akurasi%20Data%20Uji-0%2C7882-success.svg)](#hasil-evaluasi)
 [![Macro F1](https://img.shields.io/badge/Macro%20F1-0%2C7713-brightgreen.svg)](#hasil-evaluasi)
-[![Linter Score](https://img.shields.io/badge/Linter%20Mutu%20Laporan-100%2F100-success.svg)](#pemeriksaan-mutu-laporan)
 [![Lisensi MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-Repositori ini memuat seluruh artefak teknis, korpus digital, set data uji acuan manusia (*human gold standard*), catatan kalibrasi *prompt*, skrip pemodelan *deep learning*, visualisasi interpretabilitas (*attention map* & LIME), serta berkas naskah laporan resmi pelaksanaan **Kerja Praktik di Badan Pusat Statistik (BPS) Kabupaten Sukoharjo**.
+Repositori ini memuat seluruh artefak teknis, korpus digital, set data uji acuan manusia (*human gold standard*), catatan kalibrasi *prompt*, skrip pemodelan *deep learning*, visualisasi interpretabilitas (*attention map* & LIME), serta berkas naskah laporan resmi pelaksanaan **Kerja Praktik di Badan Pusat Statistik (BPS) Kabupaten Sukoharjo** oleh **Anwar Rohmadi**.
 
 ---
 
@@ -102,7 +101,7 @@ Lampiran Magang BPS/
 │   ├── 22_penjelasan_lime.py           <- Pengekstraksian penjelasan lokal berbasis LIME
 │   ├── 27_ukur_lima_sistem.py          <- Pengukuran komparatif lima sistem pada data uji tunggal
 │   ├── buat_laporan_docx.py            <- Penyusun dokumen laporan resmi format .docx otomatis
-│   └── periksa_laporan.py              <- Pemeriksa mutu otomatis naskah laporan (skor 100/100)
+│   └── periksa_laporan.py              <- Skrip validasi kepatuhan kaidah format naskah laporan
 │
 └── dashboard_web/                      <- Sistem Pendukung Keputusan (DSS) berbasis web mandiri
     ├── index.html                      <- Halaman beranda antarmuka DSS BPS Sukoharjo
@@ -224,44 +223,24 @@ python skrip/15_diagram_alur.py
 python skrip/20_diagram_pelabelan.py
 ```
 
-### 5. Memeriksa Kepatuhan Format & Mutu Laporan (Linter 100/100)
+### 5. Memeriksa Kepatuhan Format Naskah Laporan
 
 ```bash
-# Menjalankan linter otomatis penjamin mutu penulisan laporan
+# Menjalankan validasi kepatuhan format penulisan laporan
 python skrip/periksa_laporan.py --laporan laporan/Laporan_KP_Analisis_Sentimen_SE2026.docx
 ```
 
 ---
 
-## 📑 Pemeriksaan Mutu Laporan
+## 📚 Standar Sitasi & Daftar Pustaka
 
-Dokumen laporan resmi [`laporan/Laporan_KP_Analisis_Sentimen_SE2026.docx`](laporan/Laporan_KP_Analisis_Sentimen_SE2026.docx) disusun secara terprogram menggunakan skrip otomatis [`skrip/buat_laporan_docx.py`](skrip/buat_laporan_docx.py) dan telah diaudit melalui linter ketat [`skrip/periksa_laporan.py`](skrip/periksa_laporan.py) dengan **nilai sempurna 100 dari 100 (total temuan 0)**:
-
-```text
-=== pemeriksaan mutu penulisan laporan ===
-  ok    em_dash                      0  (bobot 5)
-  ok    konektor_awal                0  (bobot 5)
-  ok    rujukan_sebelum_tampil       0  (bobot 5)
-  ok    urutan_nomor                 0  (bobot 5)
-  ok    kalimat_menggantung          0  (bobot 3)
-  ok    sumber_miring                0  (bobot 3)
-  ok    singkatan_kolom              0  (bobot 3)
-  ok    istilah_asing                0  (bobot 2)
-  ok    angka_usang                  0  (bobot 5)
-  ok    angka_wajib                  0  (bobot 5)
-  ok    paragraf_panjang             0  (bobot 2)
-  ok    judul_berawalan_dari         0  (bobot 5)
-
-nilai: 100 dari 100 (total temuan 0)
-```
-
-Seluruh 37 acuan pada Daftar Pustaka diterbitkan secara ketat pada rentang tahun **2022 sampai 2026**, mengikuti format APA edisi ketujuh, dan bersesuaian satu banding satu (*exact match*) dengan seluruh sitasi dalam teks.
+Seluruh 37 acuan pada Daftar Pustaka diterbitkan secara ketat pada rentang tahun **2022 sampai 2026**, mengikuti format APA edisi ketujuh, dan bersesuaian satu banding satu (*exact match*) dengan seluruh sitasi dalam teks laporan.
 
 ---
 
 ## 👥 Kontributor & Ucapan Terima Kasih
 
-- **Pelaksana Kerja Praktik**: Tim Mahasiswa Kerja Praktik
+- **Pelaksana Kerja Praktik**: Anwar Rohmadi
 - **Instansi Penyelenggara**: [Badan Pusat Statistik Kabupaten Sukoharjo](https://sukoharjokab.bps.go.id/)
 - **Periode Pelaksanaan**: 15 Juni 2026 – 15 September 2026
 
