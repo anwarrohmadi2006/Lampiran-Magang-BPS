@@ -27,6 +27,58 @@ Penelitian terapan ini mengembangkan sistem analisis sentimen cerdas hulu ke hil
 
 ---
 
+## 🧠 Kerangka Kognitif Dua Tingkat: TypeSafe AI Jev & Google Gemma 4 12B IT
+
+Penelitian ini memadukan dua paradigma kecerdasan buatan komplementer untuk mewujudkan sistem pemrosesan opini publik yang cepat, akurat, dan dapat dijelaskan secara rasional:
+
+```text
+┌────────────────────────────────────────────────────────────────────────┐
+│                        [8.352 Opini Publik Mentah]                     │
+│               YouTube (6.727) · Google Play (1.366) · Threads (259)    │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│      System 1: TypeSafe AI Jev (Dirilis Resmi 15 September 2026)       │
+│ • Model diskriminatif non-autoregressive (typed decisions terkalibrasi)│
+│ • Zero hallucination matematis (skema biner & enum terstruktur aman)   │
+│ • Latensi sub-detik (70–500 ms) | Biaya efisien ($0,042 / 1M token)    │
+│ • Fungsi: Triase topik, pemilahan relevansi opini, scoring probabilitas│
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│         System 2: Google Gemma 4 12B IT (Unsloth QAT / GGUF)           │
+│ • Model LLM encoder-free unified multimodal/teks generasi 2026         │
+│ • Kuantisasi 4-bit Unsloth (GGUF lokal & QAT W4A16 cloud vLLM / Modal) │
+│ • Deliberate reasoning & penalaran konteks wacana informal Indonesia   │
+│ • Fungsi: Analisis kausalitas XAI & rekomendasi mitigasi kebijakan BPS │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│         Produksi: IndoBERT Base + R-Drop (Modal Serverless API)        │
+│ • Regularisasi konsistensi KL-divergence (F1 Macro 0,7700 / Akurasi 0,7882)│
+│ • Atribusi terintegrasi XAI (Layer Attention Rollout & Gradient Saliency) │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│            [Dasbor DSS & Rekomendasi Mitigasi Kebijakan BPS]           │
+│      Monitoring Tren, Deteksi Anomali, dan Prioritas Isu Operasional   │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+```mermaid
+graph TD
+    A["8.352 Opini Publik Mentah<br/>(YouTube: 6.727 | Google Play: 1.366 | Threads: 259)"] --> B["System 1: TypeSafe AI Jev<br/>(Rilis 15 Sep 2026 · Typed Decisions · Latensi 70-500ms · $0,042/1M tok)"]
+    B --> C["System 2: Google Gemma 4 12B IT<br/>(Unsloth QAT W4A16 / GGUF · Deliberate Reasoning & XAI Kausalitas)"]
+    C --> D["Produksi: IndoBERT Base + R-Drop<br/>(Akurasi Gold: 0,7882 | Macro F1: 0,7700 | Modal Serverless API)"]
+    D --> E["Dasbor DSS & Rekomendasi Mitigasi Kebijakan BPS<br/>(Monitoring Tren, Deteksi Anomali & Rekomendasi Operasional)"]
+```
+
+---
+
 ## 📂 Struktur Repositori
 
 Proyek ini dirancang mengikuti kaidah rekayasa perangkat lunak standar industri (*clean architecture*) yang memisahkan data, artefak evaluasi, skrip reproduksi, dan pelaporan:

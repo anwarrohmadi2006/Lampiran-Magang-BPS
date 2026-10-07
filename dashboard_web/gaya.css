@@ -667,7 +667,10 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 12p
 
 /* --------------------------------------------------------------------------
    Laci rincian
-   -------------------------------------------------------------------------- */
+/* Mencegah tabir dan laci memblokir klik saat tersembunyi */
+[hidden] {
+  display: none !important;
+}
 
 .tabir {
   position: fixed;
@@ -675,9 +678,13 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 12p
   background: rgba(12, 13, 16, .38);
   z-index: 40;
   opacity: 0;
+  pointer-events: none;
   transition: opacity .2s ease;
 }
-.tabir.tampak { opacity: 1; }
+.tabir.tampak {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 .laci {
   position: fixed;
@@ -691,11 +698,16 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 12p
   z-index: 50;
   display: flex;
   flex-direction: column;
-  transform: translateX(14px);
+  transform: translateX(105%);
   opacity: 0;
+  pointer-events: none;
   transition: transform .22s cubic-bezier(.16, 1, .3, 1), opacity .22s ease;
 }
-.laci.tampak { transform: translateX(0); opacity: 1; }
+.laci.tampak {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
 
 .laci-kepala {
   display: flex;
