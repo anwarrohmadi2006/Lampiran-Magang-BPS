@@ -1593,8 +1593,8 @@ def bab_tiga(doc: Document) -> None:
     ], sumber_teks="Sumber: Buku Panduan Kerja Praktik dan Rencana Kegiatan, 2026")
     par(doc, "Alur pelaksanaan Kerja Praktik digambarkan pada Gambar 3.1, mulai dari persiapan "
              "dan studi pustaka, pengumpulan data, penyaringan korpus, pelabelan semu beserta "
-             "auditnya, penyusunan gold set, pelatihan dan studi ablasi, penjelasan model, hingga "
-             "penyusunan laporan.")
+             "auditnya, penyusunan gold set, pelatihan dan studi ablasi, penjelasan model, "
+             "pembangunan antarmuka sistem pendukung keputusan, hingga penyusunan laporan.")
     gambar(doc, buat_diagram_alir(REPORTS / "diagram_alir_kp.png"), 13,
            "Gambar 3.1 Diagram Alir Pelaksanaan KP")
     sumber(doc, "Sumber: hasil pengolahan data, 2026")
@@ -1612,7 +1612,8 @@ def bab_tiga(doc: Document) -> None:
              "empat tahap preprocessing (penyaringan tanggal, bahasa, topik, dan deduplikasi hingga menghasilkan "
              "8.352 baris bersih), dua jalur anotasi komparatif (pipeline utama Gemma-Jev dan pipeline pembanding mandiri Jev), "
              "pelatihan pengklasifikasi IndoBERT beserta studi ablasi parameter, pengujian statistik McNemar pada data "
-             "uji manusia, hingga tahap penjelasan model melalui peta atensi dan LIME.")
+             "uji manusia, tahap penjelasan model melalui peta atensi dan LIME, serta implementasi sistem pendukung "
+             "keputusan (decision support system) berbasis web.")
     gambar(doc, REPORTS / "diagram_alur_pelabelan.png", 15,
            "Gambar 3.4 Diagram Pipeline Komprehensif dari Preprocessing hingga Evaluasi")
     sumber(doc, "Sumber: hasil pengolahan data, 2026")
@@ -1991,6 +1992,40 @@ def bab_empat(doc: Document) -> None:
              "seluruh korpus, uji konsistensi model terhadap prediksinya sendiri, serta validasi "
              "terhadap gold set manusia berukuran terkelola. Langkah ini mencegah penafsiran keliru "
              "antara nilai kesesuaian terhadap anotator semu dan akurasi riil model.")
+    anak_sub_bab(doc, "4.1.10 Prototipe Sistem Pendukung Keputusan Berbasis Web")
+    par(doc, "Sebagai wujud hilirisasi komputasi terapan bagi instansi, hasil pemodelan klasifikasi dan "
+             "analisis tematik diintegrasikan ke dalam antarmuka sistem pendukung keputusan (decision support system) "
+             "interaktif berbasis web. Tampilan antarmuka dasbor pemantauan opini publik tersebut disajikan "
+             "pada Gambar 4.8.")
+    gambar(doc, REPORTS / "gambar" / "screenshot_dss_trendline.png", 15.5,
+           "Gambar 4.8 Antarmuka Sistem Pendukung Keputusan Pemantauan Opini Publik SE2026")
+    sumber(doc, "Sumber: hasil perancangan sistem, 2026")
+    par(doc, "Antarmuka pemantauan pada Gambar 4.8 dirancang dengan tata letak modular yang menyajikan "
+             "empat komponen informasi utama bagi pimpinan dan staf Badan Pusat Statistik:")
+    numid_dss = _anggap_rincian(doc)
+    for p_dss in (
+        "Pita Indikator Kinerja Kunci (KPI Ribbon): Menampilkan ringkasan volume korpus bersih sebanyak "
+        "8.352 baris, sebaran tiga kelas polaritas (negatif 47,6 persen atau 68,5 persen dari opini murni, "
+        "positif 15,7 persen, dan netral 6,2 persen), serta agregasi volume per platform digital "
+        "(YouTube 6.727 rekaman, Google Play 1.366 ulasan, dan Threads 259 kiriman).",
+        "Visualisasi Dinamika Tren Waktu Nyata: Memetakan fluktuasi proporsi sentimen mingguan sepanjang "
+        "jendela 15 Juni sampai 15 September 2026, lengkap dengan penanda tonggak peristiwa lapangan seperti "
+        "fase peluncuran awal sensus, puncak perbincangan aplikasi Fasih dan isu pajak, serta momentum "
+        "sosialisasi klarifikasi BPS.",
+        "Pemetaan Tematik dan Deteksi Lonjakan Anomali: Memuat peta panas konsentrasi polaritas lintas tema, "
+        "grafik sebaran volume isu strategis, serta tabel deteksi lonjakan sentimen negatif (negative spike) "
+        "untuk memberikan peringatan dini atas gejolak opini publik.",
+        "Matriks Prioritas Rekomendasi Operasional: Menghubungkan skor urgensi isu dominan dengan panduan aksi "
+        "mitigasi praktis bagi unit kerja BPS Kabupaten Sukoharjo, seperti stabilisasi penyimpanan data luring "
+        "aplikasi Fasih dan sosialisasi masif jaminan kerahasiaan data usaha."
+    ):
+        butir(doc, p_dss, numid_dss)
+    par(doc, "Sistem tersebut juga terhubung langsung dengan modul penelusuran label mendalam (deep label inspection) "
+             "yang memungkinkan pemangku kepentingan menelusuri setiap baris data berlabel hingga potongan bukti "
+             "leksikal, penalaran model, peta atensi transformer, dan skor atribusi LIME. Integrasi menyeluruh ini "
+             "membuktikan bahwa luaran Kerja Praktik tidak berhenti pada pembuktian metrik komputasi di lingkungan "
+             "pengujian semata, melainkan terwujud menjadi instrumen analitik terapan yang siap mendukung respons "
+             "komunikasi publik instansi.")
     sub_bab(doc, "Pembahasan", numid_b4)
     par(doc, "Temuan pertama yang perlu dibahas adalah kedudukan label otomatis. Prosedur pelabelan "
              "yang dipakai pada penelitian ini menghasilkan keluaran yang patuh format, dengan "
@@ -2106,7 +2141,12 @@ def bab_lima(doc: Document) -> None:
               "sentimen negatif (3.978 kalimat atau 68,5 persen) terpusat pada kendala teknis aplikasi "
               "FASIH (30,5 persen), skeptisisme manfaat sensus (16,8 persen), kekhawatiran privasi dan "
               "pajak (17,1 persen), serta resistensi pencabutan bansos (12,6 persen), yang "
-              "ditransformasikan menjadi rekomendasi kebijakan operasional prioritas bagi Badan Pusat Statistik."):
+              "ditransformasikan menjadi rekomendasi kebijakan operasional prioritas bagi Badan Pusat Statistik.",
+              "Hilirisasi seluruh hasil pemodelan dan temuan analisis sentimen berhasil diwujudkan "
+              "ke dalam sebuah prototipe antarmuka sistem pendukung keputusan (decision support system) "
+              "interaktif berbasis web yang dilengkapi dasbor pemantauan tren mingguan, peta panas tematik, "
+              "tabel deteksi lonjakan anomali, serta modul penelusuran bukti label transparan guna "
+              "mendukung respons kebijakan dan komunikasi publik Badan Pusat Statistik Kabupaten Sukoharjo."):
         butir(doc, t, numid_simpulan)
     sub_bab(doc, "Saran", numid_b5)
     par(doc, "Bagi Badan Pusat Statistik, hasil analisis tematik sentimen memberikan empat "
@@ -2125,8 +2165,8 @@ def bab_lima(doc: Document) -> None:
              "melibatkan penilai manusia ganda agar batas atas kesepakatan antar-anotator dapat "
              "diukur secara kuantitatif. Selain itu, peneliti berikutnya disarankan menerapkan "
              "kalibrasi nilai probabilitas keyakinan model sebelum dijadikan ambang penyaringan "
-             "otomatis. Di samping itu, disarankan meneliti integrasi modul pemantauan sentimen "
-             "ke dalam sistem pendukung keputusan instansi secara berkala, serta memperluas "
+             "otomatis. Di samping itu, disarankan mengintegrasikan pembaruan data berkala "
+             "ke dalam prototipe antarmuka sistem pendukung keputusan yang telah dibangun, serta memperluas "
              "pengumpulan data ke platform berbasis teks murni apabila akses antarmuka "
              "pemrograman aplikasi di masa depan telah terbuka.")
 

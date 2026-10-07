@@ -20,6 +20,7 @@ Thumbs.db
 .idea/
 *.tmp
 *.tmp.docx
+~$*
 
 # Berkas Log & Cache
 *.log
