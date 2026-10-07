@@ -1,0 +1,27 @@
+# Python & Lingkungan Komputasi
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+venv/
+env/
+ENV/
+
+# Berkas Binari Model Besar (>100MB)
+*.safetensors
+*.bin
+*.h5
+
+# Berkas Sistem Operasi & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.tmp
+*.tmp.docx
+
+# Berkas Log & Cache
+*.log
+.pytest_cache/
+.ipynb_checkpoints/

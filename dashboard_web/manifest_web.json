@@ -1,0 +1,161 @@
+{
+  "dibuat": "2026-10-04 07:19:12 +0700",
+  "sumber_antarmuka": "web/",
+  "berkas_antarmuka": [
+    {
+      "berkas": "index.html",
+      "ukuran_bit": 4035,
+      "sha256": "0a78ca84804b16100aa2346772b32671fe4616da9a118b8a0bba5dc2923b4c49"
+    },
+    {
+      "berkas": "gaya.css",
+      "ukuran_bit": 43141,
+      "sha256": "d49f438fea460d92f2fad77589aee4efbafd44f128915cedd041fd1497586ef5"
+    },
+    {
+      "berkas": "app.js",
+      "ukuran_bit": 109632,
+      "sha256": "c9eb09c7d5926039d6d5b97d4e8fe3cd2c0ed77cdfdad1f482dafb26bf85fd50"
+    },
+    {
+      "berkas": "periksa_muatan.js",
+      "ukuran_bit": 14476,
+      "sha256": "f63bd90a4288e548560f1a3288135891e2d90b449720a2ee07023f9ac895e082"
+    },
+    {
+      "berkas": "dss_trendline.html",
+      "ukuran_bit": 54751,
+      "sha256": "f102cba019d3a3109d91284f31ebfec7f0db907e6458bb38803f184a5449602e"
+    },
+    {
+      "berkas": "dss_data_real.js",
+      "ukuran_bit": 10895,
+      "sha256": "cf9dc1eebb29113ae53c254a6e4e50741dd1634303a47f8cfc20d5675da74eed"
+    },
+    {
+      "berkas": "konfigurasi.js",
+      "ukuran_bit": 513,
+      "sha256": "bd80dfd51bdbe6f8641571a7ba401e6fb7015060543dd8c5ca49bcef74e81bb7"
+    },
+    {
+      "berkas": "aset/font/Geist-Bold.woff2",
+      "ukuran_bit": 41080,
+      "sha256": "a3b7c213389d2a59d82af8b1bc09eedf6a868a250eef6b8baa4c595179c0e6d8"
+    },
+    {
+      "berkas": "aset/font/Geist-Medium.woff2",
+      "ukuran_bit": 40956,
+      "sha256": "f99495890dcba5fc23ccebbec0ebe7ae9b994cd8b358a06ca81f88465a19fe21"
+    },
+    {
+      "berkas": "aset/font/Geist-Regular.woff2",
+      "ukuran_bit": 39980,
+      "sha256": "b497f5ad478f1b6003996c66738298ea78ea5dc430b6394ca7f6aa613f006fa3"
+    },
+    {
+      "berkas": "aset/font/Geist-SemiBold.woff2",
+      "ukuran_bit": 40948,
+      "sha256": "45ab21f6c46f159e91eebcaca1007670125730e6a42ac0e533b0d040f2765ed3"
+    },
+    {
+      "berkas": "aset/font/GeistMono-Medium.woff2",
+      "ukuran_bit": 43440,
+      "sha256": "9baf6f1a0d90ad49817d196cb23e068fbe94eff217786de019858ad8380bad64"
+    },
+    {
+      "berkas": "aset/font/GeistMono-Regular.woff2",
+      "ukuran_bit": 42420,
+      "sha256": "25ab1a13181fb6c094e7c3a3ca54209d3f6c0f769d198d81121792a7e62bc371"
+    },
+    {
+      "berkas": "aset/matriks_konfusi.png",
+      "ukuran_bit": 141732,
+      "sha256": "06122d3d095c2d8ee69015f024d62149ce6892457c409388d456a3405eb91567"
+    },
+    {
+      "berkas": "aset/atensi/attention_matrix.png",
+      "ukuran_bit": 84163,
+      "sha256": "c3213fb1649827b424cc77bafb54601a7f12da76a759ced4a7097abc9194b9d4"
+    },
+    {
+      "berkas": "aset/atensi/attention_1.png",
+      "ukuran_bit": 98201,
+      "sha256": "d6ef8339ecfdc0e417a1b8da7db857329fcc45aa643e3b4294e2b1501f9ad7f6"
+    },
+    {
+      "berkas": "aset/atensi/attention_2.png",
+      "ukuran_bit": 72238,
+      "sha256": "d0f73371ce386e6d2487f55623365d4ebda55a56841aeb2ef150b20e07419b8b"
+    },
+    {
+      "berkas": "aset/atensi/attention_3.png",
+      "ukuran_bit": 97171,
+      "sha256": "56554bcc31e53a527aa5ba4a7abfe53d717e9d19340a5e5d30b12ed4fcda074d"
+    },
+    {
+      "berkas": "aset/atensi/attention_4.png",
+      "ukuran_bit": 77266,
+      "sha256": "efba3c389cad4bd5f702fc6faa33c3c3ee90cc3940b92f6e218d30efcb566fba"
+    },
+    {
+      "berkas": "aset/atensi/attention_5.png",
+      "ukuran_bit": 88729,
+      "sha256": "8ec5ab0bb134a6dda51b245581ecb11e300cb1b358dbf381e6c280616a952725"
+    },
+    {
+      "berkas": "aset/atensi/attention_6.png",
+      "ukuran_bit": 73624,
+      "sha256": "42aa17cbab13484ca579d3fa92687636a97fc4ba250dbd49b7049f485ad057c8"
+    },
+    {
+      "berkas": "aset/atensi/attention_7.png",
+      "ukuran_bit": 79513,
+      "sha256": "c860ac2485ff0e820ce8f98b5f39a1fa0962928ddf0e1e90b66a89c500f211bc"
+    },
+    {
+      "berkas": "aset/atensi/attention_8.png",
+      "ukuran_bit": 77727,
+      "sha256": "725c4cbd993e3296a11d8f07b34edfb946b2f464bad4b70f78acf6abf6a97489"
+    },
+    {
+      "berkas": "aset/lime/lime_top_tokens.png",
+      "ukuran_bit": 91862,
+      "sha256": "1f7a9a78bc4680ea74d73010b6c9276fe9d56cd52df5cdd380e78c4b34b3c25e"
+    },
+    {
+      "berkas": "aset/bertviz/bertviz_head_1.png",
+      "ukuran_bit": 70287,
+      "sha256": "843ccfb26cd1fb92212d5e5e78e707d10707a1e3adb8caabe00d8cc1efdfe433"
+    },
+    {
+      "berkas": "aset/bertviz/bertviz_head_2.png",
+      "ukuran_bit": 184105,
+      "sha256": "f82dfd1dc79162ba7be0c1e4a98f2a9d310b3fa798ea04a415fc77a571334960"
+    },
+    {
+      "berkas": "aset/bertviz/bertviz_head_3.png",
+      "ukuran_bit": 192945,
+      "sha256": "935b646d03fd004a568c7316d2498a3141091f4bad791583eef741616cd1d7f1"
+    }
+  ],
+  "jumlah_baris_label": 8352,
+  "kolom_label": [
+    "uid",
+    "sumber",
+    "ember",
+    "label",
+    "tipe",
+    "aspek",
+    "bahasa",
+    "yak",
+    "bukti",
+    "alasan",
+    "teks",
+    "bersih",
+    "konteks",
+    "induk",
+    "waktu",
+    "tautan",
+    "bintang"
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "gold_n": 92,
+  "gold_dist": {
+    "netral": 35,
+    "positif": 16,
+    "negatif": 41
+  },
+  "di_luar_kelas_sentimen": {
+    "tidak_relevan": 8
+  },
+  "sistem": {
+    "prediksi_eval_v2": {
+      "n": 92,
+      "accuracy": 0.7391,
+      "accuracy_ci95": [
+        0.6411,
+        0.818
+      ],
+      "f1_macro": 0.7579,
+      "f1_macro_bootstrap": [
+        0.6551,
+        0.7569,
+        0.8461
+      ],
+      "per_kelas": {
+        "negatif": {
+          "n": 41,
+          "recall": 0.9024,
+          "recall_ci": [
+            0.7745,
+            0.9614
+          ]
+        },
+        "netral": {
+          "n": 35,
+          "recall": 0.5714,
+          "recall_ci": [
+            0.4086,
+            0.7202
+          ]
+        },
+        "positif": {
+          "n": 16,
+          "recall": 0.6875,
+          "recall_ci": [
+            0.444,
+            0.8584
+          ]
+        }
+      }
+    },
+    "prediksi_eval_v4": {
+      "n": 92,
+      "accuracy": 0.7717,
+      "accuracy_ci95": [
+        0.6761,
+        0.8456
+      ],
+      "f1_macro": 0.7772,
+      "f1_macro_bootstrap": [
+        0.673,
+        0.7761,
+        0.8637
+      ],
+      "per_kelas": {
+        "negatif": {
+          "n": 41,
+          "recall": 0.8293,
+          "recall_ci": [
+            0.6874,
+            0.9147
+          ]
+        },
+        "netral": {
+          "n": 35,
+          "recall": 0.7429,
+          "recall_ci": [
+            0.5793,
+            0.8584
+          ]
+        },
+        "positif": {
+          "n": 16,
+          "recall": 0.6875,
+          "recall_ci": [
+            0.444,
+            0.8584
+          ]
+        }
+      }
+    },
+    "prediksi_eval_v5": {
+      "n": 92,
+      "accuracy": 0.7609,
+      "accuracy_ci95": [
+        0.6644,
+        0.8364
+      ],
+      "f1_macro": 0.7581,
+      "f1_macro_bootstrap": [
+        0.6462,
+        0.7556,
+        0.8529
+      ],
+      "per_kelas": {
+        "negatif": {
+          "n": 41,
+          "recall": 0.8049,
+          "recall_ci": [
+            0.6599,
+            0.8977
+          ]
+        },
+        "netral": {
+          "n": 35,
+          "recall": 0.8,
+          "recall_ci": [
+            0.6411,
+            0.8996
+          ]
+        },
+        "positif": {
+          "n": 16,
+          "recall": 0.5625,
+          "recall_ci": [
+            0.3318,
+            0.769
+          ]
+        }
+      }
+    },
+    "prediksi_deepseek": {
+      "n": 92,
+      "accuracy": 0.7609,
+      "accuracy_ci95": [
+        0.6644,
+        0.8364
+      ],
+      "f1_macro": 0.7472,
+      "f1_macro_bootstrap": [
+        0.6381,
+        0.7462,
+        0.8396
+      ],
+      "per_kelas": {
+        "negatif": {
+          "n": 41,
+          "recall": 0.7317,
+          "recall_ci": [
+            0.5807,
+            0.8431
+          ]
+        },
+        "netral": {
+          "n": 35,
+          "recall": 0.8857,
+          "recall_ci": [
+            0.7405,
+            0.9546
+          ]
+        },
+        "positif": {
+          "n": 16,
+          "recall": 0.5625,
+          "recall_ci": [
+            0.3318,
+            0.769
+          ]
+        }
+      }
+    }
+  },
+  "mcnemar": [
+    {
+      "a": "prediksi_eval_v2",
+      "b": "prediksi_eval_v4",
+      "a_salah_b_benar": 10,
+      "b_salah_a_benar": 7,
+      "p_value": 0.6291
+    },
+    {
+      "a": "prediksi_eval_v2",
+      "b": "prediksi_eval_v5",
+      "a_salah_b_benar": 13,
+      "b_salah_a_benar": 11,
+      "p_value": 0.8388
+    },
+    {
+      "a": "prediksi_eval_v2",
+      "b": "prediksi_deepseek",
+      "a_salah_b_benar": 15,
+      "b_salah_a_benar": 13,
+      "p_value": 0.8506
+    },
+    {
+      "a": "prediksi_eval_v4",
+      "b": "prediksi_eval_v5",
+      "a_salah_b_benar": 3,
+      "b_salah_a_benar": 4,
+      "p_value": 1.0
+    },
+    {
+      "a": "prediksi_eval_v4",
+      "b": "prediksi_deepseek",
+      "a_salah_b_benar": 8,
+      "b_salah_a_benar": 9,
+      "p_value": 1.0
+    },
+    {
+      "a": "prediksi_eval_v5",
+      "b": "prediksi_deepseek",
+      "a_salah_b_benar": 10,
+      "b_salah_a_benar": 10,
+      "p_value": 1.0
+    }
+  ]
+}

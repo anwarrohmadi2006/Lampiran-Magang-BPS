@@ -1,0 +1,91 @@
+{
+  "total_baris": 8350,
+  "tanpa_anotasi": [
+    "482c69d7b15629af139a28e11a101b1c",
+    "4d9adfc3ed433cc9deecfade062398f6"
+  ],
+  "per_ember": {
+    "opini": 5808,
+    "non_opini": 2119,
+    "karantina": 423
+  },
+  "per_source": {
+    "youtube": 6726,
+    "playstore": 1365,
+    "threads": 259
+  },
+  "per_sentimen": {
+    "negatif": 4473,
+    "netral": 1974,
+    "positif": 1480,
+    "tidak_relevan": 423
+  },
+  "per_tipe": {
+    "opini": 6011,
+    "pertanyaan": 1207,
+    "informasi": 584,
+    "sapaan": 444,
+    "lelucon": 104
+  },
+  "per_bahasa": {
+    "indonesia": 7892,
+    "campur": 360,
+    "daerah": 79,
+    "asing": 19
+  },
+  "keyakinan": {
+    "rata": 0.8437,
+    "median": 0.9,
+    "min": 0.5,
+    "max": 1.0,
+    "di_bawah_0_6": 367,
+    "mutlak_1_0": 816
+  },
+  "bukti_berdasar": 8348,
+  "porsi_bukti_berdasar": 0.9998,
+  "teks_identik_beda_sentimen": 0,
+  "contoh_duplikat": [],
+  "per_temuan": {
+    "keyakinan_mutlak": 816,
+    "keyakinan_rendah": 367,
+    "bukti_parafrase": 331,
+    "sapaan_beraspek": 172,
+    "sapaan_bersentimen": 131,
+    "opini_teks_pendek": 122,
+    "bintang5_negatif": 120,
+    "sapaan_keyakinan_tinggi": 101,
+    "karantina_bertopik": 78,
+    "asing_tapi_relevan": 13,
+    "bintang1_positif": 6,
+    "aspek_kosong": 5,
+    "bukti_kosong": 2
+  },
+  "per_keparahan": {
+    "kritis": 0,
+    "tinggi": 261,
+    "sedang": 255,
+    "rendah": 1266
+  },
+  "baris_bertanda": 1782,
+  "porsi_bertanda": 0.2134,
+  "bintang": {
+    "1bintang_negatif": 680,
+    "5bintang_positif": 186,
+    "5bintang_negatif": 120,
+    "3bintang_negatif": 116,
+    "2bintang_negatif": 115,
+    "4bintang_negatif": 63,
+    "5bintang_netral": 27,
+    "4bintang_positif": 21,
+    "4bintang_netral": 8,
+    "3bintang_netral": 7,
+    "1bintang_positif": 6,
+    "1bintang_netral": 4,
+    "3bintang_positif": 3,
+    "1bintang_tidak_relevan": 3,
+    "2bintang_positif": 2,
+    "5bintang_tidak_relevan": 2,
+    "2bintang_netral": 1,
+    "4bintang_tidak_relevan": 1
+  }
+}

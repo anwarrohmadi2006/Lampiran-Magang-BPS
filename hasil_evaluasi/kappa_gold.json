@@ -1,0 +1,695 @@
+{
+  "dihitung": "2026-09-20 06:14:35 +0700",
+  "catatan": "Cohen's kappa tidak mengoreksi ketidakseimbangan kelas sepihak, sehingga tafsirnya harus dibaca bersama sebaran labelnya.",
+  "pasangan": [
+    {
+      "semua_kelas": {
+        "n": 100,
+        "kesepakatan": 0.69,
+        "kappa": 0.5343,
+        "tafsir": "sedang",
+        "kelas": [
+          "negatif",
+          "netral",
+          "positif",
+          "tidak_relevan"
+        ],
+        "matriks": [
+          [
+            37,
+            10,
+            3,
+            1
+          ],
+          [
+            1,
+            20,
+            1,
+            6
+          ],
+          [
+            0,
+            2,
+            11,
+            0
+          ],
+          [
+            3,
+            3,
+            1,
+            1
+          ]
+        ],
+        "sebaran_a": {
+          "negatif": 51,
+          "positif": 13,
+          "netral": 28,
+          "tidak_relevan": 8
+        },
+        "sebaran_b": {
+          "netral": 35,
+          "positif": 16,
+          "negatif": 41,
+          "tidak_relevan": 8
+        }
+      },
+      "sentimen": {
+        "n": 85,
+        "kesepakatan": 0.8,
+        "kappa": 0.6735,
+        "tafsir": "kuat",
+        "kelas": [
+          "negatif",
+          "netral",
+          "positif"
+        ],
+        "matriks": [
+          [
+            37,
+            10,
+            3
+          ],
+          [
+            1,
+            20,
+            1
+          ],
+          [
+            0,
+            2,
+            11
+          ]
+        ]
+      },
+      "relevansi": {
+        "n": 100,
+        "kesepakatan": 0.86,
+        "kappa": 0.0489,
+        "tafsir": "sedikit",
+        "presisi": 0.9239,
+        "recall": 0.9239
+      },
+      "beda_terbanyak": [
+        {
+          "a": "negatif",
+          "b": "netral",
+          "jumlah": 10
+        },
+        {
+          "a": "netral",
+          "b": "tidak_relevan",
+          "jumlah": 6
+        },
+        {
+          "a": "negatif",
+          "b": "positif",
+          "jumlah": 3
+        },
+        {
+          "a": "tidak_relevan",
+          "b": "negatif",
+          "jumlah": 3
+        },
+        {
+          "a": "tidak_relevan",
+          "b": "netral",
+          "jumlah": 3
+        },
+        {
+          "a": "positif",
+          "b": "netral",
+          "jumlah": 2
+        },
+        {
+          "a": "netral",
+          "b": "positif",
+          "jumlah": 1
+        },
+        {
+          "a": "netral",
+          "b": "negatif",
+          "jumlah": 1
+        }
+      ],
+      "id": "v2_vs_manusia",
+      "nama": "Skema anotasi awal terhadap penilaian manusia",
+      "catatan": "Seratus baris gold ronde pertama yang ditarik berlapis dan tersamar. Pasangan inilah yang menghasilkan akurasi 0,7391.",
+      "a": {
+        "berkas": "final/prediksi_prompt_v2.csv",
+        "kolom": "label",
+        "baris": 100
+      },
+      "b": {
+        "berkas": "final/gold_manusia.csv",
+        "kolom": "label_manusia",
+        "baris": 100
+      },
+      "irisan": 100
+    },
+    {
+      "semua_kelas": {
+        "n": 100,
+        "kesepakatan": 0.72,
+        "kappa": 0.576,
+        "tafsir": "sedang",
+        "kelas": [
+          "negatif",
+          "netral",
+          "positif",
+          "tidak_relevan"
+        ],
+        "matriks": [
+          [
+            34,
+            6,
+            2,
+            0
+          ],
+          [
+            5,
+            26,
+            3,
+            7
+          ],
+          [
+            0,
+            2,
+            11,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            1
+          ]
+        ],
+        "sebaran_a": {
+          "negatif": 42,
+          "positif": 13,
+          "netral": 41,
+          "tidak_relevan": 4
+        },
+        "sebaran_b": {
+          "netral": 35,
+          "positif": 16,
+          "negatif": 41,
+          "tidak_relevan": 8
+        }
+      },
+      "sentimen": {
+        "n": 89,
+        "kesepakatan": 0.7978,
+        "kappa": 0.6743,
+        "tafsir": "kuat",
+        "kelas": [
+          "negatif",
+          "netral",
+          "positif"
+        ],
+        "matriks": [
+          [
+            34,
+            6,
+            2
+          ],
+          [
+            5,
+            26,
+            3
+          ],
+          [
+            0,
+            2,
+            11
+          ]
+        ]
+      },
+      "relevansi": {
+        "n": 100,
+        "kesepakatan": 0.9,
+        "kappa": 0.1197,
+        "tafsir": "sedikit",
+        "presisi": 0.9674,
+        "recall": 0.9271
+      },
+      "beda_terbanyak": [
+        {
+          "a": "netral",
+          "b": "tidak_relevan",
+          "jumlah": 7
+        },
+        {
+          "a": "negatif",
+          "b": "netral",
+          "jumlah": 6
+        },
+        {
+          "a": "netral",
+          "b": "negatif",
+          "jumlah": 5
+        },
+        {
+          "a": "netral",
+          "b": "positif",
+          "jumlah": 3
+        },
+        {
+          "a": "negatif",
+          "b": "positif",
+          "jumlah": 2
+        },
+        {
+          "a": "tidak_relevan",
+          "b": "negatif",
+          "jumlah": 2
+        },
+        {
+          "a": "positif",
+          "b": "netral",
+          "jumlah": 2
+        },
+        {
+          "a": "tidak_relevan",
+          "b": "netral",
+          "jumlah": 1
+        }
+      ],
+      "id": "v4_vs_manusia",
+      "nama": "Skema anotasi perbaikan terhadap penilaian manusia",
+      "catatan": "Kandidat pengganti yang tidak dipakai karena perbedaannya terhadap skema awal belum nyata secara statistik.",
+      "a": {
+        "berkas": "final/prediksi_prompt_v4.csv",
+        "kolom": "label",
+        "baris": 100
+      },
+      "b": {
+        "berkas": "final/gold_manusia.csv",
+        "kolom": "label_manusia",
+        "baris": 100
+      },
+      "irisan": 100
+    },
+    {
+      "semua_kelas": {
+        "n": 100,
+        "kesepakatan": 0.71,
+        "kappa": 0.5596,
+        "tafsir": "sedang",
+        "kelas": [
+          "negatif",
+          "netral",
+          "positif",
+          "tidak_relevan"
+        ],
+        "matriks": [
+          [
+            33,
+            5,
+            2,
+            0
+          ],
+          [
+            6,
+            28,
+            4,
+            7
+          ],
+          [
+            0,
+            1,
+            9,
+            0
+          ],
+          [
+            2,
+            1,
+            1,
+            1
+          ]
+        ],
+        "sebaran_a": {
+          "negatif": 40,
+          "tidak_relevan": 5,
+          "netral": 45,
+          "positif": 10
+        },
+        "sebaran_b": {
+          "netral": 35,
+          "positif": 16,
+          "negatif": 41,
+          "tidak_relevan": 8
+        }
+      },
+      "sentimen": {
+        "n": 88,
+        "kesepakatan": 0.7955,
+        "kappa": 0.666,
+        "tafsir": "kuat",
+        "kelas": [
+          "negatif",
+          "netral",
+          "positif"
+        ],
+        "matriks": [
+          [
+            33,
+            5,
+            2
+          ],
+          [
+            6,
+            28,
+            4
+          ],
+          [
+            0,
+            1,
+            9
+          ]
+        ]
+      },
+      "relevansi": {
+        "n": 100,
+        "kesepakatan": 0.89,
+        "kappa": 0.0984,
+        "tafsir": "sedikit",
+        "presisi": 0.9565,
+        "recall": 0.9263
+      },
+      "beda_terbanyak": [
+        {
+          "a": "netral",
+          "b": "tidak_relevan",
+          "jumlah": 7
+        },
+        {
+          "a": "netral",
+          "b": "negatif",
+          "jumlah": 6
+        },
+        {
+          "a": "negatif",
+          "b": "netral",
+          "jumlah": 5
+        },
+        {
+          "a": "netral",
+          "b": "positif",
+          "jumlah": 4
+        },
+        {
+          "a": "negatif",
+          "b": "positif",
+          "jumlah": 2
+        },
+        {
+          "a": "tidak_relevan",
+          "b": "negatif",
+          "jumlah": 2
+        },
+        {
+          "a": "tidak_relevan",
+          "b": "positif",
+          "jumlah": 1
+        },
+        {
+          "a": "tidak_relevan",
+          "b": "netral",
+          "jumlah": 1
+        }
+      ],
+      "id": "v5_vs_manusia",
+      "nama": "Skema anotasi bernalar terhadap penilaian manusia",
+      "catatan": "Skema yang menuntut penalaran ditulis sebelum sentimen ditetapkan.",
+      "a": {
+        "berkas": "final/prediksi_prompt_v5.csv",
+        "kolom": "label",
+        "baris": 100
+      },
+      "b": {
+        "berkas": "final/gold_manusia.csv",
+        "kolom": "label_manusia",
+        "baris": 100
+      },
+      "irisan": 100
+    },
+    {
+      "semua_kelas": {
+        "n": 100,
+        "kesepakatan": 0.72,
+        "kappa": 0.5778,
+        "tafsir": "sedang",
+        "kelas": [
+          "negatif",
+          "netral",
+          "positif",
+          "tidak_relevan"
+        ],
+        "matriks": [
+          [
+            30,
+            2,
+            2,
+            0
+          ],
+          [
+            9,
+            31,
+            5,
+            5
+          ],
+          [
+            0,
+            2,
+            9,
+            1
+          ],
+          [
+            2,
+            0,
+            0,
+            2
+          ]
+        ],
+        "sebaran_a": {
+          "netral": 50,
+          "negatif": 34,
+          "positif": 12,
+          "tidak_relevan": 4
+        },
+        "sebaran_b": {
+          "netral": 35,
+          "positif": 16,
+          "negatif": 41,
+          "tidak_relevan": 8
+        }
+      },
+      "sentimen": {
+        "n": 90,
+        "kesepakatan": 0.7778,
+        "kappa": 0.6416,
+        "tafsir": "kuat",
+        "kelas": [
+          "negatif",
+          "netral",
+          "positif"
+        ],
+        "matriks": [
+          [
+            30,
+            2,
+            2
+          ],
+          [
+            9,
+            31,
+            5
+          ],
+          [
+            0,
+            2,
+            9
+          ]
+        ]
+      },
+      "relevansi": {
+        "n": 100,
+        "kesepakatan": 0.92,
+        "kappa": 0.2958,
+        "tafsir": "cukup",
+        "presisi": 0.9783,
+        "recall": 0.9375
+      },
+      "beda_terbanyak": [
+        {
+          "a": "netral",
+          "b": "negatif",
+          "jumlah": 9
+        },
+        {
+          "a": "netral",
+          "b": "tidak_relevan",
+          "jumlah": 5
+        },
+        {
+          "a": "netral",
+          "b": "positif",
+          "jumlah": 5
+        },
+        {
+          "a": "negatif",
+          "b": "positif",
+          "jumlah": 2
+        },
+        {
+          "a": "tidak_relevan",
+          "b": "negatif",
+          "jumlah": 2
+        },
+        {
+          "a": "negatif",
+          "b": "netral",
+          "jumlah": 2
+        },
+        {
+          "a": "positif",
+          "b": "netral",
+          "jumlah": 2
+        },
+        {
+          "a": "positif",
+          "b": "tidak_relevan",
+          "jumlah": 1
+        }
+      ],
+      "id": "deepseek_vs_manusia",
+      "nama": "Anotator keluarga lain terhadap penilaian manusia",
+      "catatan": "Pembanding dari keluarga model berbeda, diuji pada gold yang sama.",
+      "a": {
+        "berkas": "final/prediksi_deepseek.csv",
+        "kolom": "label",
+        "baris": 100
+      },
+      "b": {
+        "berkas": "final/gold_manusia.csv",
+        "kolom": "label_manusia",
+        "baris": 100
+      },
+      "irisan": 100
+    },
+    {
+      "semua_kelas": {
+        "n": 100,
+        "kesepakatan": 0.52,
+        "kappa": 0.33,
+        "tafsir": "cukup",
+        "kelas": [
+          "negatif",
+          "netral",
+          "positif"
+        ],
+        "matriks": [
+          [
+            20,
+            20,
+            2
+          ],
+          [
+            0,
+            22,
+            1
+          ],
+          [
+            0,
+            25,
+            10
+          ]
+        ],
+        "sebaran_a": {
+          "negatif": 42,
+          "netral": 23,
+          "positif": 35
+        },
+        "sebaran_b": {
+          "netral": 67,
+          "positif": 13,
+          "negatif": 20
+        }
+      },
+      "sentimen": {
+        "n": 100,
+        "kesepakatan": 0.52,
+        "kappa": 0.33,
+        "tafsir": "cukup",
+        "kelas": [
+          "negatif",
+          "netral",
+          "positif"
+        ],
+        "matriks": [
+          [
+            20,
+            20,
+            2
+          ],
+          [
+            0,
+            22,
+            1
+          ],
+          [
+            0,
+            25,
+            10
+          ]
+        ]
+      },
+      "relevansi": {
+        "n": 100,
+        "kesepakatan": 1.0,
+        "kappa": 1.0,
+        "tafsir": "hampir sempurna",
+        "presisi": 1.0,
+        "recall": 1.0
+      },
+      "beda_terbanyak": [
+        {
+          "a": "positif",
+          "b": "netral",
+          "jumlah": 25
+        },
+        {
+          "a": "negatif",
+          "b": "netral",
+          "jumlah": 20
+        },
+        {
+          "a": "negatif",
+          "b": "positif",
+          "jumlah": 2
+        },
+        {
+          "a": "netral",
+          "b": "positif",
+          "jumlah": 1
+        }
+      ],
+      "id": "model_vs_anotator2",
+      "nama": "Usulan model terhadap penilai kedua pada ronde kedua",
+      "catatan": "Seratus baris ini sengaja ditarik dari keyakinan model terendah, sehingga memang baris tersulit. Angkanya tidak sebanding dengan angka pada seratus baris acak berlapis.",
+      "a": {
+        "berkas": "final/gold_kandidat_ronde2.csv",
+        "kolom": "label_sementara",
+        "baris": 100
+      },
+      "b": {
+        "berkas": "final/gold_anotator2_ronde2.csv",
+        "kolom": "label",
+        "baris": 100
+      },
+      "irisan": 100
+    }
+  ],
+  "dilewati": []
+}

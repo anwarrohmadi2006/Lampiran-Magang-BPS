@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DSS Monitoring Opini Publik SE2026 - BPS</title>
+<style>
+:root {
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-header: #0f172a;
+  --border-card: #e2e8f0;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --text-white: #ffffff;
+  --color-neg: #ef4444;
+  --color-pos: #10b981;
+  --color-neu: #0284c7;
+  --color-yt: #dc2626;
+  --color-gp: #059669;
+  --color-th: #0f172a;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+  --radius-lg: 10px;
+  --radius-md: 6px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.45;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+.dss-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: var(--text-white);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #3b82f6;
+}
+.dss-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.dss-logo-icon {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #f59e0b 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 16px;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  transform: rotate(-3deg);
+}
+.dss-title-block h1 {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dss-title-block p {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 400;
+}
+.dss-header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: right;
+}
+.dss-period-badge {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  font-size: 11.5px;
+  line-height: 1.3;
+}
+.dss-period-badge strong {
+  display: block;
+  color: #38bdf8;
+  font-size: 12px;
+}
+.dss-header-desc {
+  max-width: 380px;
+  font-size: 11px;
+  color: #cbd5e1;
+  border-left: 2px solid #334155;
+  padding-left: 12px;
+  text-align: left;
+}
+
+/* Dashboard Container */
+.dss-dashboard {
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 16px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Row 1: KPI Stats Ribbon */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+}
+.kpi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.kpi-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+.kpi-icon.blue { background: #e0f2fe; color: #0284c7; }
+.kpi-icon.red { background: #fee2e2; color: #ef4444; }
+.kpi-icon.green { background: #dcfce7; color: #10b981; }
+.kpi-icon.grey { background: #f1f5f9; color: #64748b; }
+.kpi-icon.yt { background: #fee2e2; color: #dc2626; }
+.kpi-icon.gp { background: #d1fae5; color: #059669; }
+.kpi-icon.th { background: #e2e8f0; color: #0f172a; }
+.kpi-info {
+  display: flex;
+  flex-direction: column;
+}
+.kpi-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.kpi-val {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.15;
+}
+.kpi-sub {
+  font-size: 10.5px;
+  color: var(--text-muted);
+}
+
+/* Card Base */
+.dss-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f1f5f9;
+}
+.card-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.card-title .info-tip {
+  color: #94a3b8;
+  font-size: 12px;
+  cursor: help;
+}
+.card-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-toggle-group {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: var(--radius-md);
+  padding: 2px;
+}
+.btn-toggle {
+  border: none;
+  background: transparent;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-toggle.active {
+  background: #2563eb;
+  color: white;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.select-filter {
+  font-size: 11px;
+  padding: 4px 8px;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  color: var(--text-main);
+  outline: none;
+  cursor: pointer;
+}
+
+/* Layout Grids */
+.grid-row-2 {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 16px;
+}
+.grid-row-3 {
+  display: grid;
+  grid-template-columns: 2.2fr 2.8fr 3fr;
+  gap: 16px;
+}
+.grid-row-4 {
+  display: grid;
+  grid-template-columns: 3.5fr 3fr 2fr;
+  gap: 16px;
+}
+.grid-row-5 {
+  display: grid;
+  grid-template-columns: 1fr 2.2fr;
+  gap: 16px;
+}
+
+/* SVG Chart Elements */
+.chart-container {
+  width: 100%;
+  position: relative;
+}
+svg {
+  overflow: visible;
+  display: block;
+}
+.axis text {
+  font-size: 10px;
+  fill: #64748b;
+  font-family: var(--font-sans);
+}
+.grid-line {
+  stroke: #f1f5f9;
+  stroke-dasharray: 2, 2;
+  stroke-width: 1;
+}
+.chart-line {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.chart-point {
+  stroke-width: 2;
+  stroke: #ffffff;
+  cursor: pointer;
+  transition: r 0.15s ease;
+}
+.chart-point:hover {
+  r: 5.5;
+}
+.event-line {
+  stroke: #94a3b8;
+  stroke-dasharray: 3, 3;
+  stroke-width: 1;
+}
+.event-label {
+  font-size: 9.5px;
+  fill: #475569;
+  font-weight: 600;
+}
+.legend-inline {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 11px;
+  color: #475569;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+.legend-dot.neg { background: var(--color-neg); }
+.legend-dot.pos { background: var(--color-pos); }
+.legend-dot.neu { background: var(--color-neu); }
+
+/* Heatmap Table */
+.heatmap-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 4px;
+}
+.heatmap-table th {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  padding: 4px 6px;
+  text-align: center;
+}
+.heatmap-table th:first-child {
+  text-align: left;
+}
+.heatmap-table td {
+  padding: 5px 6px;
+  font-size: 11px;
+  text-align: center;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: transform 0.1s;
+  cursor: default;
+}
+.heatmap-table td:first-child {
+  text-align: left;
+  background: transparent !important;
+  color: #334155;
+  font-weight: 500;
+}
+.heatmap-table td:hover:not(:first-child) {
+  transform: scale(1.04);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.heatmap-legend-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 10.5px;
+  color: var(--text-muted);
+}
+.heatmap-gradient-bar {
+  width: 120px;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(to right, #ef4444 0%, #fed7aa 40%, #e2e8f0 50%, #bbf7d0 70%, #10b981 100%);
+}
+
+/* Horizontal Top Topics Bars */
+.topic-bar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.topic-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.topic-bar-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+}
+.topic-bar-name {
+  font-weight: 500;
+  color: #334155;
+}
+.topic-bar-val {
+  font-weight: 700;
+  color: #0f172a;
+}
+.topic-bar-track {
+  height: 7px;
+  background: #f1f5f9;
+  border-radius: 3.5px;
+  overflow: hidden;
+}
+.topic-bar-fill {
+  height: 100%;
+  border-radius: 3.5px;
+  transition: width 0.3s ease;
+}
+
+/* Data Tables: Deteksi Perubahan & Matriks Keputusan */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+.data-table th {
+  background: #f8fafc;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.data-table td {
+  padding: 7px 8px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+.data-table tr:hover td {
+  background: #f8fafc;
+}
+.badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 700;
+}
+.badge-status.red {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.badge-status.orange {
+  background: #ffedd5;
+  color: #9a3412;
+}
+.badge-status.yellow {
+  background: #fef9c3;
+  color: #854d0e;
+}
+.badge-status.green {
+  background: #dcfce7;
+  color: #166534;
+}
+.badge-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.badge-status.red .badge-status-dot { background: #dc2626; }
+.badge-status.orange .badge-status-dot { background: #ea580c; }
+.badge-status.yellow .badge-status-dot { background: #ca8a04; }
+.badge-status.green .badge-status-dot { background: #16a34a; }
+
+/* Decision Matrix Table */
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+.matrix-table th {
+  background: #1e293b;
+  color: #ffffff;
+  padding: 6px 10px;
+  font-weight: 600;
+  text-align: left;
+}
+.matrix-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border-card);
+}
+.matrix-cond {
+  color: #475569;
+  font-weight: 500;
+}
+.matrix-dec {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Sentiment Gap Card */
+.gap-item {
+  margin-bottom: 12px;
+}
+.gap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11.5px;
+  margin-bottom: 4px;
+}
+.gap-platform {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+.gap-val {
+  font-weight: 800;
+  font-size: 12px;
+}
+.gap-val.neg { color: #dc2626; }
+.gap-meter-wrap {
+  position: relative;
+  height: 12px;
+  background: #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.gap-center-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #94a3b8;
+  z-index: 2;
+}
+.gap-bar-neg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(to left, #f87171, #dc2626);
+  border-radius: 4px 0 0 4px;
+}
+.gap-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9.5px;
+  color: #94a3b8;
+}
+.gap-tag {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Tooltip floating */
+#dss-tooltip {
+  position: absolute;
+  display: none;
+  background: rgba(15, 23, 42, 0.95);
+  color: #ffffff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 11px;
+  pointer-events: none;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  line-height: 1.35;
+}
+
+/* Quick Filter Active Tabs */
+.tab-pills {
+  display: flex;
+  gap: 4px;
+}
+.tab-pill {
+  padding: 3px 8px;
+  font-size: 11px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-card);
+  background: white;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.15s;
+}
+.tab-pill.active {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+/* Responsiveness */
+@media (max-width: 1200px) {
+  .kpi-row { grid-template-columns: repeat(4, 1fr); }
+  .grid-row-2, .grid-row-3, .grid-row-4, .grid-row-5 { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="dss-header">
+  <div class="dss-header-brand">
+    <div class="dss-logo-icon">BPS</div>
+    <div class="dss-title-block">
+      <h1>DSS MONITORING OPINI PUBLIK SE2026</h1>
+      <p>Analisis Sentimen Lintas Platform untuk Pengambilan Keputusan</p>
+    </div>
+  </div>
+  <div class="dss-header-right">
+    <a href="index.html" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; background:#1e293b; color:#38bdf8; border:1px solid #334155; padding:7px 14px; border-radius:6px; font-weight:700; font-size:12px; transition:all 0.15s; box-shadow:0 2px 4px rgba(0,0,0,0.2);">
+      🔍 Penelusuran 8.350 Label
+    </a>
+    <div class="dss-period-badge">
+      <strong>Periode Data Riil</strong>
+      15 Juni – 15 September 2026 (8.352 opini)
+    </div>
+    <div class="dss-header-desc">
+      Memantau tren sentimen, isu utama, dan perubahan signifikan dari YouTube, Google Play, dan Threads untuk mendukung respons strategis BPS terhadap SE2026.
+    </div>
+  </div>
+</header>
+
+<div class="dss-dashboard">
+
+  <!-- Row 1: KPI Stats Ribbon -->
+  <section class="kpi-row" aria-label="Statistik Utama">
+    <div class="kpi-card">
+      <div class="kpi-icon blue">💬</div>
+      <div class="kpi-info">
+        <span class="kpi-label">Total Opini</span>
+        <span class="kpi-val">8.352</span>
+        <span class="kpi-sub">dari 3 platform</span>
+      </div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon red">😞</div>
+      <div class="kpi-info">
+        <span class="kpi-label">Negatif</span>
+        <span class="kpi-val" style="color:#ef4444;">3.978</span>
+        <span class="kpi-sub">47,6% (68,5% opini)</span>
+      </div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon green">😊</div>
+      <div class="kpi-info">
+        <span class="kpi-label">Positif</span>
+        <span class="kpi-val" style="color:#10b981;">1.315</span>
+        <span class="kpi-sub">15,7% (22,6% opini)</span>
+      </div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon grey">😐</div>
+      <div class="kpi-info">
+        <span class="kpi-label">Netral</span>
+        <span class="kpi-val" style="color:#0284c7;">515</span>
+        <span class="kpi-sub">6,2% (8,9% opini)</span>
+      </div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon yt">▶</div>
+      <div class="kpi-info">
+        <span class="kpi-label">YouTube</span>
+        <span class="kpi-val">6.727</span>
+        <span class="kpi-sub">80,5% total volume</span>
+      </div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon gp">▶</div>
+      <div class="kpi-info">
+        <span class="kpi-label">Google Play</span>
+        <span class="kpi-val">1.366</span>
+        <span class="kpi-sub">16,4% total volume</span>
+      </div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon th">@</div>
+      <div class="kpi-info">
+        <span class="kpi-label">Threads</span>
+        <span class="kpi-val">259</span>
+        <span class="kpi-sub">3,1% total volume</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Row 2: Trendlines (Overall & by Platform) -->
+  <section class="grid-row-2">
+    <!-- Tren Sentimen Keseluruhan -->
+    <div class="dss-card">
+      <div class="card-header">
+        <div class="card-title">
+          Tren Sentimen Keseluruhan (Proporsi)
+          <span class="info-tip" title="Proporsi persentase sentimen negatif, positif, dan netral terhadap total opini per dua pekan.">ⓘ</span>
+        </div>
+        <div class="legend-inline">
+          <div class="legend-item"><div class="legend-dot neg"></div> Negatif</div>
+          <div class="legend-item"><div class="legend-dot pos"></div> Positif</div>
+          <div class="legend-item"><div class="legend-dot neu"></div> Netral</div>
+        </div>
+      </div>
+      <div class="chart-container" style="height: 195px;">
+        <svg id="chart-tren-keseluruhan" width="100%" height="195" viewBox="0 0 680 195"></svg>
+      </div>
+    </div>
+
+    <!-- Tren Sentimen per Platform -->
+    <div class="dss-card">
+      <div class="card-header">
+        <div class="card-title">Tren Sentimen per Platform (Proporsi)</div>
+        <div class="btn-toggle-group">
+          <button type="button" class="btn-toggle active" id="btn-prop" onclick="togglePlatformTrend('prop')">Proporsi (%)</button>
+          <button type="button" class="btn-toggle" id="btn-vol" onclick="togglePlatformTrend('vol')">Volume</button>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; height: 195px;">
+        <!-- YouTube Sparkline -->
+        <div style="display: flex; flex-direction: column;">
+          <div style="font-weight: 700; font-size: 11px; display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
+            <span style="color:#dc2626;">▶</span> YouTube
+          </div>
+          <svg id="spark-yt" width="100%" height="150" viewBox="0 0 160 150"></svg>
+        </div>
+        <!-- Google Play Sparkline -->
+        <div style="display: flex; flex-direction: column;">
+          <div style="font-weight: 700; font-size: 11px; display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
+            <span style="color:#059669;">▶</span> Google Play
+          </div>
+          <svg id="spark-gp" width="100%" height="150" viewBox="0 0 160 150"></svg>
+        </div>
+        <!-- Threads Sparkline -->
+        <div style="display: flex; flex-direction: column;">
+          <div style="font-weight: 700; font-size: 11px; display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
+            <span style="color:#0f172a;">@</span> Threads
+          </div>
+          <svg id="spark-th" width="100%" height="150" viewBox="0 0 160 150"></svg>
+        </div>
+      </div>
+      <div class="legend-inline" style="justify-content: center; margin-top: 4px;">
+        <div class="legend-item"><div class="legend-dot neg"></div> Negatif</div>
+        <div class="legend-item"><div class="legend-dot pos"></div> Positif</div>
+        <div class="legend-item"><div class="legend-dot neu"></div> Netral</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Row 3: Platform Breakdown, Heatmap, Top Topics -->
+  <section class="grid-row-3">
+    <!-- Volume & Sentimen per Platform -->
+    <div class="dss-card">
+      <div class="card-header">
+        <div class="card-title">Volume dan Sentimen per Platform</div>
+        <select class="select-filter" id="select-vol-mode" onchange="updateStackedBar()">
+          <option value="opini">Jumlah opini</option>
+          <option value="persen">Proporsi 100%</option>
+        </select>
+      </div>
+      <div class="chart-container" style="height: 220px;">
+        <svg id="chart-stacked-platform" width="100%" height="220" viewBox="0 0 320 220"></svg>
+      </div>
+    </div>
+
+    <!-- Heatmap Sentimen per Platform dan Tema -->
+    <div class="dss-card">
+      <div class="card-header">
+        <div class="card-title">Heatmap Sentimen per Platform dan Tema</div>
+      </div>
+      <div style="overflow-x: auto;">
+        <table class="heatmap-table">
+          <thead>
+            <tr>
+              <th>Tema Isu</th>
+              <th>YouTube</th>
+              <th>Google Play</th>
+              <th>Threads</th>
+            </tr>
+          </thead>
+          <tbody id="heatmap-body">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+      <div class="heatmap-legend-wrap">
+        <span>Lebih negatif</span>
+        <div class="heatmap-gradient-bar"></div>
+        <span>Lebih positif</span>
+      </div>
+    </div>
+
+    <!-- Top Tema Berdasarkan Volume Opini -->
+    <div class="dss-card">
+      <div class="card-header">
+        <div class="card-title">Top Tema Berdasarkan Volume Opini</div>
+        <select class="select-filter" id="select-top-platform" onchange="updateTopTopics()">
+          <option value="all">Semua Platform</option>
+          <option value="yt">YouTube</option>
+          <option value="gp">Google Play</option>
+          <option value="th">Threads</option>
+        </select>
+      </div>
+      <div class="topic-bar-list" id="topic-bar-container">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Row 4: Issue Trendlines, Anomaly Detection, Decision Matrix -->
+  <section class="grid-row-4">
+    <!-- Tren Isu Utama (Volume Opini) -->
+    <div class="dss-card">
+      <div class="card-header">
+        <div class="card-title">Tren Isu Utama (Volume Opini)</div>
+        <div class="tab-pills" id="issue-trend-tabs">
+          <button type="button" class="tab-pill active" onclick="setIssueTrendTab('all')">Semua Platform</button>
+          <button type="button" class="tab-pill" onclick="setIssueTrendTab('yt')">YouTube</button>
+          <button type="button" class="tab-pill" onclick="setIssueTrendTab('gp')">Google Play</button>
+          <button type="button" class="tab-pill" onclick="setIssueTrendTab('th')">Threads</button>
+        </div>
+      </div>
+      <div class="chart-container" style="height: 190px;">
+        <svg id="chart-isu-tren" width="100%" height="190" viewBox="0 0 460 190"></svg>
+      </div>
+      <div class="legend-inline" style="flex-wrap: wrap; margin-top: 6px; font-size: 10.5px;">
+        <div class="legend-item"><div class="legend-dot" style="background:#ef4444;"></div> Kendala teknis FASIH</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#f97316;"></div> Skeptisisme & manfaat</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#eab308;"></div> Dinamika lapangan</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#10b981;"></div> Kekhawatiran pajak</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#3b82f6;"></div> Privasi</div>
+      </div>
+    </div>
+
+    <!-- Deteksi Perubahan Signifikan -->
+    <div class="dss-card">
+      <div class="card-header">
+        <div class="card-title">Deteksi Perubahan Signifikan</div>
+        <select class="select-filter" id="select-anomaly" onchange="filterAnomalies()">
+          <option value="spike">Negative Spike</option>
+          <option value="all">Semua Anomali</option>
+          <option value="high">Status Tinggi Saja</option>
+        </select>
+      </div>
+      <div style="overflow-x: auto;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Tanggal</th>
+              <th>Platform</th>
+              <th>Isu Dominan</th>
+              <th>Perubahan Negatif</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="table-anomalies">
+            <tr>
+              <td>10–16 Agu</td>
+              <td>Google Play</td>
+              <td>Kendala teknis FASIH</td>
+              <td style="color:#dc2626; font-weight:700;">+14,2 pp</td>
+              <td><span class="badge-status red"><span class="badge-status-dot"></span> Tinggi</span></td>
+            </tr>
+            <tr>
+              <td>27 Jul–2 Agu</td>
+              <td>YouTube</td>
+              <td>Kekhawatiran pajak</td>
+              <td style="color:#dc2626; font-weight:700;">+12,8 pp</td>
+              <td><span class="badge-status red"><span class="badge-status-dot"></span> Tinggi</span></td>
+            </tr>
+            <tr>
+              <td>24–30 Agu</td>
+              <td>Threads</td>
+              <td>Privasi</td>
+              <td style="color:#ea580c; font-weight:700;">+10,5 pp</td>
+              <td><span class="badge-status orange"><span class="badge-status-dot"></span> Sedang</span></td>
+            </tr>
+            <tr>
+              <td>13–19 Jul</td>
+              <td>YouTube</td>
+              <td>Disinformasi / hoaks</td>
+              <td style="color:#ea580c; font-weight:700;">+9,6 pp</td>
+              <td><span class="badge-status orange"><span class="badge-status-dot"></span> Sedang</span></td>
+            </tr>
+            <tr>
+              <td>7–13 Sep</td>
+              <td>Google Play</td>
+              <td>Skeptisisme manfaat</td>
+              <td style="color:#ca8a04; font-weight:700;">+8,4 pp</td>
+              <td><span class="badge-status yellow"><span class="badge-status-dot"></span> Monitor</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Matriks Keputusan -->
+    <div class="dss-card" style="background:#0f172a; color:white; border-color:#1e293b;">
+      <div class="card-header" style="border-bottom-color:#334155;">
+        <div class="card-title" style="color:white;">Matriks Keputusan</div>
+      </div>
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th style="background:#1e293b; color:#94a3b8;">Kondisi</th>
+            <th style="background:#1e293b; color:#94a3b8;">Keputusan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="matrix-cond" style="color:#e2e8f0;">Negatif ↑ &amp; Volume ↑</td>
+            <td class="matrix-dec" style="color:#f87171;">Prioritas segera</td>
+          </tr>
+          <tr>
+            <td class="matrix-cond" style="color:#e2e8f0;">Negatif ↑ &amp; Volume ↓</td>
+            <td class="matrix-dec" style="color:#fb923c;">Monitor ketat</td>
+          </tr>
+          <tr>
+            <td class="matrix-cond" style="color:#e2e8f0;">Negatif ↓ &amp; Volume ↑</td>
+            <td class="matrix-dec" style="color:#38bdf8;">Pertahankan intervensi</td>
+          </tr>
+          <tr>
+            <td class="matrix-cond" style="color:#e2e8f0;">Positif ↑ &amp; Volume ↑</td>
+            <td class="matrix-dec" style="color:#4ade80;">Amplifikasi komunikasi</td>
+          </tr>
+          <tr>
+            <td class="matrix-cond" style="color:#e2e8f0;">Isu di ≥2 platform</td>
+            <td class="matrix-dec" style="color:#f472b6;">Prioritas tinggi</td>
+          </tr>
+          <tr>
+            <td class="matrix-cond" style="color:#e2e8f0;">Tidak ada perubahan</td>
+            <td class="matrix-dec" style="color:#cbd5e1;">Monitor rutin</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Row 5: Sentiment Gap & Decision Score Ranking Table -->
+  <section class="grid-row-5">
+    <!-- Sentiment Gap per Platform -->
+    <div class="dss-card">
+      <div class="card-header">
+        <div class="card-title">Sentiment Gap per Platform</div>
+      </div>
+      <div style="display: flex; gap: 8px; font-size: 10px; color: #64748b; margin-bottom: 12px; justify-content: center;">
+        <span>🟢 Gap positif</span>
+        <span>⚪ Seimbang</span>
+        <span>🔴 Gap negatif</span>
+      </div>
+
+      <!-- YouTube -->
+      <div class="gap-item">
+        <div class="gap-header">
+          <span class="gap-platform"><span style="color:#dc2626;">▶</span> YouTube</span>
+          <span class="gap-val neg">-28,5 pp</span>
+        </div>
+        <div class="gap-meter-wrap">
+          <div class="gap-center-line"></div>
+          <div class="gap-bar-neg" style="left: 21.5%; width: 28.5%;"></div>
+        </div>
+        <div class="gap-scale"><span>-50</span><span>0</span><span>+50</span></div>
+        <div class="gap-tag" style="color:#dc2626;">Negatif dominan</div>
+      </div>
+
+      <!-- Google Play -->
+      <div class="gap-item">
+        <div class="gap-header">
+          <span class="gap-platform"><span style="color:#059669;">▶</span> Google Play</span>
+          <span class="gap-val neg" style="color:#ea580c;">-12,3 pp</span>
+        </div>
+        <div class="gap-meter-wrap">
+          <div class="gap-center-line"></div>
+          <div class="gap-bar-neg" style="left: 37.7%; width: 12.3%; background: linear-gradient(to left, #fb923c, #ea580c);"></div>
+        </div>
+        <div class="gap-scale"><span>-50</span><span>0</span><span>+50</span></div>
+        <div class="gap-tag" style="color:#ea580c;">Cenderung negatif</div>
+      </div>
+
+      <!-- Threads -->
+      <div class="gap-item">
+        <div class="gap-header">
+          <span class="gap-platform"><span style="color:#0f172a;">@</span> Threads</span>
+          <span class="gap-val neg" style="color:#f59e0b;">-8,1 pp</span>
+        </div>
+        <div class="gap-meter-wrap">
+          <div class="gap-center-line"></div>
+          <div class="gap-bar-neg" style="left: 41.9%; width: 8.1%; background: linear-gradient(to left, #fde047, #f59e0b);"></div>
+        </div>
+        <div class="gap-scale"><span>-50</span><span>0</span><span>+50</span></div>
+        <div class="gap-tag" style="color:#d97706;">Cenderung negatif</div>
+      </div>
+    </div>
+
+    <!-- Prioritas Isu (Decision Score) Table -->
+    <div class="dss-card">
+      <div class="card-header">
+        <div class="card-title">Prioritas Isu (Decision Score)</div>
+      </div>
+      <div style="overflow-x: auto;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 50px;">Peringkat</th>
+              <th>Isu Strategis</th>
+              <th style="width: 60px; text-align:center;">Skor</th>
+              <th style="width: 130px;">Status</th>
+              <th>Rekomendasi Kebijakan Operasional BPS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight:700; text-align:center;">1</td>
+              <td style="font-weight:600;">Kendala teknis FASIH</td>
+              <td style="font-weight:800; text-align:center; color:#991b1b;">92</td>
+              <td><span class="badge-status red"><span class="badge-status-dot"></span> Prioritas segera</span></td>
+              <td>Investigasi modul submit, stabilisasi penyimpanan luring (offline), dan kompresi foto otomatis.</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700; text-align:center;">2</td>
+              <td style="font-weight:600;">Kekhawatiran pajak</td>
+              <td style="font-weight:800; text-align:center; color:#991b1b;">86</td>
+              <td><span class="badge-status red"><span class="badge-status-dot"></span> Prioritas segera</span></td>
+              <td>Sosialisasi masif jaminan kerahasiaan data individu sesuai UU No. 16/1997 tentang Statistik.</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700; text-align:center;">3</td>
+              <td style="font-weight:600;">Dinamika lapangan</td>
+              <td style="font-weight:800; text-align:center; color:#9a3412;">79</td>
+              <td><span class="badge-status orange"><span class="badge-status-dot"></span> Pantau intensif</span></td>
+              <td>Penyusunan panduan persuasif lapangan untuk menepis ketakutan warga dicoret dari penerima bansos.</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700; text-align:center;">4</td>
+              <td style="font-weight:600;">Beban ekonomi / honor</td>
+              <td style="font-weight:800; text-align:center; color:#9a3412;">68</td>
+              <td><span class="badge-status orange"><span class="badge-status-dot"></span> Pantau intensif</span></td>
+              <td>Penataan beban kerja per blok sensus dan transparansi jadwal pencairan honor mitra statistik.</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700; text-align:center;">5</td>
+              <td style="font-weight:600;">Privasi data</td>
+              <td style="font-weight:800; text-align:center; color:#9a3412;">61</td>
+              <td><span class="badge-status orange"><span class="badge-status-dot"></span> Pantau intensif</span></td>
+              <td>Edukasi perlindungan foto tempat usaha dan keamanan server pengolahan sensus BPS.</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700; text-align:center;">6</td>
+              <td style="font-weight:600;">Disinformasi / hoaks</td>
+              <td style="font-weight:800; text-align:center; color:#854d0e;">58</td>
+              <td><span class="badge-status yellow"><span class="badge-status-dot"></span> Monitor</span></td>
+              <td>Perluas konten edukasi digital dan tanggap klarifikasi di akun resmi media sosial BPS.</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700; text-align:center;">7</td>
+              <td style="font-weight:600;">Pertanyaan prosedural</td>
+              <td style="font-weight:800; text-align:center; color:#854d0e;">54</td>
+              <td><span class="badge-status yellow"><span class="badge-status-dot"></span> Monitor</span></td>
+              <td>Penyediaan chatbot FAQ dan pusat bantuan interaktif seputar jadwal dan cakupan sensus.</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700; text-align:center;">8</td>
+              <td style="font-weight:600;">Apresiasi digitalisasi</td>
+              <td style="font-weight:800; text-align:center; color:#166534;">31</td>
+              <td><span class="badge-status green"><span class="badge-status-dot"></span> Pertahankan</span></td>
+              <td>Amplifikasi narasi positif dan apresiasi publik atas dedikasi petugas pencacah di lapangan.</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700; text-align:center;">9</td>
+              <td style="font-weight:600;">Skeptisisme &amp; manfaat</td>
+              <td style="font-weight:800; text-align:center; color:#166534;">28</td>
+              <td><span class="badge-status green"><span class="badge-status-dot"></span> Pertahankan</span></td>
+              <td>Tampilkan contoh nyata manfaat data sensus ekonomi untuk kebijakan subsidi UMKM nasional.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Floating Tooltip -->
+<div id="dss-tooltip"></div>
+
+<script src="dss_data_real.js"></script>
+<script>
+// Data Definitions (Linked directly with real corpus data)
+const TIMELINE = (typeof DSS_REAL_DATA !== 'undefined' && DSS_REAL_DATA.timeline)
+  ? DSS_REAL_DATA.timeline
+  : ['15–21 Jun', '22 Jun–5 Jul', '6–19 Jul', '20 Jul–2 Agu', '3–16 Agu', '17–30 Agu', '31 Agu–14 Sep'];
+
+const TREN_DATA = (typeof DSS_REAL_DATA !== 'undefined' && DSS_REAL_DATA.overall_trend)
+  ? DSS_REAL_DATA.overall_trend
+  : {
+      negatif: [48.5, 78.9, 72.3, 65.2, 68.2, 58.8, 75.9],
+      positif: [27.8, 13.1, 19.9, 28.8, 26.0, 35.6, 12.3],
+      netral:  [23.7, 8.0, 7.8, 6.1, 5.7, 5.6, 11.7]
+    };
+
+const PLATFORM_SPARKS = (typeof DSS_REAL_DATA !== 'undefined' && DSS_REAL_DATA.platform_sparks)
+  ? DSS_REAL_DATA.platform_sparks
+  : {
+      yt: {
+        prop: { neg: [42, 48, 46, 62, 65, 54, 43], pos: [22, 20, 26, 17, 22, 24, 27], neu: [11, 9, 13, 10, 12, 13, 11] },
+        vol:  { neg: [480, 560, 520, 890, 940, 710, 490], pos: [250, 230, 290, 240, 310, 320, 310], neu: [120, 100, 150, 140, 170, 170, 120] }
+      },
+      gp: {
+        prop: { neg: [40, 46, 43, 60, 64, 53, 42], pos: [18, 16, 22, 15, 20, 21, 25], neu: [10, 8, 12, 9, 11, 12, 10] },
+        vol:  { neg: [110, 140, 125, 220, 240, 170, 110], pos: [50, 45, 60, 55, 75, 70, 65], neu: [25, 20, 35, 30, 40, 40, 25] }
+      },
+      th: {
+        prop: { neg: [35, 42, 38, 52, 55, 46, 38], pos: [24, 22, 28, 20, 25, 26, 30], neu: [14, 12, 16, 13, 15, 16, 14] },
+        vol:  { neg: [22, 28, 25, 44, 48, 35, 22], pos: [15, 14, 18, 17, 22, 21, 20], neu: [8, 6, 10, 9, 12, 12, 8] }
+      }
+    };
+
+const HEATMAP_DATA = (typeof DSS_REAL_DATA !== 'undefined' && DSS_REAL_DATA.heatmap)
+  ? DSS_REAL_DATA.heatmap
+  : [
+  { nama: 'Kendala teknis FASIH', yt: 0.85, gp: 0.92, th: 0.65 },
+  { nama: 'Skeptisisme & manfaat', yt: 0.72, gp: 0.68, th: 0.45 },
+  { nama: 'Dinamika lapangan', yt: 0.58, gp: 0.42, th: 0.62 },
+  { nama: 'Disinformasi / hoaks', yt: 0.64, gp: 0.45, th: 0.38 },
+  { nama: 'Kekhawatiran pajak', yt: 0.55, gp: 0.52, th: 0.35 },
+  { nama: 'Beban ekonomi / honor', yt: 0.48, gp: 0.58, th: 0.42 },
+  { nama: 'Privasi data', yt: 0.42, gp: 0.45, th: 0.56 },
+  { nama: 'Pertanyaan prosedural', yt: 0.32, gp: 0.35, th: 0.30 },
+  { nama: 'Apresiasi digitalisasi', yt: 0.12, gp: 0.10, th: 0.15 }
+];
+
+const TOP_TOPICS_DATA = (typeof DSS_REAL_DATA !== 'undefined' && DSS_REAL_DATA.top_topics)
+  ? DSS_REAL_DATA.top_topics
+  : {
+  all: [
+    { nama: 'Skeptisisme & persepsi manfaat', val: 1549, pct: '26,7%', col: '#ef4444' },
+    { nama: 'Kendala teknis FASIH', val: 1215, pct: '20,9%', col: '#f97316' },
+    { nama: 'Dinamika lapangan & petugas', val: 1012, pct: '17,4%', col: '#fb923c' },
+    { nama: 'Disinformasi / hoaks', val: 710, pct: '12,2%', col: '#84cc16' },
+    { nama: 'Kekhawatiran pajak', val: 669, pct: '11,5%', col: '#10b981' },
+    { nama: 'Beban ekonomi / honor', val: 497, pct: '8,6%', col: '#06b6d4' },
+    { nama: 'Privasi & kerahasiaan data', val: 418, pct: '7,2%', col: '#3b82f6' },
+    { nama: 'Pertanyaan prosedural', val: 380, pct: '6,5%', col: '#8b5cf6' },
+    { nama: 'Apresiasi digitalisasi', val: 300, pct: '5,2%', col: '#ec4899' }
+  ],
+  yt: [
+    { nama: 'Skeptisisme & persepsi manfaat', val: 1280, pct: '28,1%', col: '#ef4444' },
+    { nama: 'Kendala teknis FASIH', val: 890, pct: '19,5%', col: '#f97316' },
+    { nama: 'Dinamika lapangan', val: 820, pct: '18,0%', col: '#fb923c' },
+    { nama: 'Disinformasi / hoaks', val: 610, pct: '13,4%', col: '#84cc16' },
+    { nama: 'Kekhawatiran pajak', val: 540, pct: '11,8%', col: '#10b981' },
+    { nama: 'Beban ekonomi / honor', val: 380, pct: '8,3%', col: '#06b6d4' },
+    { nama: 'Privasi', val: 310, pct: '6,8%', col: '#3b82f6' },
+    { nama: 'Pertanyaan prosedural', val: 280, pct: '6,1%', col: '#8b5cf6' },
+    { nama: 'Apresiasi digitalisasi', val: 210, pct: '4,6%', col: '#ec4899' }
+  ],
+  gp: [
+    { nama: 'Kendala teknis FASIH', val: 290, pct: '38,2%', col: '#f97316' },
+    { nama: 'Skeptisisme & manfaat', val: 210, pct: '27,6%', col: '#ef4444' },
+    { nama: 'Dinamika lapangan', val: 150, pct: '19,7%', col: '#fb923c' },
+    { nama: 'Beban honor', val: 95, pct: '12,5%', col: '#06b6d4' },
+    { nama: 'Kekhawatiran pajak', val: 90, pct: '11,8%', col: '#10b981' },
+    { nama: 'Pertanyaan prosedural', val: 75, pct: '9,9%', col: '#8b5cf6' },
+    { nama: 'Privasi', val: 70, pct: '9,2%', col: '#3b82f6' },
+    { nama: 'Disinformasi', val: 65, pct: '8,6%', col: '#84cc16' },
+    { nama: 'Apresiasi', val: 60, pct: '7,9%', col: '#ec4899' }
+  ],
+  th: [
+    { nama: 'Skeptisisme & persepsi manfaat', val: 59, pct: '22,8%', col: '#ef4444' },
+    { nama: 'Dinamika lapangan', val: 42, pct: '16,2%', col: '#fb923c' },
+    { nama: 'Kekhawatiran pajak', val: 39, pct: '15,1%', col: '#10b981' },
+    { nama: 'Kendala teknis FASIH', val: 35, pct: '13,5%', col: '#f97316' },
+    { nama: 'Disinformasi / hoaks', val: 35, pct: '13,5%', col: '#84cc16' },
+    { nama: 'Privasi', val: 38, pct: '14,7%', col: '#3b82f6' },
+    { nama: 'Apresiasi digitalisasi', val: 30, pct: '11,6%', col: '#ec4899' },
+    { nama: 'Pertanyaan prosedural', val: 25, pct: '9,7%', col: '#8b5cf6' },
+    { nama: 'Beban ekonomi', val: 22, pct: '8,5%', col: '#06b6d4' }
+  ]
+};
+
+const ISU_TREND_DATA = {
+  all: {
+    fasih:   [90, 140, 110, 290, 310, 220, 140],
+    manfaat: [120, 150, 130, 210, 230, 180, 140],
+    petugas: [80, 110, 95, 140, 170, 140, 110],
+    pajak:   [50, 70, 60, 160, 130, 90, 60],
+    privasi: [40, 55, 45, 90, 85, 60, 45]
+  },
+  yt: {
+    fasih:   [65, 100, 80, 210, 225, 160, 100],
+    manfaat: [95, 120, 105, 170, 185, 145, 110],
+    petugas: [65, 90, 75, 110, 135, 110, 85],
+    pajak:   [40, 55, 50, 130, 105, 70, 50],
+    privasi: [30, 40, 35, 70, 65, 45, 35]
+  },
+  gp: {
+    fasih:   [20, 35, 25, 70, 75, 52, 35],
+    manfaat: [20, 25, 20, 35, 40, 30, 25],
+    petugas: [12, 16, 15, 25, 30, 25, 20],
+    pajak:   [8, 12, 8, 25, 20, 15, 8],
+    privasi: [8, 12, 8, 16, 15, 12, 8]
+  },
+  th: {
+    fasih:   [5, 5, 5, 10, 10, 8, 5],
+    manfaat: [5, 5, 5, 5, 5, 5, 5],
+    petugas: [3, 4, 5, 5, 5, 5, 5],
+    pajak:   [2, 3, 2, 5, 5, 5, 2],
+    privasi: [2, 3, 2, 4, 5, 3, 2]
+  }
+};
+
+let currentPlatformMode = 'prop';
+let currentIssueTab = 'all';
+
+// Tooltip helper
+const tip = document.getElementById('dss-tooltip');
+function showTip(e, text) {
+  tip.innerHTML = text;
+  tip.style.display = 'block';
+  tip.style.left = (e.pageX + 12) + 'px';
+  tip.style.top = (e.pageY - 28) + 'px';
+}
+function hideTip() {
+  tip.style.display = 'none';
+}
+
+// 1. Draw Tren Keseluruhan SVG
+function drawTrenKeseluruhan() {
+  const svg = document.getElementById('chart-tren-keseluruhan');
+  const w = 680, h = 195;
+  const padL = 40, padR = 25, padT = 20, padB = 30;
+  const chartW = w - padL - padR;
+  const chartH = h - padT - padB;
+
+  let html = '';
+
+  // Y Grid & Labels (0% to 80%)
+  for (let i = 0; i <= 4; i++) {
+    const val = i * 20;
+    const y = padT + chartH - (val / 80) * chartH;
+    html += `<line x1="${padL}" y1="${y}" x2="${w - padR}" y2="${y}" class="grid-line" />`;
+    html += `<text x="${padL - 6}" y="${y + 3.5}" text-anchor="end" class="axis">${val}%</text>`;
+  }
+
+  // X Labels & Event Lines
+  const xStep = chartW / (TIMELINE.length - 1);
+  TIMELINE.forEach((t, i) => {
+    const x = padL + i * xStep;
+    html += `<text x="${x}" y="${h - 8}" text-anchor="middle" class="axis">${t}</text>`;
+  });
+
+  // Event Annotations
+  const events = [
+    { idx: 0, text: 'Peluncuran lapangan SE2026' },
+    { idx: 3, text: 'Puncak diskusi FASIH & pajak' },
+    { idx: 5, text: 'Sosialisasi & klarifikasi BPS' }
+  ];
+  events.forEach(ev => {
+    const x = padL + ev.idx * xStep;
+    html += `<line x1="${x}" y1="${padT + 5}" x2="${x}" y2="${padT + chartH}" class="event-line" />`;
+    html += `<text x="${x + 4}" y="${padT + 12}" class="event-label">${ev.text}</text>`;
+  });
+
+  // Curves generator
+  function makePath(data) {
+    let d = '';
+    data.forEach((val, i) => {
+      const x = padL + i * xStep;
+      const y = padT + chartH - (val / 80) * chartH;
+      if (i === 0) d += `M ${x} ${y}`;
+      else {
+        const prevX = padL + (i - 1) * xStep;
+        const prevY = padT + chartH - (data[i - 1] / 80) * chartH;
+        const cp1x = prevX + (x - prevX) / 2;
+        const cp2x = cp1x;
+        d += ` C ${cp1x} ${prevY}, ${cp2x} ${y}, ${x} ${y}`;
+      }
+    });
+    return d;
+  }
+
+  // Draw lines
+  html += `<path d="${makePath(TREN_DATA.negatif)}" class="chart-line" stroke="var(--color-neg)" />`;
+  html += `<path d="${makePath(TREN_DATA.positif)}" class="chart-line" stroke="var(--color-pos)" />`;
+  html += `<path d="${makePath(TREN_DATA.netral)}" class="chart-line" stroke="var(--color-neu)" />`;
+
+  // Draw points
+  TREN_DATA.negatif.forEach((val, i) => {
+    const x = padL + i * xStep;
+    const y = padT + chartH - (val / 80) * chartH;
+    html += `<circle cx="${x}" cy="${y}" r="4" fill="var(--color-neg)" class="chart-point"
+      onmousemove="showTip(event, '<strong>${TIMELINE[i]}</strong><br>Negatif: ${val}%')" onmouseout="hideTip()" />`;
+  });
+  TREN_DATA.positif.forEach((val, i) => {
+    const x = padL + i * xStep;
+    const y = padT + chartH - (val / 80) * chartH;
+    html += `<circle cx="${x}" cy="${y}" r="4" fill="var(--color-pos)" class="chart-point"
+      onmousemove="showTip(event, '<strong>${TIMELINE[i]}</strong><br>Positif: ${val}%')" onmouseout="hideTip()" />`;
+  });
+  TREN_DATA.netral.forEach((val, i) => {
+    const x = padL + i * xStep;
+    const y = padT + chartH - (val / 80) * chartH;
+    html += `<circle cx="${x}" cy="${y}" r="4" fill="var(--color-neu)" class="chart-point"
+      onmousemove="showTip(event, '<strong>${TIMELINE[i]}</strong><br>Netral: ${val}%')" onmouseout="hideTip()" />`;
+  });
+
+  svg.innerHTML = html;
+}
+
+// 2. Draw Platform Sparks
+function drawPlatformSparks(mode) {
+  const platforms = [
+    { id: 'spark-yt', key: 'yt', maxVal: mode === 'prop' ? 100 : 1000 },
+    { id: 'spark-gp', key: 'gp', maxVal: mode === 'prop' ? 100 : 300 },
+    { id: 'spark-th', key: 'th', maxVal: mode === 'prop' ? 100 : 60 }
+  ];
+
+  platforms.forEach(p => {
+    const svg = document.getElementById(p.id);
+    const w = 160, h = 150;
+    const padL = 26, padR = 10, padT = 12, padB = 22;
+    const chartW = w - padL - padR;
+    const chartH = h - padT - padB;
+    const data = PLATFORM_SPARKS[p.key][mode];
+
+    let html = '';
+    // Y Grid lines
+    for (let i = 0; i <= 2; i++) {
+      const val = Math.round(i * (p.maxVal / 2));
+      const y = padT + chartH - (i / 2) * chartH;
+      html += `<line x1="${padL}" y1="${y}" x2="${w - padR}" y2="${y}" class="grid-line" />`;
+      html += `<text x="${padL - 4}" y="${y + 3}" text-anchor="end" class="axis" style="font-size:8px;">${mode === 'prop' ? val + '%' : val}</text>`;
+    }
+
+    // X step
+    const xStep = chartW / (TIMELINE.length - 1);
+    // Draw 3 lines
+    function makeLine(arr, color) {
+      let d = '';
+      arr.forEach((val, i) => {
+        const x = padL + i * xStep;
+        const y = padT + chartH - (val / p.maxVal) * chartH;
+        if (i === 0) d += `M ${x} ${y}`;
+        else d += ` L ${x} ${y}`;
+      });
+      return `<path d="${d}" fill="none" stroke="${color}" stroke-width="2" />`;
+    }
+
+    html += makeLine(data.neg, 'var(--color-neg)');
+    html += makeLine(data.pos, 'var(--color-pos)');
+    html += makeLine(data.neu, 'var(--color-neu)');
+
+    // X Labels
+    html += `<text x="${padL}" y="${h - 5}" class="axis" style="font-size:8px;">Jun</text>`;
+    html += `<text x="${padL + chartW / 2}" y="${h - 5}" text-anchor="middle" class="axis" style="font-size:8px;">Agu</text>`;
+    html += `<text x="${w - padR}" y="${h - 5}" text-anchor="end" class="axis" style="font-size:8px;">Sep</text>`;
+
+    svg.innerHTML = html;
+  });
+}
+
+function togglePlatformTrend(mode) {
+  currentPlatformMode = mode;
+  document.getElementById('btn-prop').classList.toggle('active', mode === 'prop');
+  document.getElementById('btn-vol').classList.toggle('active', mode === 'vol');
+  drawPlatformSparks(mode);
+}
+
+// 3. Stacked Bar Chart
+function updateStackedBar() {
+  const svg = document.getElementById('chart-stacked-platform');
+  const mode = document.getElementById('select-vol-mode').value;
+  const w = 320, h = 220;
+  const padL = 36, padR = 20, padT = 15, padB = 30;
+  const chartW = w - padL - padR;
+  const chartH = h - padT - padB;
+
+  const data = (typeof DSS_REAL_DATA !== 'undefined' && DSS_REAL_DATA.stacked_platform)
+    ? DSS_REAL_DATA.stacked_platform.map(d => ({
+        name: d.name,
+        neg: d.neg,
+        pos: d.pos,
+        neu: d.neu,
+        total: mode === 'persen' ? (d.neg + d.pos + d.neu) : d.total_korpus
+      }))
+    : [
+        { name: 'YouTube', neg: 2890, pos: 1080, neu: 392, total: 6727 },
+        { name: 'Google Play', neg: 988, pos: 222, neu: 85, total: 1366 },
+        { name: 'Threads', neg: 100, pos: 13, neu: 38, total: 259 }
+      ];
+
+  let html = '';
+  const maxVal = mode === 'persen' ? 100 : 8000;
+
+  // Grid
+  const steps = 4;
+  for (let i = 0; i <= steps; i++) {
+    const val = Math.round(i * (maxVal / steps));
+    const y = padT + chartH - (i / steps) * chartH;
+    html += `<line x1="${padL}" y1="${y}" x2="${w - padR}" y2="${y}" class="grid-line" />`;
+    html += `<text x="${padL - 4}" y="${y + 3}" text-anchor="end" class="axis">${val}${mode === 'persen' ? '%' : ''}</text>`;
+  }
+
+  // Bars
+  const barW = 38;
+  const barGap = chartW / data.length;
+
+  data.forEach((d, i) => {
+    const cx = padL + i * barGap + barGap / 2;
+    const x = cx - barW / 2;
+
+    let hNeg, hPos, hNeu;
+    if (mode === 'persen') {
+      const pNeg = (d.neg / d.total) * 100;
+      const pPos = (d.pos / d.total) * 100;
+      const pNeu = (d.neu / d.total) * 100;
+      hNeg = (pNeg / 100) * chartH;
+      hPos = (pPos / 100) * chartH;
+      hNeu = (pNeu / 100) * chartH;
+    } else {
+      hNeg = (d.neg / maxVal) * chartH;
+      hPos = (d.pos / maxVal) * chartH;
+      hNeu = (d.neu / maxVal) * chartH;
+    }
+
+    const yNeu = padT + chartH - hNeu;
+    const yPos = yNeu - hPos;
+    const yNeg = yPos - hNeg;
+
+    // Negatif (bottom/red)
+    html += `<rect x="${x}" y="${yNeg}" width="${barW}" height="${hNeg}" fill="var(--color-neg)" rx="2"
+      onmousemove="showTip(event, '${d.name}<br>Negatif: ${d.neg} (${((d.neg/d.total)*100).toFixed(1)}%)')" onmouseout="hideTip()" />`;
+    // Positif (middle/green)
+    html += `<rect x="${x}" y="${yPos}" width="${barW}" height="${hPos}" fill="var(--color-pos)" rx="2"
+      onmousemove="showTip(event, '${d.name}<br>Positif: ${d.pos} (${((d.pos/d.total)*100).toFixed(1)}%)')" onmouseout="hideTip()" />`;
+    // Netral (top/blue)
+    html += `<rect x="${x}" y="${yNeu}" width="${barW}" height="${hNeu}" fill="var(--color-neu)" rx="2"
+      onmousemove="showTip(event, '${d.name}<br>Netral: ${d.neu} (${((d.neu/d.total)*100).toFixed(1)}%)')" onmouseout="hideTip()" />`;
+
+    // Total label on top
+    const totalTop = yNeg - 4;
+    html += `<text x="${cx}" y="${totalTop}" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e293b">${d.total.toLocaleString('id-ID')}</text>`;
+
+    // X label
+    html += `<text x="${cx}" y="${h - 8}" text-anchor="middle" class="axis" font-weight="600">${d.name}</text>`;
+  });
+
+  svg.innerHTML = html;
+}
+
+// 4. Heatmap Rendering
+function renderHeatmap() {
+  const tbody = document.getElementById('heatmap-body');
+  let html = '';
+
+  function getColor(score) {
+    // 0.0 (green) to 1.0 (red)
+    if (score >= 0.8) return { bg: '#fee2e2', text: '#991b1b', label: 'Tinggi' };
+    if (score >= 0.6) return { bg: '#ffedd5', text: '#9a3412', label: 'Sedang' };
+    if (score >= 0.45) return { bg: '#fef3c7', text: '#b45309', label: 'Cukup' };
+    if (score >= 0.3) return { bg: '#dcfce7', text: '#15803d', label: 'Rendah' };
+    return { bg: '#bbf7d0', text: '#166534', label: 'Sangat rendah' };
+  }
+
+  HEATMAP_DATA.forEach(row => {
+    const cYt = getColor(row.yt);
+    const cGp = getColor(row.gp);
+    const cTh = getColor(row.th);
+    html += `
+      <tr>
+        <td>${row.nama}</td>
+        <td style="background:${cYt.bg}; color:${cYt.text};"
+          onmousemove="showTip(event, '${row.nama} di YouTube<br>Indeks Negativitas: ${(row.yt*100).toFixed(0)}%')" onmouseout="hideTip()">${(row.yt*100).toFixed(0)}%</td>
+        <td style="background:${cGp.bg}; color:${cGp.text};"
+          onmousemove="showTip(event, '${row.nama} di Google Play<br>Indeks Negativitas: ${(row.gp*100).toFixed(0)}%')" onmouseout="hideTip()">${(row.gp*100).toFixed(0)}%</td>
+        <td style="background:${cTh.bg}; color:${cTh.text};"
+          onmousemove="showTip(event, '${row.nama} di Threads<br>Indeks Negativitas: ${(row.th*100).toFixed(0)}%')" onmouseout="hideTip()">${(row.th*100).toFixed(0)}%</td>
+      </tr>
+    `;
+  });
+
+  tbody.innerHTML = html;
+}
+
+// 5. Top Topics Horizontal Bar Chart
+function updateTopTopics() {
+  const platform = document.getElementById('select-top-platform').value;
+  const list = TOP_TOPICS_DATA[platform] || TOP_TOPICS_DATA.all;
+  const maxVal = list[0].val;
+  const container = document.getElementById('topic-bar-container');
+
+  let html = '';
+  list.forEach(item => {
+    const widthPct = Math.round((item.val / maxVal) * 100);
+    html += `
+      <div class="topic-bar-item" onmousemove="showTip(event, '${item.nama}<br>${item.val.toLocaleString('id-ID')} opini (${item.pct})')" onmouseout="hideTip()">
+        <div class="topic-bar-info">
+          <span class="topic-bar-name">${item.nama}</span>
+          <span class="topic-bar-val">${item.val.toLocaleString('id-ID')} (${item.pct})</span>
+        </div>
+        <div class="topic-bar-track">
+          <div class="topic-bar-fill" style="width: ${widthPct}%; background: ${item.col};"></div>
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+}
+
+// 6. Tren Isu Utama (Multi-line)
+function drawIssueTrend() {
+  const svg = document.getElementById('chart-isu-tren');
+  const w = 460, h = 190;
+  const padL = 36, padR = 20, padT = 15, padB = 25;
+  const chartW = w - padL - padR;
+  const chartH = h - padT - padB;
+
+  const dataset = ISU_TREND_DATA[currentIssueTab] || ISU_TREND_DATA.all;
+  const maxVal = currentIssueTab === 'all' ? 400 : (currentIssueTab === 'yt' ? 300 : (currentIssueTab === 'gp' ? 100 : 15));
+
+  let html = '';
+  // Y Grid
+  for (let i = 0; i <= 4; i++) {
+    const val = Math.round(i * (maxVal / 4));
+    const y = padT + chartH - (i / 4) * chartH;
+    html += `<line x1="${padL}" y1="${y}" x2="${w - padR}" y2="${y}" class="grid-line" />`;
+    html += `<text x="${padL - 4}" y="${y + 3}" text-anchor="end" class="axis">${val}</text>`;
+  }
+
+  // X Labels
+  const xStep = chartW / (TIMELINE.length - 1);
+  TIMELINE.forEach((t, i) => {
+    const x = padL + i * xStep;
+    html += `<text x="${x}" y="${h - 6}" text-anchor="middle" class="axis" style="font-size:9px;">${t.split(' ')[0]}</text>`;
+  });
+
+  const lines = [
+    { key: 'fasih', col: '#ef4444', label: 'Kendala teknis FASIH' },
+    { key: 'manfaat', col: '#f97316', label: 'Skeptisisme & manfaat' },
+    { key: 'petugas', col: '#eab308', label: 'Dinamika lapangan' },
+    { key: 'pajak', col: '#10b981', label: 'Kekhawatiran pajak' },
+    { key: 'privasi', col: '#3b82f6', label: 'Privasi' }
+  ];
+
+  lines.forEach(line => {
+    const vals = dataset[line.key];
+    let d = '';
+    vals.forEach((v, i) => {
+      const x = padL + i * xStep;
+      const y = padT + chartH - (v / maxVal) * chartH;
+      if (i === 0) d += `M ${x} ${y}`;
+      else d += ` L ${x} ${y}`;
+    });
+    html += `<path d="${d}" fill="none" stroke="${line.col}" stroke-width="2.2" stroke-linecap="round" />`;
+
+    vals.forEach((v, i) => {
+      const x = padL + i * xStep;
+      const y = padT + chartH - (v / maxVal) * chartH;
+      html += `<circle cx="${x}" cy="${y}" r="3.5" fill="${line.col}" class="chart-point"
+        onmousemove="showTip(event, '<strong>${line.label}</strong><br>${TIMELINE[i]}: ${v} opini')" onmouseout="hideTip()" />`;
+    });
+  });
+
+  svg.innerHTML = html;
+}
+
+function setIssueTrendTab(tab) {
+  currentIssueTab = tab;
+  document.querySelectorAll('#issue-trend-tabs .tab-pill').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('onclick').includes(`'${tab}'`));
+  });
+  drawIssueTrend();
+}
+
+// 7. Filter Anomalies
+function filterAnomalies() {
+  const mode = document.getElementById('select-anomaly').value;
+  const rows = document.querySelectorAll('#table-anomalies tr');
+  rows.forEach(tr => {
+    const statusText = tr.querySelector('.badge-status').textContent.trim();
+    if (mode === 'high' && !statusText.includes('Tinggi')) {
+      tr.style.display = 'none';
+    } else {
+      tr.style.display = '';
+    }
+  });
+}
+
+// Initial Run
+window.addEventListener('DOMContentLoaded', () => {
+  drawTrenKeseluruhan();
+  drawPlatformSparks('prop');
+  updateStackedBar();
+  renderHeatmap();
+  updateTopTopics();
+  drawIssueTrend();
+});
+</script>
+</body>
+</html>

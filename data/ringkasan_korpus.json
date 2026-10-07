@@ -1,0 +1,45 @@
+{
+  "checkpoint": "data/processed/v3/labels_checkpoint.jsonl",
+  "total_baris": 8352,
+  "punya_anotasi": 8350,
+  "sumber_label": "gemma-4-12b-qat-unsloth-prompt-v2",
+  "prompt_versi": "v2",
+  "ember": {
+    "opini": {
+      "jumlah": 5808,
+      "berkas": "data\\processed\\v3\\korpus_opinion.csv"
+    },
+    "non_opini": {
+      "jumlah": 2119,
+      "berkas": "data\\processed\\v3\\korpus_non_opini.csv"
+    },
+    "karantina": {
+      "jumlah": 423,
+      "berkas": "data\\processed\\v3\\karantina_tidak_relevan.csv"
+    },
+    "gagal": {
+      "jumlah": 0,
+      "berkas": "data\\processed\\v3\\gagal_anotasi.csv"
+    }
+  },
+  "sebaran_sentimen_opini": {
+    "positif": 1304,
+    "negatif": 4285,
+    "netral": 219
+  },
+  "sebaran_tipe": {
+    "opini": 6011,
+    "sapaan": 444,
+    "pertanyaan": 1207,
+    "informasi": 584,
+    "lelucon": 104
+  },
+  "sebaran_bahasa": {
+    "indonesia": 7892,
+    "campur": 360,
+    "asing": 19,
+    "daerah": 79
+  },
+  "keyakinan_rendah": 367,
+  "min_confidence": 0.0
+}
