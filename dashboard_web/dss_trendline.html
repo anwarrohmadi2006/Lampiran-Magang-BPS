@@ -619,7 +619,7 @@ svg {
   </div>
   <div class="dss-header-right">
     <a href="index.html" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; background:#1e293b; color:#38bdf8; border:1px solid #334155; padding:7px 14px; border-radius:6px; font-weight:700; font-size:12px; transition:all 0.15s; box-shadow:0 2px 4px rgba(0,0,0,0.2);">
-      🔍 Penelusuran 8.350 Label &amp; Audit XAI
+      ← Evidence Console • 8.352 Label &amp; Audit XAI
     </a>
     <div class="dss-period-badge">
       <strong>Periode Data Riil</strong>
@@ -672,7 +672,7 @@ svg {
       <div class="kpi-info">
         <span class="kpi-label">YouTube</span>
         <span class="kpi-val">6.727</span>
-        <span class="kpi-sub">80,5% total volume</span>
+        <span class="kpi-sub">6.727 / 8.352 korpus</span>
       </div>
     </div>
     <div class="kpi-card">
@@ -680,7 +680,7 @@ svg {
       <div class="kpi-info">
         <span class="kpi-label">Google Play</span>
         <span class="kpi-val">1.366</span>
-        <span class="kpi-sub">16,4% total volume</span>
+        <span class="kpi-sub">1.366 / 8.352 korpus</span>
       </div>
     </div>
     <div class="kpi-card">
@@ -1400,7 +1400,7 @@ function updateStackedBar() {
         neg: d.neg,
         pos: d.pos,
         neu: d.neu,
-        total: mode === 'persen' ? (d.neg + d.pos + d.neu) : d.total_korpus
+        total: mode === 'persen' ? (d.neg + d.pos + d.neu) : d.total_opini
       }))
     : [
         { name: 'YouTube', neg: 2890, pos: 1080, neu: 392, total: 6727 },
@@ -1409,7 +1409,7 @@ function updateStackedBar() {
       ];
 
   let html = '';
-  const maxVal = mode === 'persen' ? 100 : 8000;
+  const maxVal =  mode === 'persen' ? 100 : 4500;
 
   // Grid
   const steps = 4;
