@@ -27,54 +27,65 @@ Penelitian terapan ini mengembangkan sistem analisis sentimen cerdas hulu ke hil
 
 ---
 
-## 🧠 Kerangka Kognitif Dua Tingkat: TypeSafe AI Jev & Google Gemma 4 12B IT
+## 🧠 Arsitektur Model: Pemilahan Relevansi (Gemma 4 12B), Anotasi Terkalibrasi (Jev), dan Model Produksi (IndoBERT R-Drop)
 
-Penelitian ini memadukan dua paradigma kecerdasan buatan komplementer untuk mewujudkan sistem pemrosesan opini publik yang cepat, akurat, dan dapat dijelaskan secara rasional:
+Penelitian ini memadukan kekuatan pemahaman wacana LLM untuk pemilahan konteks awal dengan ketegasan skema keputusan non-autoregressive untuk pelabelan polaritas yang bebas halusinasi:
 
 ```text
 ┌────────────────────────────────────────────────────────────────────────┐
-│                        [8.352 Opini Publik Mentah]                     │
+│                        [8.352 Korpus Bersih Siap Anotasi]              │
 │               YouTube (6.727) · Google Play (1.366) · Threads (259)    │
 └───────────────────────────────────┬────────────────────────────────────┘
                                     │
                                     ▼
 ┌────────────────────────────────────────────────────────────────────────┐
-│      System 1: TypeSafe AI Jev (Dirilis Resmi 15 September 2026)       │
+│     TAHAP AWAL (Pemilah Relevansi): Google Gemma 4 12B IT              │
+│ • Model LLM sadar konteks (judul video, status balasan, teks induk)    │
+│ • Kuantisasi 4-bit Unsloth (QAT W4A16 / GGUF) via vLLM di Modal       │
+│ • Fungsi: Memilah 8.352 baris menjadi tiga ember partisi:              │
+│   - Ember Opini       : 5.808 baris (memuat penilaian polaritas)       │
+│   - Ember Non-Opini   : 2.119 baris (pertanyaan, sapaan, informasi)    │
+│   - Ember Karantina   :   423 baris (di luar topik sensus & Fasih)     │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │ (Hanya 5.808 baris ember opini)
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│     TAHAP PELABELAN SENTIMEN: TypeSafe AI Jev (Rilis 15 Sep 2026)      │
 │ • Model diskriminatif non-autoregressive (typed decisions terkalibrasi)│
-│ • Zero hallucination matematis (skema biner & enum terstruktur aman)   │
-│ • Latensi sub-detik (70–500 ms) | Biaya efisien ($0,042 / 1M token)    │
-│ • Fungsi: Triase topik, pemilahan relevansi opini, scoring probabilitas│
+│ • Zero hallucination matematis (skema enum terkunci: Neg, Neu, Pos)    │
+│ • Mengeliminasi kelemahan lama di mana kelas netral jadi penampungan   │
+│ • Fungsi: Melabeli ulang 5.808 opini menjadi data latih sentimen:      │
+│   - Negatif : 3.978 baris (68,5%)                                      │
+│   - Positif : 1.315 baris (22,6%)                                      │
+│   - Netral  :   515 baris (8,9%)                                       │
 └───────────────────────────────────┬────────────────────────────────────┘
                                     │
                                     ▼
 ┌────────────────────────────────────────────────────────────────────────┐
-│         System 2: Google Gemma 4 12B IT (Unsloth QAT / GGUF)           │
-│ • Model LLM encoder-free unified multimodal/teks generasi 2026         │
-│ • Kuantisasi 4-bit Unsloth (GGUF lokal & QAT W4A16 cloud vLLM / Modal) │
-│ • Deliberate reasoning & penalaran konteks wacana informal Indonesia   │
-│ • Fungsi: Analisis kausalitas XAI & rekomendasi mitigasi kebijakan BPS │
+│     PELATIHAN & PRODUKSI: IndoBERT Base + Regularisasi R-Drop          │
+│ • Model klasifikasi Transformer disetel pada 5.808 data latih Jev      │
+│ • Regularisasi konsistensi KL-divergence (skenario ablasi terbaik)     │
+│ • Diukur pada Gold Set Manusia Independen (100 baris / 85 tersentimen):│
+│   - Pipeline Utama (Gemma -> Jev -> IndoBERT): Akurasi 0,7882 / F1 0,7700│
+│   - Pipeline Pembanding (Ablasi Jev Langsung): Akurasi 0,7529 / F1 0,7387│
+│   - Uji Signifikansi McNemar: p = 0,5811 (perbedaan belum signifikan)  │
 └───────────────────────────────────┬────────────────────────────────────┘
                                     │
                                     ▼
 ┌────────────────────────────────────────────────────────────────────────┐
-│         Produksi: IndoBERT Base + R-Drop (Modal Serverless API)        │
-│ • Regularisasi konsistensi KL-divergence (F1 Macro 0,7700 / Akurasi 0,7882)│
-│ • Atribusi terintegrasi XAI (Layer Attention Rollout & Gradient Saliency) │
-└───────────────────────────────────┬────────────────────────────────────┘
-                                    │
-                                    ▼
-┌────────────────────────────────────────────────────────────────────────┐
-│            [Dasbor DSS & Rekomendasi Mitigasi Kebijakan BPS]           │
-│      Monitoring Tren, Deteksi Anomali, dan Prioritas Isu Operasional   │
+│     EKSPLANASI XAI & SISTEM PENDUKUNG KEPUTUSAN (DSS BPS SUKOHARJO)    │
+│ • Peta Atensi Multi-Head & Atribusi Lokal Perturbasi LIME              │
+│ • Dasbor Web Pemantauan Tren, Anomali, dan Prioritas Mitigasi Risiko   │
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
 ```mermaid
 graph TD
-    A["8.352 Opini Publik Mentah<br/>(YouTube: 6.727 | Google Play: 1.366 | Threads: 259)"] --> B["System 1: TypeSafe AI Jev<br/>(Rilis 15 Sep 2026 · Typed Decisions · Latensi 70-500ms · $0,042/1M tok)"]
-    B --> C["System 2: Google Gemma 4 12B IT<br/>(Unsloth QAT W4A16 / GGUF · Deliberate Reasoning & XAI Kausalitas)"]
-    C --> D["Produksi: IndoBERT Base + R-Drop<br/>(Akurasi Gold: 0,7882 | Macro F1: 0,7700 | Modal Serverless API)"]
-    D --> E["Dasbor DSS & Rekomendasi Mitigasi Kebijakan BPS<br/>(Monitoring Tren, Deteksi Anomali & Rekomendasi Operasional)"]
+    A["8.352 Korpus Bersih<br/>(YouTube: 6.727 | Google Play: 1.366 | Threads: 259)"] --> B["Tahap Awal: Google Gemma 4 12B IT<br/>(Pemilah Relevansi: 5.808 Opini | 2.119 Non-Opini | 423 Karantina)"]
+    B -->|5.808 Partisi Opini| C["Tahap Pelabelan: TypeSafe AI Jev<br/>(Anotator Sentimen Terkalibrasi: 3.978 Neg | 1.315 Pos | 515 Neu)"]
+    C --> D["Pelatihan & Produksi: IndoBERT Base + R-Drop<br/>(Disetel pada data latih Jev)"]
+    D --> E["Evaluasi Gold Set Manusia (100 baris)<br/>(Pipeline Utama: Akurasi 0,7882 | Macro F1 0,7700)"]
+    E --> F["XAI (Atensi & LIME) + Dasbor DSS BPS<br/>(Analisis Kausalitas & Mitigasi Risiko Kebijakan)"]
 ```
 
 ---

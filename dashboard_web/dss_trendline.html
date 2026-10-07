@@ -1232,36 +1232,36 @@ svg {
       </div>
 
       <div style="display:flex; flex-direction:column; gap:10px;">
-        <!-- System 1 -->
+        <!-- Tahap 1: Gemma 4 12B -->
         <div class="arch-box">
           <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span class="arch-badge sys1">System 1: TypeSafe AI Jev</span>
-            <span style="font-size:12px; color:#cbd5e1;">Rilis 15 Sep 2026</span>
+            <span class="arch-badge sys2">Tahap 1: Google Gemma 4 12B IT</span>
+            <span style="font-size:12px; color:#e9d5ff;">Pemilah Relevansi &amp; Konteks</span>
           </div>
           <p style="font-size: 14px; color:#f1f5f9; line-height:1.45;">
-            Classifier sentimen &amp; pemilahan relevansi berkecepatan tinggi dengan kalibrasi ketat. Mampu memproses 8.352 baris mentah secara efisien dan andal.
+            Model LLM sadar konteks di hulu pipeline (judul video &amp; teks induk) untuk memilah 8.352 baris menjadi ember opini (5.808), non-opini (2.119), dan karantina (423).
           </p>
         </div>
 
-        <!-- System 2 -->
+        <!-- Tahap 2: TypeSafe AI Jev -->
         <div class="arch-box">
           <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span class="arch-badge sys2">System 2: Google Gemma 4 12B IT</span>
-            <span style="font-size:12px; color:#e9d5ff;">Unsloth GGUF / QAT</span>
+            <span class="arch-badge sys1">Tahap 2: TypeSafe AI Jev</span>
+            <span style="font-size:12px; color:#cbd5e1;">Anotator Terkalibrasi (15 Sep 2026)</span>
           </div>
           <p style="font-size: 14px; color:#f1f5f9; line-height:1.45;">
-            Reasoning LMM/LLM untuk penalaran semantik kontekstual kompleks, analisis sindiran/sarkasme bahasa daerah, serta anotasi pseudo-label berbobot multi-aspek.
+            Model diskriminatif non-autoregressive (typed decisions) dengan skema terkunci dan zero hallucination. Melabeli ulang 5.808 opini menjadi data latih sentimen (3.978 neg, 1.315 pos, 515 netral).
           </p>
         </div>
 
-        <!-- Servis Produksi -->
+        <!-- Tahap 3: IndoBERT + R-Drop Produksi -->
         <div class="arch-box" style="border-color:rgba(16,185,129,0.35); background:rgba(16,185,129,0.08);">
           <div style="display:flex; justify-content:space-between; align-items:center;">
             <span class="arch-badge prod">Produksi: IndoBERT + R-Drop</span>
             <span style="font-size:12px; color:#4ade80; font-weight:700;">Akurasi Gold: 0,7882</span>
           </div>
           <p style="font-size: 14px; color:#f1f5f9; line-height:1.45;">
-            Model inferensi akhir berkonsistensi tinggi dengan regularisasi R-Drop (F1 Macro 0,7700), didukung atribusi XAI atensi rollout lintas lapisan dan gradien embedding.
+            Model klasifikasi akhir yang disetel pada data latih Jev (F1 Macro 0,7700 pada 85 baris gold set manusia), disajikan via serverless API Modal dan didukung XAI atensi &amp; LIME.
           </p>
         </div>
       </div>
