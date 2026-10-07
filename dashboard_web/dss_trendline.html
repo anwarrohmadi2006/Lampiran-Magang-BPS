@@ -3,364 +3,419 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DSS Monitoring Opini Publik SE2026 - BPS</title>
-<<style>
+<title>Sistem Pendukung Keputusan Analisis Sentimen SE2026 - BPS Kabupaten Sukoharjo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
 :root {
+  /* Design Tokens - Executive Statistical Intelligence */
   --bg-page: #f8fafc;
   --bg-card: #ffffff;
   --bg-header: #0f172a;
-  --border-card: #e2e8f0;
+  --border-subtle: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --border-strong: #94a3b8;
+  
   --text-main: #0f172a;
   --text-muted: #475569;
+  --text-light: #64748b;
   --text-white: #ffffff;
+
+  --navy-brand: #1e3a8a;
+  --navy-accent: #2563eb;
+  --navy-subtle: #eff6ff;
+
   --color-neg: #dc2626;
+  --color-neg-bg: #fef2f2;
+  --color-neg-border: #fca5a5;
+
   --color-pos: #16a34a;
+  --color-pos-bg: #f0fdf4;
+  --color-pos-border: #86efac;
+
   --color-neu: #0284c7;
+  --color-neu-bg: #f0f9ff;
+  --color-neu-border: #7dd3fc;
+
   --color-yt: #dc2626;
-  --color-gp: #059669;
+  --color-gp: #0284c7;
   --color-th: #0f172a;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
-  --radius-lg: 10px;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI", "Public Sans", system-ui, sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+
+  --shadow-subtle: 0 1px 3px 0 rgba(15, 23, 42, 0.05);
+  --shadow-card: 0 4px 6px -1px rgba(15, 23, 42, 0.06), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   background-color: var(--bg-page);
   color: var(--text-main);
   line-height: 1.5;
-  font-size: 14px;
+  font-size: 13.5px;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-/* Header */
+/* Executive Brand Header */
 .dss-header {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(135deg, #0b1329 0%, #0f172a 60%, #1e293b 100%);
   color: var(--text-white);
-  padding: 14px 24px;
+  padding: 16px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid #3b82f6;
-  gap: 16px;
+  border-bottom: 2px solid #2563eb;
+  gap: 20px;
+  flex-wrap: wrap;
 }
+
 .dss-header-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
-.dss-logo-icon {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #0369a1 100%);
-  border-radius: 8px;
+
+.dss-emblem {
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 800;
-  font-size: 16px;
-  color: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-  transform: rotate(-3deg);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
 }
+
 .dss-title-block h1 {
-  font-size: 26px;
+  font-family: var(--font-display);
+  font-size: 22px;
   font-weight: 800;
-  letter-spacing: 0.4px;
+  letter-spacing: -0.02em;
   color: #ffffff;
+  line-height: 1.2;
+}
+
+.dss-title-block p {
+  font-size: 12.5px;
+  color: #94a3b8;
+  font-weight: 500;
+  margin-top: 3px;
+}
+
+.dss-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dss-period-tag {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 11.5px;
+  color: #cbd5e1;
   display: flex;
   align-items: center;
   gap: 8px;
 }
-.dss-title-block p {
-  font-size: 12px;
-  color: #94a3b8;
-  font-weight: 400;
-  margin-top: 2px;
+
+.dss-period-tag strong {
+  color: #38bdf8;
+  font-weight: 700;
 }
-.dss-header-right {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  text-align: right;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-.nav-back-btn {
-  text-decoration: none;
+
+.nav-explorer-btn {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  background: #1e3a8a;
-  color: #ffffff !important;
-  border: 1px solid #3b82f6;
-  padding: 8px 15px;
-  border-radius: 6px;
+  gap: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-size: 13px;
   font-weight: 700;
-  font-size: 12px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.4);
   transition: all 0.15s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
-.nav-back-btn:hover, .nav-back-btn:focus {
-  background: #2563eb !important;
-  color: #ffffff !important;
+
+.nav-explorer-btn:hover {
+  background: #1d4ed8;
   transform: translateY(-1px);
-}
-.dss-period-badge {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.18);
-  padding: 6px 12px;
-  border-radius: var(--radius-md);
-  font-size: 12px;
-  line-height: 1.35;
-  text-align: left;
-}
-.dss-period-badge strong {
-  display: block;
-  color: #38bdf8;
-  font-size: 12px;
-  font-weight: 700;
-}
-.dss-header-desc {
-  max-width: 360px;
-  font-size: 12px;
-  color: #cbd5e1;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
-  padding: 6px 10px;
-  border-radius: var(--radius-md);
-  text-align: left;
-  line-height: 1.35;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.5);
 }
 
-/* Dashboard Container */
+/* Dashboard Shell */
 .dss-dashboard {
-  max-width: 1540px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 16px 20px 40px;
+  padding: 20px 24px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 }
 
-/* Row 1: KPI Stats Ribbon */
-.kpi-row {
+/* Zone 1: Executive Telemetry Cockpit (Dense Gapless Bento) */
+.cockpit-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 12px;
-}
-.kpi-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-  padding: 12px 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-.kpi-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-.kpi-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  flex-shrink: 0;
-}
-.kpi-icon.blue { background: #e0f2fe; color: #0284c7; }
-.kpi-icon.red { background: #fee2e2; color: #ef4444; }
-.kpi-icon.green { background: #dcfce7; color: #10b981; }
-.kpi-icon.grey { background: #f1f5f9; color: #475569; }
-.kpi-icon.yt { background: #fee2e2; color: #dc2626; }
-.kpi-icon.gp { background: #d1fae5; color: #059669; }
-.kpi-icon.th { background: #e2e8f0; color: #0f172a; }
-.kpi-info {
-  display: flex;
-  flex-direction: column;
-}
-.kpi-label {
-  font-size: 12px;
-  color: var(--text-muted);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-}
-.kpi-val {
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--text-main);
-  line-height: 1.15;
-}
-.kpi-sub {
-  font-size: 12px;
-  color: var(--text-muted);
+  grid-template-columns: 1.3fr 1.6fr 1.1fr;
+  gap: 14px;
 }
 
-/* Card Base */
-.dss-card {
+.cockpit-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-card);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: 16px 18px;
-  box-shadow: var(--shadow-sm);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-subtle);
   display: flex;
   flex-direction: column;
-}
-.card-header {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #f1f5f9;
+  position: relative;
 }
-.card-title {
-  font-size: 16px;
+
+.cockpit-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.cockpit-title {
+  font-family: var(--font-display);
+  font-size: 13px;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   display: flex;
   align-items: center;
   gap: 6px;
 }
-.card-title .info-tip {
-  color: #64748b;
-  font-size: 12px;
-  cursor: help;
+
+.cockpit-main-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
 }
-.card-controls {
+
+.cockpit-big-num {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.cockpit-sub-label {
+  font-size: 12px;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+/* Platform channel micro tags */
+.platform-micro-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.platform-micro-pill {
+  background: #f8fafc;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 6px 8px;
+  text-align: center;
+}
+
+.platform-micro-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  display: block;
+}
+
+.platform-micro-val {
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.platform-micro-pct {
+  font-size: 10.5px;
+  color: var(--text-light);
+}
+
+/* Polarity Three-Pillar Cockpit */
+.polarity-tri-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.polarity-pillar {
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid transparent;
+}
+
+.polarity-pillar.neg {
+  background: var(--color-neg-bg);
+  border-color: var(--color-neg-border);
+}
+.polarity-pillar.pos {
+  background: var(--color-pos-bg);
+  border-color: var(--color-pos-border);
+}
+.polarity-pillar.neu {
+  background: var(--color-neu-bg);
+  border-color: var(--color-neu-border);
+}
+
+.polarity-tag {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.polarity-pillar.neg .polarity-tag { color: var(--color-neg); }
+.polarity-pillar.pos .polarity-tag { color: var(--color-pos); }
+.polarity-pillar.neu .polarity-tag { color: var(--color-neu); }
+
+.polarity-val {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--text-main);
+  font-variant-numeric: tabular-nums;
+}
+
+.polarity-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.polarity-track {
+  width: 100%;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 9999px;
+  overflow: hidden;
+  display: flex;
+  margin-top: 10px;
+}
+.polarity-seg-neg { height: 100%; background: var(--color-neg); width: 47.6%; }
+.polarity-seg-neu { height: 100%; background: var(--color-neu); width: 6.2%; }
+.polarity-seg-pos { height: 100%; background: var(--color-pos); width: 15.7%; }
+.polarity-seg-rem { height: 100%; background: #cbd5e1; width: 30.5%; }
+
+/* Card Standards */
+.dss-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.dss-card:hover {
+  box-shadow: var(--shadow-card);
+  border-color: var(--border-medium);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-subtle);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
   display: flex;
   align-items: center;
   gap: 8px;
 }
-.btn-toggle-group {
-  display: flex;
-  background: #f1f5f9;
-  border-radius: var(--radius-md);
-  padding: 2px;
-}
-.btn-toggle {
-  border: none;
-  background: transparent;
-  padding: 5px 11px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-muted);
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.btn-toggle.active {
-  background: #2563eb;
-  color: white;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-}
-.select-filter {
-  font-size: 12px;
-  padding: 5px 9px;
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-md);
-  background: #ffffff;
-  color: var(--text-main);
-  outline: none;
-  cursor: pointer;
+
+.card-title-desc {
+  font-size: 11.5px;
+  color: var(--text-light);
   font-weight: 500;
 }
 
-/* Layout Grids */
-.grid-row-2 {
+/* Grids */
+.grid-2col {
   display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: 16px;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 14px;
 }
-.grid-row-3 {
+
+.grid-3col {
   display: grid;
-  grid-template-columns: 1.15fr 1.45fr;
-  gap: 16px;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  gap: 14px;
 }
-.grid-row-4 {
-  display: grid;
-  grid-template-columns: 3.5fr 3fr 2fr;
-  gap: 16px;
-}
-.grid-row-5 {
-  display: grid;
-  grid-template-columns: 1fr 2.2fr;
-  gap: 16px;
-}
-.grid-row-6 {
+
+.grid-tri-model {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
-  gap: 16px;
-  margin-top: 4px;
+  gap: 14px;
 }
 
-/* SVG Chart Elements */
-.chart-container {
-  width: 100%;
-  position: relative;
-}
-svg {
-  overflow: visible;
-  display: block;
-}
-.axis text {
-  font-size: 12px;
-  fill: #475569;
-  font-family: var(--font-sans);
-  font-weight: 500;
-}
-.grid-line {
-  stroke: #f1f5f9;
-  stroke-dasharray: 2, 2;
-  stroke-width: 1;
-}
-.chart-line {
-  fill: none;
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.chart-point {
-  stroke-width: 2;
-  stroke: #ffffff;
-  cursor: pointer;
-  transition: r 0.15s ease;
-}
-.chart-point:hover {
-  r: 6;
-}
-.event-line {
-  stroke: #94a3b8;
-  stroke-dasharray: 3, 3;
-  stroke-width: 1;
-}
-.event-label {
-  font-size: 12px;
-  fill: #334155;
-  font-weight: 600;
-}
+/* Legends & Filters */
 .legend-inline {
   display: flex;
   gap: 12px;
-  align-items: center;
   font-size: 12px;
-  color: #475569;
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--text-muted);
+  align-items: center;
 }
+
 .legend-item {
   display: flex;
   align-items: center;
   gap: 5px;
 }
+
 .legend-dot {
   width: 9px;
   height: 9px;
@@ -370,31 +425,93 @@ svg {
 .legend-dot.pos { background: var(--color-pos); }
 .legend-dot.neu { background: var(--color-neu); }
 
-/* Horizontal Top Topics Bars */
+.select-filter {
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-main);
+  background: #f8fafc;
+  border: 1px solid var(--border-medium);
+  border-radius: 6px;
+  padding: 5px 10px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.select-filter:hover { border-color: var(--border-strong); }
+
+.btn-toggle-group {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 6px;
+  padding: 2px;
+}
+.btn-toggle {
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  border: none;
+  background: transparent;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn-toggle.active {
+  background: #ffffff;
+  color: var(--text-main);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+
+/* Topic Bar List */
 .topic-bar-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 .topic-bar-item {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 4px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+.topic-bar-item:hover {
+  background: #f8fafc;
 }
 .topic-bar-info {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  align-items: center;
+  font-size: 12.5px;
 }
 .topic-bar-name {
-  font-weight: 500;
-  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+.topic-rank-badge {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--navy-accent);
+  background: var(--navy-subtle);
+  padding: 1px 6px;
+  border-radius: 4px;
 }
 .topic-bar-val {
+  font-family: var(--font-mono);
+  font-size: 12px;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--text-main);
+  font-variant-numeric: tabular-nums;
 }
 .topic-bar-track {
+  width: 100%;
   height: 8px;
   background: #f1f5f9;
   border-radius: 4px;
@@ -405,109 +522,135 @@ svg {
   border-radius: 4px;
   transition: width 0.3s ease;
 }
-.topic-rank-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 4px;
-  background: #e2e8f0;
-  color: #1e293b;
-  font-size: 12px;
+
+/* SVG Chart Elements */
+.grid-line {
+  stroke: #e2e8f0;
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+}
+.axis {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  fill: #64748b;
+  font-weight: 500;
+}
+.chart-line {
+  fill: none !important;
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.chart-point {
+  stroke: #ffffff;
+  stroke-width: 2;
+  cursor: pointer;
+  transition: r 0.15s ease, filter 0.15s ease;
+}
+.chart-point:hover {
+  r: 6;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
+}
+.event-flag-rect {
+  fill: #ffffff;
+  stroke: #cbd5e1;
+  stroke-width: 1;
+  rx: 4;
+  filter: drop-shadow(0 1px 2px rgba(15, 23, 42, 0.08));
+}
+.event-flag-text {
+  font-family: var(--font-body);
+  font-size: 10px;
   font-weight: 700;
-  margin-right: 6px;
+  fill: #334155;
+}
+.event-flag-line {
+  stroke: #94a3b8;
+  stroke-width: 1.2;
+  stroke-dasharray: 3 3;
 }
 
-/* Data Tables */
+/* Tables */
 .data-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 12.5px;
 }
 .data-table th {
   background: #f8fafc;
-  color: #475569;
+  color: var(--text-muted);
   font-weight: 700;
   text-align: left;
   padding: 8px 10px;
-  border-bottom: 1px solid var(--border-card);
+  border-bottom: 1px solid var(--border-medium);
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 .data-table td {
-  padding: 8px 10px;
-  border-bottom: 1px solid #f1f5f9;
-  color: #1e293b;
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-main);
 }
 .data-table tr:hover td {
   background: #f8fafc;
 }
+
+/* Badges */
 .badge-status {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 3px 8px;
-  border-radius: 9999px;
-  font-size: 12px;
+  gap: 4px;
+  font-size: 11px;
   font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  line-height: 1.3;
 }
-.badge-status.red { background: #fee2e2; color: #991b1b; }
-.badge-status.orange { background: #ffedd5; color: #9a3412; }
-.badge-status.yellow { background: #fef9c3; color: #854d0e; }
-.badge-status.green { background: #dcfce7; color: #166534; }
-.badge-status-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-}
-.badge-status.red .badge-status-dot { background: #dc2626; }
-.badge-status.orange .badge-status-dot { background: #ea580c; }
-.badge-status.yellow .badge-status-dot { background: #ca8a04; }
-.badge-status.green .badge-status-dot { background: #16a34a; }
+.badge-status.red { background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; }
+.badge-status.orange { background: #ffedd5; color: #c2410c; border: 1px solid #fed7aa; }
+.badge-status.yellow { background: #fef9c3; color: #854d0e; border: 1px solid #fef08a; }
+.badge-status.green { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+.badge-status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 
-/* Decision Matrix Table */
-.matrix-table {
+/* Reskinned Executive Decision Matrix (No more black box) */
+.exec-matrix-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 12px;
 }
-.matrix-table th {
-  background: #1e293b;
-  color: #ffffff;
-  padding: 8px 12px;
+.exec-matrix-table th {
+  background: #f1f5f9;
+  color: var(--text-muted);
   font-weight: 700;
-  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border-medium);
 }
-.matrix-table td {
-  padding: 8px 12px;
-  border-bottom: 1px solid #334155;
+.exec-matrix-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border-subtle);
 }
-.matrix-cond { color: #f1f5f9; font-weight: 500; }
-.matrix-dec { font-weight: 700; }
+.exec-matrix-cond { font-weight: 600; color: #334155; }
+.exec-matrix-dec { font-weight: 800; }
 
-/* Sentiment Gap Card */
-.gap-item { margin-bottom: 14px; }
+/* Sentiment Gap Meter */
+.gap-item {
+  margin-bottom: 12px;
+}
 .gap-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   font-size: 12px;
-  margin-bottom: 5px;
+  font-weight: 700;
+  margin-bottom: 4px;
 }
-.gap-platform {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 600;
-}
-.gap-val { font-weight: 800; font-size: 14px; }
-.gap-val.neg { color: #dc2626; }
 .gap-meter-wrap {
   position: relative;
-  height: 14px;
-  background: #e2e8f0;
-  border-radius: 7px;
+  height: 10px;
+  background: #f1f5f9;
+  border-radius: 5px;
+  border: 1px solid var(--border-subtle);
   overflow: hidden;
-  margin-bottom: 5px;
 }
 .gap-center-line {
   position: absolute;
@@ -515,138 +658,58 @@ svg {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: #64748b;
+  background: #94a3b8;
   z-index: 2;
 }
 .gap-bar-neg {
   position: absolute;
   top: 0;
   bottom: 0;
-  background: linear-gradient(to left, #f87171, #dc2626);
-  border-radius: 4px 0 0 4px;
+  background: var(--color-neg);
+  border-radius: 3px;
 }
 .gap-scale {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
-  color: #64748b;
-  font-weight: 500;
-}
-.gap-tag {
-  font-size: 12px;
-  font-weight: 700;
-  text-align: center;
+  font-size: 10px;
+  color: var(--text-light);
   margin-top: 2px;
 }
 
-/* Tooltip floating */
-#dss-tooltip {
-  position: absolute;
-  display: none;
-  background: rgba(15, 23, 42, 0.95);
-  color: #ffffff;
-  padding: 7px 11px;
-  border-radius: 6px;
-  font-size: 12px;
-  pointer-events: none;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  line-height: 1.4;
-}
-
-/* Quick Filter Active Tabs */
-.tab-pills { display: flex; gap: 4px; }
-.tab-pill {
-  padding: 4px 9px;
-  font-size: 12px;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-card);
-  background: white;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.15s;
-}
-.tab-pill.active {
-  background: #2563eb;
-  color: white;
-  border-color: #2563eb;
-}
-
-/* Architecture Card & Badges */
-.architecture-card {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  color: #ffffff;
-  border-radius: var(--radius-lg);
-  padding: 18px 22px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid #334155;
-}
-.arch-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 12px;
-}
-.arch-box {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
-  padding: 14px 16px;
-}
-.arch-badge {
-  display: inline-block;
-  padding: 3px 9px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 700;
-  
-  margin-bottom: 8px;
-  letter-spacing: 0.3px;
-}
-.arch-badge.sys1 { background: #0369a1; color: #ffffff; }
-.arch-badge.sys2 { background: #6d28d9; color: #ffffff; }
-.arch-badge.prod { background: #047857; color: #ffffff; }
-
-
-/* Token Attention Heatmap Visualizer Styles (XAI IndoBERT R-Drop) */
+/* XAI Live Inference Studio */
 .xai-tabs-nav {
   display: flex;
   gap: 6px;
   margin-bottom: 10px;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--border-subtle);
   padding-bottom: 8px;
-  flex-wrap: wrap;
 }
 .xai-tab-btn {
   background: #f1f5f9;
-  border: 1px solid #cbd5e1;
-  color: #334155;
+  border: 1px solid var(--border-medium);
+  color: var(--text-muted);
   padding: 6px 14px;
   border-radius: 6px;
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.15s ease;
-  line-height: 1.2;
 }
-.xai-tab-btn:hover {
-  background: #e2e8f0;
-  color: #0f172a;
-}
+.xai-tab-btn:hover { background: #e2e8f0; color: var(--text-main); }
 .xai-tab-btn.active {
-  background: #1e3a8a;
+  background: var(--navy-brand);
   color: #ffffff;
-  border-color: #1e3a8a;
-  box-shadow: 0 1px 3px rgba(30, 58, 138, 0.25);
+  border-color: var(--navy-brand);
+  box-shadow: var(--shadow-subtle);
 }
+
 .xai-sequence-box {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   padding: 14px 16px;
   background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-subtle);
   border-radius: 8px;
   line-height: 2.2;
   align-items: center;
@@ -656,9 +719,8 @@ svg {
   align-items: center;
   padding: 3px 8px;
   border-radius: 5px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-family: var(--font-mono);
   font-size: 13px;
-  position: relative;
   cursor: help;
   transition: transform 0.12s ease, box-shadow 0.12s ease;
   user-select: none;
@@ -675,6 +737,7 @@ svg {
   margin-left: 5px;
   font-weight: 700;
 }
+
 .xai-rank-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -687,7 +750,7 @@ svg {
   justify-content: space-between;
   padding: 6px 10px;
   background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-subtle);
   border-radius: 6px;
   font-size: 12px;
 }
@@ -704,6 +767,7 @@ svg {
   border-radius: 3px;
   transition: width 0.3s ease;
 }
+
 .xai-model-spec-card {
   margin-top: 14px;
   padding: 12px 14px;
@@ -714,118 +778,127 @@ svg {
   color: #166534;
   line-height: 1.5;
 }
-.live-input-box {
-  width: 100%;
-  min-height: 85px;
-  padding: 10px 12px;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  font-size: 14px;
-  font-family: inherit;
-  color: #0f172a;
-  outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
-  resize: vertical;
-}
-.live-input-box:focus-visible {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
-}
 
-/* Interactive Live Model Test Box Styles */
-.live-test-card {
-  background: #ffffff;
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-  padding: 18px 20px;
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
-}
-.live-badge-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 9999px;
-  font-size: 12px;
-  font-weight: 700;
-  background: #dcfce7;
-  color: #15803d;
-  border: 1px solid #bbf7d0;
-}
-.live-dot-pulse {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #16a34a;
-  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.3);
-}
 .live-input-box {
   width: 100%;
   min-height: 85px;
   padding: 10px 12px;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  font-size: 14px;
+  border: 1px solid var(--border-medium);
+  border-radius: 8px;
+  font-size: 13.5px;
   font-family: inherit;
-  color: #0f172a;
+  color: var(--text-main);
   outline: none;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
   resize: vertical;
 }
 .live-input-box:focus {
-  border-color: #2563eb;
+  border-color: var(--navy-accent);
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
+
+.live-sample-chip {
+  background: #f1f5f9;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.live-sample-chip:hover {
+  background: #e2e8f0;
+  color: var(--text-main);
+}
+
 .live-btn-submit {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   background: #2563eb;
   color: #ffffff;
-  font-weight: 700;
-  font-size: 14px;
-  border: none;
-  border-radius: 6px;
   padding: 8px 18px;
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  border: none;
   cursor: pointer;
-  transition: background 0.15s ease, transform 0.15s ease;
-}
-.live-btn-submit:hover { background: #1d4ed8; transform: translateY(-1px); }
-.live-sample-chip {
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  border-radius: 4px;
-  padding: 3px 8px;
-  font-size: 12px;
-  color: #334155;
-  cursor: pointer;
-  text-align: left;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
   transition: all 0.15s ease;
 }
-.live-sample-chip:hover {
-  background: #e2e8f0;
-  color: #0f172a;
-  border-color: #cbd5e1;
+.live-btn-submit:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
 }
 
-.inline-svg { display: inline-block; vertical-align: middle; }
-.gap-legend { display: inline-flex; align-items: center; gap: 5px; font-weight: 500; font-size: 12px; }
-.gap-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-.gap-dot.pos { background: #16a34a; }
-.gap-dot.neu { background: #64748b; }
-.gap-dot.neg { background: #dc2626; }
-
-/* Responsiveness */
-@media (max-width: 1200px) {
-  .kpi-row { grid-template-columns: repeat(4, 1fr); }
-  .grid-row-2, .grid-row-3, .grid-row-4, .grid-row-5, .grid-row-6 { grid-template-columns: 1fr; }
+/* Reskinned Executive Tri-Model Architecture (No more black box) */
+.arch-card-exec {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-subtle);
 }
-@media (max-width: 768px) {
-  .kpi-row { grid-template-columns: repeat(2, 1fr); }
-  .dss-header { flex-direction: column; align-items: flex-start; }
-  .dss-header-right { justify-content: flex-start; text-align: left; }
+.arch-box-exec {
+  background: #f8fafc;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-top: 10px;
+}
+.arch-badge-exec {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+.arch-badge-exec.s1 { background: #e0f2fe; color: #0284c7; }
+.arch-badge-exec.s2 { background: #f3e8ff; color: #7e22ce; }
+.arch-badge-exec.prod { background: #dcfce7; color: #15803d; }
+
+/* Executive Footer */
+.dss-footer {
+  margin-top: 24px;
+  background: #ffffff;
+  border-top: 1px solid var(--border-subtle);
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-subtle);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Floating Tooltip */
+#dss-tooltip {
+  position: absolute;
+  display: none;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  pointer-events: none;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .cockpit-grid { grid-template-columns: 1fr; }
+  .grid-2col { grid-template-columns: 1fr; }
+  .grid-3col { grid-template-columns: 1fr; }
+  .grid-tri-model { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -833,175 +906,224 @@ svg {
 <!-- Header -->
 <header class="dss-header">
   <div class="dss-header-brand">
-    <div class="dss-logo-icon">BPS</div>
+    <div class="dss-emblem">
+      <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" rx="16" fill="#0f172a"/>
+        <path d="M22 72L50 24H36L8 72H22Z" fill="#0284c7"/>
+        <path d="M50 72L78 24H64L36 72H50Z" fill="#10b981"/>
+        <path d="M78 72L96 38H82L64 72H78Z" fill="#f59e0b"/>
+      </svg>
+    </div>
     <div class="dss-title-block">
       <h1>Sistem Pendukung Keputusan Analisis Sentimen SE2026</h1>
       <p>Pemantauan Persepsi Publik Sensus Ekonomi 2026 dan Aplikasi Fasih • BPS Kabupaten Sukoharjo</p>
     </div>
   </div>
+  
   <div class="dss-header-right">
-    <a href="index.html" class="nav-back-btn">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="inline-svg"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> Penelusuran 8.352 Label &amp; Audit XAI
+    <div class="dss-period-tag">
+      <span>Periode Data Riil:</span>
+      <strong>15 Juni – 15 September 2026 (8.352 Opini)</strong>
+    </div>
+    <a href="index.html" class="nav-explorer-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      Penelusuran Label &amp; Audit XAI
     </a>
-    <div class="dss-period-badge">
-      <strong>Periode Data Riil</strong>
-      15 Juni – 15 September 2026 (8.352 opini)
-    </div>
-    <div class="dss-header-desc">
-      Dasbor memetakan dinamika tren sentimen publik, deteksi lonjakan anomali, serta matriks rekomendasi mitigasi respons operasional bagi pimpinan BPS Kabupaten Sukoharjo.
-    </div>
   </div>
 </header>
 
 <div class="dss-dashboard">
 
-  <!-- Row 1: KPI Stats Ribbon -->
-  <section class="kpi-row" aria-label="Statistik Utama">
-    <div class="kpi-card">
-      <div class="kpi-icon blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
-      <div class="kpi-info">
-        <span class="kpi-label">Total Opini</span>
-        <span class="kpi-val">8.352</span>
-        <span class="kpi-sub">dari 3 platform</span>
+  <!-- Zone 1: Executive Telemetry Cockpit -->
+  <section class="cockpit-grid" aria-label="Ringkasan Eksekutif Telemetri Sentimen">
+    
+    <!-- Cockpit 1: Total Volume & Platform Breakdown -->
+    <div class="cockpit-card">
+      <div class="cockpit-card-header">
+        <span class="cockpit-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Volume Opini Multi-Saluran
+        </span>
+        <span style="font-size:11px; font-weight:700; color:#2563eb; background:#eff6ff; padding:2px 6px; border-radius:4px;">3 Saluran</span>
+      </div>
+      <div class="cockpit-main-stat">
+        <span class="cockpit-big-num">8.352</span>
+        <span class="cockpit-sub-label">Total Komentar Publik</span>
+      </div>
+      <div class="platform-micro-row">
+        <div class="platform-micro-pill">
+          <span class="platform-micro-name" style="color:#dc2626;">YouTube</span>
+          <span class="platform-micro-val">6.727</span>
+          <span class="platform-micro-pct">80,5%</span>
+        </div>
+        <div class="platform-micro-pill">
+          <span class="platform-micro-name" style="color:#0284c7;">Play Store</span>
+          <span class="platform-micro-val">1.366</span>
+          <span class="platform-micro-pct">16,4%</span>
+        </div>
+        <div class="platform-micro-pill">
+          <span class="platform-micro-name" style="color:#0f172a;">Threads</span>
+          <span class="platform-micro-val">259</span>
+          <span class="platform-micro-pct">3,1%</span>
+        </div>
       </div>
     </div>
-    <div class="kpi-card">
-      <div class="kpi-icon red"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div>
-      <div class="kpi-info">
-        <span class="kpi-label">Negatif</span>
-        <span class="kpi-val" style="color:#ef4444;">3.978</span>
-        <span class="kpi-sub">47,6% (68,5% opini)</span>
+
+    <!-- Cockpit 2: Sentiment Polarity Spectrum -->
+    <div class="cockpit-card">
+      <div class="cockpit-card-header">
+        <span class="cockpit-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path></svg>
+          Spektrum Polaritas Sentimen
+        </span>
+        <span style="font-size:11px; font-weight:700; color:#475569;">5.808 Opini Bernilai</span>
+      </div>
+      <div class="polarity-tri-grid">
+        <div class="polarity-pillar neg">
+          <span class="polarity-tag">Negatif</span>
+          <span class="polarity-val" style="color:#dc2626;">3.978</span>
+          <span class="polarity-sub">47,6% (68,5% opini)</span>
+        </div>
+        <div class="polarity-pillar neu">
+          <span class="polarity-tag">Netral</span>
+          <span class="polarity-val" style="color:#0284c7;">515</span>
+          <span class="polarity-sub">6,2% (8,9% opini)</span>
+        </div>
+        <div class="polarity-pillar pos">
+          <span class="polarity-tag">Positif</span>
+          <span class="polarity-val" style="color:#16a34a;">1.315</span>
+          <span class="polarity-sub">15,7% (22,6% opini)</span>
+        </div>
+      </div>
+      <div class="polarity-track" title="Komposisi: 47,6% Negatif, 6,2% Netral, 15,7% Positif, 30,5% Non-Opini/Karantina">
+        <div class="polarity-seg-neg"></div>
+        <div class="polarity-seg-neu"></div>
+        <div class="polarity-seg-pos"></div>
+        <div class="polarity-seg-rem"></div>
       </div>
     </div>
-    <div class="kpi-card">
-      <div class="kpi-icon green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
-      <div class="kpi-info">
-        <span class="kpi-label">Positif</span>
-        <span class="kpi-val" style="color:#10b981;">1.315</span>
-        <span class="kpi-sub">15,7% (22,6% opini)</span>
+
+    <!-- Cockpit 3: Net Deficit & Operational Alert -->
+    <div class="cockpit-card">
+      <div class="cockpit-card-header">
+        <span class="cockpit-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          Status Kesiapan &amp; Kesenjangan
+        </span>
+        <span class="badge-status red"><span class="badge-status-dot"></span> Atensi Tinggi</span>
+      </div>
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+          <span style="font-size:12px; font-weight:700; color:#334155;">Net Sentiment Gap:</span>
+          <span style="font-family:var(--font-mono); font-size:14px; font-weight:800; color:#dc2626;">-28,5 pp (YouTube)</span>
+        </div>
+        <p style="font-size:12px; color:#475569; line-height:1.45; margin-top:4px;">
+          Dominasi keluhan terkonsentrasi pada kendala stabilitas submit aplikasi FASIH dan ketakutan pajak data UMKM.
+        </p>
+      </div>
+      <div style="margin-top:10px; padding:6px 10px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; font-size:11.5px; color:#334155;">
+        <strong>Rekomendasi Utama:</strong> Stabilisasi modul luring FASIH &amp; sosialisasi kerahasiaan data individu.
       </div>
     </div>
-    <div class="kpi-card">
-      <div class="kpi-icon grey"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg></div>
-      <div class="kpi-info">
-        <span class="kpi-label">Netral</span>
-        <span class="kpi-val" style="color:#0369a1;">515</span>
-        <span class="kpi-sub">6,2% (8,9% opini)</span>
-      </div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-icon yt"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" fill="#dc2626"/><path d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#FFFFFF"/></svg></div>
-      <div class="kpi-info">
-        <span class="kpi-label">YouTube</span>
-        <span class="kpi-val">6.727</span>
-        <span class="kpi-sub">80,5% total volume</span>
-      </div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-icon gp"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.609 1.813A2.08 2.08 0 0 0 3 3.328v17.344c0 .594.227 1.14.609 1.515l9.313-9.312L3.609 1.813z" fill="#0086F8"/><path d="M16.594 9.203l-3.672 3.672 3.672 3.672 4.14-2.359a1.5 1.5 0 0 0 0-2.625l-4.14-2.36z" fill="#FFD400"/><path d="M12.922 12.875L3.609 22.188c.453.453 1.188.547 1.828.188l11.156-6.375-3.671-3.125z" fill="#FF3333"/><path d="M5.438 1.625C4.797 1.266 4.062 1.36 3.61 1.812l9.312 9.313 3.672-3.125L5.438 1.625z" fill="#00C853"/></svg></div>
-      <div class="kpi-info">
-        <span class="kpi-label">Google Play</span>
-        <span class="kpi-val">1.366</span>
-        <span class="kpi-sub">16,4% total volume</span>
-      </div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-icon th"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="5" fill="#0f172a"/><path d="M12.186 5.5c-4.142 0-6.686 2.646-6.686 6.55 0 3.969 2.68 6.45 6.686 6.45 2.502 0 4.417-1.077 5.253-2.946l-1.637-.962c-.572 1.282-1.921 1.996-3.616 1.996-2.67 0-4.475-1.62-4.636-4.228h9.897c.071-.448.113-.918.113-1.41 0-3.21-2.193-5.45-5.374-5.45zm-3.05 5.23c.277-2.008 1.57-3.15 3.05-3.15 1.48 0 2.773 1.142 3.05 3.15H9.136z" fill="#FFFFFF"/></svg></div>
-      <div class="kpi-info">
-        <span class="kpi-label">Threads</span>
-        <span class="kpi-val">259</span>
-        <span class="kpi-sub">3,1% total volume</span>
-      </div>
-    </div>
+
   </section>
 
-  <!-- Row 2: Trendlines (Overall & by Platform) -->
-  <section class="grid-row-2">
+  <!-- Zone 2: Temporal Dynamics & Platform Sparklines -->
+  <section class="grid-2col">
     <!-- Tren Sentimen Keseluruhan -->
     <div class="dss-card">
       <div class="card-header">
-        <div class="card-title">
-          Tren Sentimen Keseluruhan (Proporsi)
-          <span class="info-tip" title="Proporsi persentase sentimen negatif, positif, dan netral terhadap total opini per dua pekan.">ⓘ</span>
+        <div>
+          <div class="card-title">Tren Sentimen Dua Mingguan (Proporsi)</div>
+          <div class="card-title-desc">Dinamika fluktuasi sentimen per dua pekan selama masa observasi lapangan.</div>
         </div>
         <div class="legend-inline">
           <div class="legend-item"><div class="legend-dot neg"></div> Negatif</div>
-          <div class="legend-item"><div class="legend-dot pos"></div> Positif</div>
           <div class="legend-item"><div class="legend-dot neu"></div> Netral</div>
+          <div class="legend-item"><div class="legend-dot pos"></div> Positif</div>
         </div>
       </div>
-      <div class="chart-container" style="height: 195px;">
-        <svg id="chart-tren-keseluruhan" width="100%" height="195" viewBox="0 0 680 195"></svg>
+      <div class="chart-container" style="height: 200px;">
+        <svg id="chart-tren-keseluruhan" width="100%" height="200" viewBox="0 0 680 200"></svg>
       </div>
     </div>
 
-    <!-- Tren Sentimen per Platform -->
+    <!-- Tren Sentimen per Platform Sparkline -->
     <div class="dss-card">
       <div class="card-header">
-        <div class="card-title">Tren Sentimen per Platform (Proporsi)</div>
+        <div>
+          <div class="card-title">Tren Sentimen per Platform</div>
+          <div class="card-title-desc">Perbandingan trajektori pada masing-masing saluran.</div>
+        </div>
         <div class="btn-toggle-group">
           <button type="button" class="btn-toggle active" id="btn-prop" onclick="togglePlatformTrend('prop')">Proporsi (%)</button>
           <button type="button" class="btn-toggle" id="btn-vol" onclick="togglePlatformTrend('vol')">Volume</button>
         </div>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; height: 195px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; height: 165px;">
         <!-- YouTube Sparkline -->
         <div style="display: flex; flex-direction: column;">
-          <div style="font-weight: 700; font-size: 12px; display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
+          <div style="font-weight: 700; font-size: 11.5px; display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
             <span style="color:#dc2626;">▶</span> YouTube
           </div>
-          <svg id="spark-yt" width="100%" height="150" viewBox="0 0 160 150"></svg>
+          <svg id="spark-yt" width="100%" height="135" viewBox="0 0 160 135"></svg>
         </div>
         <!-- Google Play Sparkline -->
         <div style="display: flex; flex-direction: column;">
-          <div style="font-weight: 700; font-size: 12px; display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
-            <span style="color:#059669;">▶</span> Google Play
+          <div style="font-weight: 700; font-size: 11.5px; display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
+            <span style="color:#0284c7;">▶</span> Google Play
           </div>
-          <svg id="spark-gp" width="100%" height="150" viewBox="0 0 160 150"></svg>
+          <svg id="spark-gp" width="100%" height="135" viewBox="0 0 160 135"></svg>
         </div>
         <!-- Threads Sparkline -->
         <div style="display: flex; flex-direction: column;">
-          <div style="font-weight: 700; font-size: 12px; display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
+          <div style="font-weight: 700; font-size: 11.5px; display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
             <span style="color:#0f172a;">@</span> Threads
           </div>
-          <svg id="spark-th" width="100%" height="150" viewBox="0 0 160 150"></svg>
+          <svg id="spark-th" width="100%" height="135" viewBox="0 0 160 135"></svg>
         </div>
       </div>
-      <div class="legend-inline" style="justify-content: center; margin-top: 4px;">
+      <div class="legend-inline" style="justify-content: center; margin-top: 4px; font-size:11px;">
         <div class="legend-item"><div class="legend-dot neg"></div> Negatif</div>
-        <div class="legend-item"><div class="legend-dot pos"></div> Positif</div>
         <div class="legend-item"><div class="legend-dot neu"></div> Netral</div>
+        <div class="legend-item"><div class="legend-dot pos"></div> Positif</div>
       </div>
     </div>
   </section>
 
-  <!-- Row 3: Platform Breakdown & Top Topics (Heatmap Removed) -->
-  <section class="grid-row-3">
-    <!-- Volume & Sentimen per Platform -->
+  <!-- Zone 3: Platform Breakdown & Top 9 Issues -->
+  <section class="grid-2col">
+    <!-- Volume & Komposisi per Platform -->
     <div class="dss-card">
       <div class="card-header">
-        <div class="card-title">Volume dan Komposisi Sentimen per Platform</div>
+        <div>
+          <div class="card-title">Volume dan Komposisi Sentimen per Saluran</div>
+          <div class="card-title-desc">Distribusi sentimen pada tiap kanal data.</div>
+        </div>
         <select class="select-filter" id="select-vol-mode" onchange="updateStackedBar()">
-          <option value="opini">Jumlah opini</option>
+          <option value="opini">Jumlah Opini</option>
           <option value="persen">Proporsi 100%</option>
         </select>
       </div>
-      <div class="chart-container" style="height: 250px;">
-        <svg id="chart-stacked-platform" width="100%" height="250" viewBox="0 0 440 250"></svg>
+      <div class="chart-container" style="height: 230px;">
+        <svg id="chart-stacked-platform" width="100%" height="230" viewBox="0 0 440 230"></svg>
       </div>
-      <div class="legend-inline" style="justify-content:center; margin-top:10px;">
+      <div class="legend-inline" style="justify-content:center; margin-top:8px;">
         <div class="legend-item"><div class="legend-dot neg"></div> Negatif</div>
-        <div class="legend-item"><div class="legend-dot pos"></div> Positif</div>
         <div class="legend-item"><div class="legend-dot neu"></div> Netral</div>
+        <div class="legend-item"><div class="legend-dot pos"></div> Positif</div>
       </div>
     </div>
 
-    <!-- Top Tema Berdasarkan Volume Opini & Distribusi Sentimen -->
+    <!-- Top 9 Strategic Issues -->
     <div class="dss-card">
       <div class="card-header">
-        <div class="card-title">Top Tema Isu Berdasarkan Volume Opini</div>
+        <div>
+          <div class="card-title">Top 9 Isu Strategis Publik</div>
+          <div class="card-title-desc">Peringkat isu berdasarkan akumulasi volume percakapan.</div>
+        </div>
         <select class="select-filter" id="select-top-platform" onchange="updateTopTopics()">
-          <option value="all">Semua Platform</option>
+          <option value="all">Semua Saluran</option>
           <option value="yt">YouTube</option>
           <option value="gp">Google Play</option>
           <option value="th">Threads</option>
@@ -1013,37 +1135,34 @@ svg {
     </div>
   </section>
 
-  <!-- Row 4: Issue Trendlines, Anomaly Detection, Decision Matrix -->
-  <section class="grid-row-4">
+  <!-- Zone 4: Trendline Isu, Anomaly Detection, & Operational Decision Matrix -->
+  <section class="grid-3col">
     <!-- Tren Isu Utama (Volume Opini) -->
     <div class="dss-card">
       <div class="card-header">
-        <div class="card-title">Tren Isu Utama (Volume Opini)</div>
+        <div class="card-title">Tren Isu Utama</div>
         <div class="tab-pills" id="issue-trend-tabs">
-          <button type="button" class="tab-pill active" onclick="setIssueTrendTab('all')">Semua Platform</button>
-          <button type="button" class="tab-pill" onclick="setIssueTrendTab('yt')">YouTube</button>
-          <button type="button" class="tab-pill" onclick="setIssueTrendTab('gp')">Google Play</button>
-          <button type="button" class="tab-pill" onclick="setIssueTrendTab('th')">Threads</button>
+          <button type="button" class="select-filter" onclick="setIssueTrendTab('all')">Semua Saluran</button>
         </div>
       </div>
       <div class="chart-container" style="height: 190px;">
         <svg id="chart-isu-tren" width="100%" height="190" viewBox="0 0 460 190"></svg>
       </div>
-      <div class="legend-inline" style="flex-wrap: wrap; margin-top: 6px; font-size: 12px;">
-        <div class="legend-item"><div class="legend-dot" style="background:#ef4444;"></div> Kendala teknis FASIH</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#f97316;"></div> Skeptisisme &amp; manfaat</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#eab308;"></div> Dinamika lapangan</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#10b981;"></div> Kekhawatiran pajak</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#3b82f6;"></div> Privasi</div>
+      <div class="legend-inline" style="flex-wrap: wrap; margin-top: 6px; font-size: 11px;">
+        <div class="legend-item"><div class="legend-dot" style="background:#dc2626;"></div> FASIH</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#ea580c;"></div> Skeptisisme</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#d97706;"></div> Lapangan</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#16a34a;"></div> Pajak</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#0284c7;"></div> Privasi</div>
       </div>
     </div>
 
-    <!-- Deteksi Perubahan Signifikan -->
+    <!-- Deteksi Perubahan Signifikan (Anomali) -->
     <div class="dss-card">
       <div class="card-header">
-        <div class="card-title">Deteksi Perubahan Signifikan</div>
+        <div class="card-title">Deteksi Lonjakan Anomali</div>
         <select class="select-filter" id="select-anomaly" onchange="filterAnomalies()">
-          <option value="spike">Negative Spike</option>
+          <option value="spike">Lonjakan Negatif</option>
           <option value="all">Semua Anomali</option>
           <option value="high">Status Tinggi Saja</option>
         </select>
@@ -1052,18 +1171,18 @@ svg {
         <table class="data-table">
           <thead>
             <tr>
-              <th>Tanggal</th>
-              <th>Platform</th>
-              <th>Isu Dominan</th>
-              <th>Perubahan Negatif</th>
-              <th>Status</th>
+              <th>Waktu</th>
+              <th>Saluran</th>
+              <th>Isu Utama</th>
+              <th>Delta</th>
+              <th>Tingkat</th>
             </tr>
           </thead>
           <tbody id="table-anomalies">
             <tr>
               <td>10–16 Agu</td>
               <td>Google Play</td>
-              <td>Kendala teknis FASIH</td>
+              <td>Kendala FASIH</td>
               <td style="color:#dc2626; font-weight:700;">+14,2 pp</td>
               <td><span class="badge-status red"><span class="badge-status-dot"></span> Tinggi</span></td>
             </tr>
@@ -1077,206 +1196,177 @@ svg {
             <tr>
               <td>24–30 Agu</td>
               <td>Threads</td>
-              <td>Privasi</td>
+              <td>Privasi data</td>
               <td style="color:#c2410c; font-weight:700;">+10,5 pp</td>
               <td><span class="badge-status orange"><span class="badge-status-dot"></span> Sedang</span></td>
             </tr>
             <tr>
               <td>13–19 Jul</td>
               <td>YouTube</td>
-              <td>Disinformasi / hoaks</td>
+              <td>Disinformasi</td>
               <td style="color:#c2410c; font-weight:700;">+9,6 pp</td>
               <td><span class="badge-status orange"><span class="badge-status-dot"></span> Sedang</span></td>
-            </tr>
-            <tr>
-              <td>7–13 Sep</td>
-              <td>Google Play</td>
-              <td>Skeptisisme manfaat</td>
-              <td style="color:#a16207; font-weight:700;">+8,4 pp</td>
-              <td><span class="badge-status yellow"><span class="badge-status-dot"></span> Monitor</span></td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
 
-    <!-- Matriks Keputusan -->
-    <div class="dss-card" style="background:#0f172a; color:white; border-color:#1e293b;">
-      <div class="card-header" style="border-bottom-color:#334155;">
-        <div class="card-title" style="color:white;">Matriks Keputusan</div>
+    <!-- Matriks Rekomendasi Keputusan Operasional (Unified Light Executive Theme) -->
+    <div class="dss-card">
+      <div class="card-header">
+        <div class="card-title">Matriks Respons Operasional</div>
+        <span style="font-size:11px; font-weight:700; color:#1e40af; background:#eff6ff; padding:2px 6px; border-radius:4px;">Pedoman Pimpinan</span>
       </div>
-      <table class="matrix-table">
-        <thead>
-          <tr>
-            <th style="background:#1e293b; color:#94a3b8;">Kondisi</th>
-            <th style="background:#1e293b; color:#94a3b8;">Keputusan</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="matrix-cond" style="color:#e2e8f0;">Negatif ↑ &amp; Volume ↑</td>
-            <td class="matrix-dec" style="color:#f87171;">Prioritas segera</td>
-          </tr>
-          <tr>
-            <td class="matrix-cond" style="color:#e2e8f0;">Negatif ↑ &amp; Volume ↓</td>
-            <td class="matrix-dec" style="color:#fb923c;">Monitor ketat</td>
-          </tr>
-          <tr>
-            <td class="matrix-cond" style="color:#e2e8f0;">Negatif ↓ &amp; Volume ↑</td>
-            <td class="matrix-dec" style="color:#38bdf8;">Pertahankan intervensi</td>
-          </tr>
-          <tr>
-            <td class="matrix-cond" style="color:#e2e8f0;">Positif ↑ &amp; Volume ↑</td>
-            <td class="matrix-dec" style="color:#4ade80;">Amplifikasi komunikasi</td>
-          </tr>
-          <tr>
-            <td class="matrix-cond" style="color:#e2e8f0;">Isu di ≥2 platform</td>
-            <td class="matrix-dec" style="color:#f472b6;">Prioritas tinggi</td>
-          </tr>
-          <tr>
-            <td class="matrix-cond" style="color:#e2e8f0;">Tidak ada perubahan</td>
-            <td class="matrix-dec" style="color:#cbd5e1;">Monitor rutin</td>
-          </tr>
-        </tbody>
-      </table>
+      <div style="overflow-x:auto;">
+        <table class="exec-matrix-table">
+          <thead>
+            <tr>
+              <th>Kondisi Sinyal</th>
+              <th>Keputusan &amp; Tindakan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="exec-matrix-cond">Negatif ↑ &amp; Volume ↑</td>
+              <td class="exec-matrix-dec" style="color:#dc2626;">Prioritas mitigasi segera</td>
+            </tr>
+            <tr>
+              <td class="exec-matrix-cond">Negatif ↑ &amp; Volume ↓</td>
+              <td class="exec-matrix-dec" style="color:#c2410c;">Pemantauan intensif</td>
+            </tr>
+            <tr>
+              <td class="exec-matrix-cond">Negatif ↓ &amp; Volume ↑</td>
+              <td class="exec-matrix-dec" style="color:#0284c7;">Pertahankan intervensi</td>
+            </tr>
+            <tr>
+              <td class="exec-matrix-cond">Positif ↑ &amp; Volume ↑</td>
+              <td class="exec-matrix-dec" style="color:#16a34a;">Amplifikasi narasi publik</td>
+            </tr>
+            <tr>
+              <td class="exec-matrix-cond">Isu pada ≥2 platform</td>
+              <td class="exec-matrix-dec" style="color:#7c3aed;">Koordinasi lintas fungsi</td>
+            </tr>
+            <tr>
+              <td class="exec-matrix-cond">Stagnan / tanpa anomali</td>
+              <td class="exec-matrix-dec" style="color:#64748b;">Pemantauan berkala</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
-  <!-- Row 5: Sentiment Gap & Decision Score Ranking Table -->
-  <section class="grid-row-5">
+  <!-- Zone 5: Sentiment Gap & Decision Score Ranking Table -->
+  <section class="grid-2col">
     <!-- Sentiment Gap per Platform -->
     <div class="dss-card">
       <div class="card-header">
-        <div class="card-title">Sentiment Gap per Platform</div>
+        <div>
+          <div class="card-title">Indeks Kesenjangan Sentimen (Sentiment Gap)</div>
+          <div class="card-title-desc">Selisih persentase sentimen positif dikurangi negatif per saluran.</div>
+        </div>
       </div>
-      <div style="display: flex; gap: 12px; font-size: 12px; color: #475569; margin-bottom: 12px; justify-content: center;">
-        <span class="gap-legend"><span class="gap-dot pos"></span> Gap positif</span>
-        <span class="gap-legend"><span class="gap-dot neu"></span> Seimbang</span>
-        <span class="gap-legend"><span class="gap-dot neg"></span> Gap negatif</span>
+      <div style="display: flex; gap: 12px; font-size: 11.5px; color: #475569; margin-bottom: 12px; justify-content: center;">
+        <span class="legend-item"><span class="legend-dot pos"></span> Gap Positif</span>
+        <span class="legend-item"><span class="legend-dot neu"></span> Seimbang</span>
+        <span class="legend-item"><span class="legend-dot neg"></span> Gap Negatif</span>
       </div>
 
       <!-- YouTube -->
       <div class="gap-item">
         <div class="gap-header">
-          <span class="gap-platform" style="display:inline-flex; align-items:center; gap:6px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" fill="#dc2626"/><path d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#FFFFFF"/></svg> YouTube</span>
-          <span class="gap-val neg">-28,5 pp</span>
+          <span style="display:inline-flex; align-items:center; gap:6px;"><span style="color:#dc2626;">▶</span> YouTube</span>
+          <span style="color:#dc2626; font-family:var(--font-mono); font-weight:800;">-28,5 pp</span>
         </div>
         <div class="gap-meter-wrap">
           <div class="gap-center-line"></div>
           <div class="gap-bar-neg" style="left: 21.5%; width: 28.5%;"></div>
         </div>
-        <div class="gap-scale"><span>-50</span><span>0</span><span>+50</span></div>
-        <div class="gap-tag" style="color:#dc2626;">Negatif dominan</div>
+        <div class="gap-scale"><span>-50 pp</span><span>0 (Netral)</span><span>+50 pp</span></div>
       </div>
 
       <!-- Google Play -->
       <div class="gap-item">
         <div class="gap-header">
-          <span class="gap-platform" style="display:inline-flex; align-items:center; gap:6px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.609 1.813A2.08 2.08 0 0 0 3 3.328v17.344c0 .594.227 1.14.609 1.515l9.313-9.312L3.609 1.813z" fill="#0086F8"/><path d="M16.594 9.203l-3.672 3.672 3.672 3.672 4.14-2.359a1.5 1.5 0 0 0 0-2.625l-4.14-2.36z" fill="#FFD400"/><path d="M12.922 12.875L3.609 22.188c.453.453 1.188.547 1.828.188l11.156-6.375-3.671-3.125z" fill="#FF3333"/><path d="M5.438 1.625C4.797 1.266 4.062 1.36 3.61 1.812l9.312 9.313 3.672-3.125L5.438 1.625z" fill="#00C853"/></svg> Google Play</span>
-          <span class="gap-val neg" style="color:#c2410c;">-12,3 pp</span>
+          <span style="display:inline-flex; align-items:center; gap:6px;"><span style="color:#0284c7;">▶</span> Google Play</span>
+          <span style="color:#c2410c; font-family:var(--font-mono); font-weight:800;">-12,3 pp</span>
         </div>
         <div class="gap-meter-wrap">
           <div class="gap-center-line"></div>
-          <div class="gap-bar-neg" style="left: 37.7%; width: 12.3%; background: linear-gradient(to left, #fb923c, #ea580c);"></div>
+          <div class="gap-bar-neg" style="left: 37.7%; width: 12.3%; background: #ea580c;"></div>
         </div>
-        <div class="gap-scale"><span>-50</span><span>0</span><span>+50</span></div>
-        <div class="gap-tag" style="color:#c2410c;">Cenderung negatif</div>
+        <div class="gap-scale"><span>-50 pp</span><span>0 (Netral)</span><span>+50 pp</span></div>
       </div>
 
       <!-- Threads -->
       <div class="gap-item">
         <div class="gap-header">
-          <span class="gap-platform" style="display:inline-flex; align-items:center; gap:6px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="5" fill="#0f172a"/><path d="M12.186 5.5c-4.142 0-6.686 2.646-6.686 6.55 0 3.969 2.68 6.45 6.686 6.45 2.502 0 4.417-1.077 5.253-2.946l-1.637-.962c-.572 1.282-1.921 1.996-3.616 1.996-2.67 0-4.475-1.62-4.636-4.228h9.897c.071-.448.113-.918.113-1.41 0-3.21-2.193-5.45-5.374-5.45zm-3.05 5.23c.277-2.008 1.57-3.15 3.05-3.15 1.48 0 2.773 1.142 3.05 3.15H9.136z" fill="#FFFFFF"/></svg> Threads</span>
-          <span class="gap-val neg" style="color:#b45309;">-8,1 pp</span>
+          <span style="display:inline-flex; align-items:center; gap:6px;"><span style="color:#0f172a;">@</span> Threads</span>
+          <span style="color:#d97706; font-family:var(--font-mono); font-weight:800;">-8,1 pp</span>
         </div>
         <div class="gap-meter-wrap">
           <div class="gap-center-line"></div>
-          <div class="gap-bar-neg" style="left: 41.9%; width: 8.1%; background: linear-gradient(to left, #fde047, #f59e0b);"></div>
+          <div class="gap-bar-neg" style="left: 41.9%; width: 8.1%; background: #f59e0b;"></div>
         </div>
-        <div class="gap-scale"><span>-50</span><span>0</span><span>+50</span></div>
-        <div class="gap-tag" style="color:#b45309;">Cenderung negatif</div>
+        <div class="gap-scale"><span>-50 pp</span><span>0 (Netral)</span><span>+50 pp</span></div>
       </div>
     </div>
 
     <!-- Prioritas Isu (Decision Score) Table -->
     <div class="dss-card">
       <div class="card-header">
-        <div class="card-title">Prioritas Isu (Decision Score)</div>
+        <div>
+          <div class="card-title">Matriks Prioritas Isu Strategis (Decision Score)</div>
+          <div class="card-title-desc">Pembobotan urgensi kebijakan operasional BPS Sukoharjo.</div>
+        </div>
       </div>
       <div style="overflow-x: auto;">
         <table class="data-table">
           <thead>
             <tr>
-              <th style="width: 50px;">Peringkat</th>
+              <th style="width: 40px; text-align:center;">No</th>
               <th>Isu Strategis</th>
-              <th style="width: 60px; text-align:center;">Skor</th>
-              <th style="width: 130px;">Status</th>
-              <th>Rekomendasi Kebijakan Operasional BPS</th>
+              <th style="width: 50px; text-align:center;">Skor</th>
+              <th style="width: 110px;">Status</th>
+              <th>Rekomendasi Respons Operasional</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td style="font-weight:700; text-align:center;">1</td>
-              <td style="font-weight:600;">Kendala teknis FASIH</td>
-              <td style="font-weight:800; text-align:center; color:#991b1b;">92</td>
-              <td><span class="badge-status red"><span class="badge-status-dot"></span> Prioritas segera</span></td>
-              <td>Investigasi modul submit, stabilisasi penyimpanan luring (offline), dan kompresi foto otomatis.</td>
+              <td style="font-weight:700;">Kendala teknis FASIH</td>
+              <td style="font-weight:800; text-align:center; color:#dc2626;">92</td>
+              <td><span class="badge-status red"><span class="badge-status-dot"></span> Segera</span></td>
+              <td>Investigasi modul submit, stabilisasi penyimpanan luring, dan kompresi foto otomatis.</td>
             </tr>
             <tr>
               <td style="font-weight:700; text-align:center;">2</td>
-              <td style="font-weight:600;">Kekhawatiran pajak</td>
-              <td style="font-weight:800; text-align:center; color:#991b1b;">86</td>
-              <td><span class="badge-status red"><span class="badge-status-dot"></span> Prioritas segera</span></td>
+              <td style="font-weight:700;">Kekhawatiran pajak</td>
+              <td style="font-weight:800; text-align:center; color:#dc2626;">86</td>
+              <td><span class="badge-status red"><span class="badge-status-dot"></span> Segera</span></td>
               <td>Sosialisasi masif jaminan kerahasiaan data individu sesuai UU No. 16/1997 tentang Statistik.</td>
             </tr>
             <tr>
               <td style="font-weight:700; text-align:center;">3</td>
-              <td style="font-weight:600;">Dinamika lapangan</td>
-              <td style="font-weight:800; text-align:center; color:#9a3412;">79</td>
-              <td><span class="badge-status orange"><span class="badge-status-dot"></span> Pantau intensif</span></td>
-              <td>Penyusunan panduan persuasif lapangan untuk menepis ketakutan warga dicoret dari penerima bansos.</td>
+              <td style="font-weight:700;">Dinamika lapangan</td>
+              <td style="font-weight:800; text-align:center; color:#c2410c;">79</td>
+              <td><span class="badge-status orange"><span class="badge-status-dot"></span> Intensif</span></td>
+              <td>Panduan persuasif lapangan untuk menepis kecurigaan warga dicoret dari penerima bansos.</td>
             </tr>
             <tr>
               <td style="font-weight:700; text-align:center;">4</td>
-              <td style="font-weight:600;">Beban ekonomi / honor</td>
-              <td style="font-weight:800; text-align:center; color:#9a3412;">68</td>
-              <td><span class="badge-status orange"><span class="badge-status-dot"></span> Pantau intensif</span></td>
-              <td>Penataan beban kerja per blok sensus dan transparansi jadwal pencairan honor mitra statistik.</td>
+              <td style="font-weight:700;">Beban ekonomi / honor</td>
+              <td style="font-weight:800; text-align:center; color:#c2410c;">68</td>
+              <td><span class="badge-status orange"><span class="badge-status-dot"></span> Intensif</span></td>
+              <td>Penataan beban kerja per blok sensus dan transparansi jadwal pencairan honor mitra.</td>
             </tr>
             <tr>
               <td style="font-weight:700; text-align:center;">5</td>
-              <td style="font-weight:600;">Privasi data</td>
-              <td style="font-weight:800; text-align:center; color:#9a3412;">61</td>
-              <td><span class="badge-status orange"><span class="badge-status-dot"></span> Pantau intensif</span></td>
-              <td>Edukasi perlindungan foto tempat usaha dan keamanan server pengolahan sensus BPS.</td>
-            </tr>
-            <tr>
-              <td style="font-weight:700; text-align:center;">6</td>
-              <td style="font-weight:600;">Disinformasi / hoaks</td>
-              <td style="font-weight:800; text-align:center; color:#854d0e;">58</td>
-              <td><span class="badge-status yellow"><span class="badge-status-dot"></span> Monitor</span></td>
-              <td>Perluas konten edukasi digital dan tanggap klarifikasi di akun resmi media sosial BPS.</td>
-            </tr>
-            <tr>
-              <td style="font-weight:700; text-align:center;">7</td>
-              <td style="font-weight:600;">Pertanyaan prosedural</td>
-              <td style="font-weight:800; text-align:center; color:#854d0e;">54</td>
-              <td><span class="badge-status yellow"><span class="badge-status-dot"></span> Monitor</span></td>
-              <td>Penyediaan chatbot FAQ dan pusat bantuan interaktif seputar jadwal dan cakupan sensus.</td>
-            </tr>
-            <tr>
-              <td style="font-weight:700; text-align:center;">8</td>
-              <td style="font-weight:600;">Apresiasi digitalisasi</td>
-              <td style="font-weight:800; text-align:center; color:#166534;">31</td>
-              <td><span class="badge-status green"><span class="badge-status-dot"></span> Pertahankan</span></td>
-              <td>Amplifikasi narasi positif dan apresiasi publik atas dedikasi petugas pencacah di lapangan.</td>
-            </tr>
-            <tr>
-              <td style="font-weight:700; text-align:center;">9</td>
-              <td style="font-weight:600;">Skeptisisme &amp; manfaat</td>
-              <td style="font-weight:800; text-align:center; color:#166534;">28</td>
-              <td><span class="badge-status green"><span class="badge-status-dot"></span> Pertahankan</span></td>
-              <td>Tampilkan contoh nyata manfaat data sensus ekonomi untuk kebijakan subsidi UMKM nasional.</td>
+              <td style="font-weight:700;">Privasi data</td>
+              <td style="font-weight:800; text-align:center; color:#c2410c;">61</td>
+              <td><span class="badge-status orange"><span class="badge-status-dot"></span> Intensif</span></td>
+              <td>Edukasi perlindungan foto tempat usaha dan jaminan integritas server BPS.</td>
             </tr>
           </tbody>
         </table>
@@ -1284,28 +1374,27 @@ svg {
     </div>
   </section>
 
-  <!-- Row 6: Live Model Inference & Tri-Model Deployment Audit (Modal.com API) -->
-  <section class="grid-row-6">
+  <!-- Zone 6: Live XAI Inference Studio & Tri-Model Specification -->
+  <section class="grid-tri-model">
     <!-- Uji Coba Model Langsung & Peta Atensi Transformer (Live Inferensi Modal.com) -->
-    <div class="live-test-card" id="card-uji-model">
+    <div class="dss-card" id="card-uji-model">
       <div class="card-header">
-        <div class="card-title">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="inline-svg"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-          Pengujian Model Inferensi Langsung &amp; Peta Atensi Transformer
+        <div>
+          <div class="card-title">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            Studio Pengujian Model &amp; Peta Atensi Transformer (XAI)
+          </div>
+          <div class="card-title-desc">Inferensi real-time model produksi IndoBERT Base + R-Drop (Gold Accuracy 0,7882 / Macro F1 0,7700).</div>
         </div>
-        <span class="live-badge-status" id="live-endpoint-status" role="status">
-          <span class="live-dot-pulse"></span>
+        <span class="badge-status green" id="live-endpoint-status" role="status">
+          <span class="badge-status-dot"></span>
           <span id="live-status-text">Modal API Aktif (200 OK)</span>
         </span>
       </div>
 
-      <p style="font-size: 14px; color:#475569; margin-bottom:12px; line-height:1.5; text-wrap:pretty;">
-        Antarmuka ini menguji masukan kalimat opini masyarakat secara seketika menggunakan model produksi <strong>IndoBERT Base + R-Drop</strong> (Akurasi Acuan Manusia 0,7882 / Macro F1 0,7700) yang terhubung ke cloud serverless Modal. Sistem menyajikan hasil klasifikasi tiga kelas, distribusi probabilitas softmax, serta visualisasi peta atensi transformer tingkat token (<em>attention rollout</em>) dan atribusi gradien saliency.
-      </p>
-
       <!-- Pilihan Contoh Kalimat Pengujian -->
       <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; align-items:center;">
-        <span style="font-size:12px; font-weight:700; color:#334155; margin-right:4px;">Pilihan Contoh Kalimat Pengujian:</span>
+        <span style="font-size:11.5px; font-weight:700; color:#334155; margin-right:4px;">Contoh Kalimat Pengujian:</span>
         <button type="button" class="live-sample-chip" onclick="isiContohTeks('aplikasi fasih sering error waktu submit data hasil sensus')">"Aplikasi fasih sering error waktu submit data"</button>
         <button type="button" class="live-sample-chip" onclick="isiContohTeks('petugas sensus datang ke rumah sangat ramah, sopan, dan menjelaskan dengan sabar')">"Petugas sensus datang ramah &amp; sopan"</button>
         <button type="button" class="live-sample-chip" onclick="isiContohTeks('apakah data omset usaha saya aman dan tidak akan bocor ke kantor pajak')">"Apakah data aman &amp; tidak bocor ke kantor pajak?"</button>
@@ -1313,7 +1402,7 @@ svg {
       </div>
 
       <!-- Kolom Masukan Teks -->
-      <label for="live-input-text" style="font-size:12px; font-weight:700; color:#334155; margin-bottom:5px; display:block;">Kolom Masukan Teks Opini Publik:</label>
+      <label for="live-input-text" style="font-size:12px; font-weight:700; color:#334155; margin-bottom:5px; display:block;">Masukan Teks Opini Publik:</label>
       <textarea id="live-input-text" class="live-input-box" placeholder="Masukkan kalimat opini publik berbahasa Indonesia untuk menguji prediksi model klasifikasi dan visualisasi peta atensi transformer..." aria-label="Teks opini masukan untuk pengujian model"></textarea>
 
       <!-- Pesan Notifikasi Status Inline -->
@@ -1326,21 +1415,21 @@ svg {
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             Eksekusi Inferensi Model
           </button>
-          <span id="live-latency-badge" style="font-size:12px; color:#475569; font-weight:600;"></span>
+          <span id="live-latency-badge" style="font-size:11.5px; color:#475569; font-weight:600;"></span>
         </div>
-        <span style="font-size:12px; color:#475569;">Endpoint Produksi: <code style="background:#f1f5f9; padding:2px 6px; border-radius:4px; font-size:12px; color:#0f172a;">sensus-ekonomi-sentimen-api.modal.run</code></span>
+        <span style="font-size:11.5px; color:#64748b;">Endpoint: <code style="background:#f1f5f9; padding:2px 6px; border-radius:4px; font-size:11.5px; color:#0f172a;">sensus-ekonomi-sentimen-api.modal.run</code></span>
       </div>
 
       <!-- Wadah Hasil Lengkap Inferensi & Visualisasi Atensi -->
-      <div id="live-result-container" style="display:none; margin-top:16px; padding:16px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:var(--radius-lg); box-shadow:var(--shadow-sm);">
+      <div id="live-result-container" style="display:none; margin-top:16px; padding:16px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:var(--radius-lg);">
         
         <!-- Header Hasil -->
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px; border-bottom:1px solid #e2e8f0; padding-bottom:10px;">
           <div style="display:flex; align-items:center; gap:10px;">
-            <span style="font-size:13px; font-weight:700; color:#334155;">Keputusan Klasifikasi:</span>
-            <span id="live-result-tag" style="font-size:14px; font-weight:800; padding:4px 14px; border-radius:9999px; letter-spacing:0.5px;">-</span>
+            <span style="font-size:12.5px; font-weight:700; color:#334155;">Hasil Klasifikasi Model:</span>
+            <span id="live-result-tag" style="font-size:13px; font-weight:800; padding:4px 14px; border-radius:9999px; letter-spacing:0.5px;">-</span>
           </div>
-          <div style="display:flex; align-items:center; gap:12px; font-size:12px; color:#475569;">
+          <div style="display:flex; align-items:center; gap:12px; font-size:11.5px; color:#475569;">
             <span id="live-token-count"></span>
             <span id="live-confidence-badge" style="background:#ffffff; border:1px solid #cbd5e1; padding:2px 8px; border-radius:4px; font-weight:700;"></span>
           </div>
@@ -1355,11 +1444,11 @@ svg {
           <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;" id="live-prob-bars"></div>
         </div>
 
-        <!-- Visualisasi Peta Atensi Sekuensial Tingkat Token (Token Attention Heatmap) -->
+        <!-- Visualisasi Peta Atensi Sekuensial Tingkat Token -->
         <div style="margin-top:14px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px; padding:14px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:8px;">
             <div>
-              <span style="font-size:13px; font-weight:800; color:#0f172a; display:block;">Peta Atensi Sekuensial Kalimat (Sequential Token Heatmap)</span>
+              <span style="font-family:var(--font-display); font-size:13px; font-weight:800; color:#0f172a; display:block;">Peta Atensi Sekuensial Kalimat (Sequential Token Heatmap)</span>
               <span style="font-size:11px; color:#64748b;">Intensitas warna mencerminkan besaran bobot perhatian model terhadap masing-masing token.</span>
             </div>
             <!-- Tab Pengalih XAI Mode -->
@@ -1374,14 +1463,14 @@ svg {
           
           <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px; font-size:11px; color:#64748b;">
             <span>Keterangan Skala: <span style="display:inline-block; width:12px; height:12px; background:rgba(220,38,38,0.15); vertical-align:middle; border-radius:2px; margin:0 3px;"></span> Rendah &nbsp;→&nbsp; <span style="display:inline-block; width:12px; height:12px; background:rgba(220,38,38,0.85); vertical-align:middle; border-radius:2px; margin:0 3px;"></span> Tinggi (Dominan)</span>
-            <span>Arahkan kursor ke token untuk melihat skor numerik</span>
+            <span>Arahkan kursor ke token untuk melihat skor numerik presisi</span>
           </div>
         </div>
 
         <!-- Tabel Peringkat Kata Kunci Paling Berpengaruh -->
         <div style="margin-top:14px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px; padding:14px;">
-          <div style="font-size:13px; font-weight:800; color:#0f172a; margin-bottom:4px;">Peringkat Atribusi Kata Kunci Paling Berpengaruh (Top Feature Attribution)</div>
-          <div style="font-size:11px; color:#64748b; margin-bottom:8px;">Daftar token substantif dengan kontribusi tertinggi terhadap keputusan klasifikasi (token khusus [CLS] dan [SEP] dikecualikan):</div>
+          <div style="font-family:var(--font-display); font-size:13px; font-weight:800; color:#0f172a; margin-bottom:4px;">Peringkat Atribusi Kata Kunci Paling Berpengaruh (Top Feature Attribution)</div>
+          <div style="font-size:11px; color:#64748b; margin-bottom:8px;">Daftar token substantif dengan kontribusi tertinggi terhadap keputusan klasifikasi:</div>
           <div id="live-feature-rank-table"></div>
         </div>
 
@@ -1397,71 +1486,68 @@ svg {
             <div><strong>Data Pengawasan:</strong> Label Semu Jev (5.808 Opini) &amp; Partisi Gemma 4 12B IT</div>
             <div><strong>Evaluasi Acuan Manusia:</strong> Akurasi 0,7882 | Macro F1 0,7700 (100 Baris Gold Set)</div>
           </div>
-          <div style="margin-top:6px; font-size:11px; color:#14532d; border-top:1px dashed #86efac; padding-top:4px;">
-            <em>Catatan Metodologis:</em> Bobot atensi rollout dan atribusi gradien merepresentasikan korelasi representasi matematis model, bukan pembuktian kausalitas mutlak (Atanasova et al., 2023).
-          </div>
         </div>
 
       </div>
     </div>
 
-    <!-- Spesifikasi Arsitektur 3 Pilar Model -->
-    <div class="architecture-card">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; border-bottom:1px solid #334155; padding-bottom:8px;">
-        <h2 style="font-size: 16px; font-weight:800; color:#ffffff; display:flex; align-items:center; gap:6px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="inline-svg"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
-          Arsitektur Tri-Model Sensus Ekonomi 2026
-        </h2>
-        <span style="font-size:12px; background:rgba(56,189,248,0.15); color:#38bdf8; border:1px solid rgba(56,189,248,0.3); padding:2px 8px; border-radius:4px; font-weight:700;">Human-in-the-Loop</span>
+    <!-- Spesifikasi Arsitektur Tri-Model (Unified Light Executive Theme) -->
+    <div class="arch-card-exec">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Arsitektur Tri-Model Sensus Ekonomi 2026</div>
+          <div class="card-title-desc">Pipeline tiga tahap sadar konteks &amp; acuan manusia.</div>
+        </div>
+        <span style="font-size:11px; background:#eff6ff; color:#1d4ed8; border:1px solid #bfdbfe; padding:2px 8px; border-radius:4px; font-weight:700;">Human-in-the-Loop</span>
       </div>
 
       <div style="display:flex; flex-direction:column; gap:10px;">
         <!-- Tahap 1: Gemma 4 12B -->
-        <div class="arch-box">
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span class="arch-badge sys2">Tahap 1: Google Gemma 4 12B IT</span>
-            <span style="font-size:12px; color:#e9d5ff;">Pemilah Relevansi &amp; Konteks</span>
+        <div class="arch-box-exec">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <span class="arch-badge-exec s2">Tahap 1: Google Gemma 4 12B IT</span>
+            <span style="font-size:11px; color:#6b21a8; font-weight:700;">vLLM Serverless Modal</span>
           </div>
-          <p style="font-size: 14px; color:#f1f5f9; line-height:1.45;">
+          <p style="font-size: 12px; color:#475569; line-height:1.45;">
             Model LLM sadar konteks di hulu pipeline (judul video &amp; teks induk) untuk memilah 8.352 baris menjadi ember opini (5.808), non-opini (2.119), dan karantina (423).
           </p>
         </div>
 
         <!-- Tahap 2: TypeSafe AI Jev -->
-        <div class="arch-box">
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span class="arch-badge sys1">Tahap 2: TypeSafe AI Jev</span>
-            <span style="font-size:12px; color:#cbd5e1;">Anotator Terkalibrasi (15 Sep 2026)</span>
+        <div class="arch-box-exec">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <span class="arch-badge-exec s1">Tahap 2: TypeSafe AI Jev</span>
+            <span style="font-size:11px; color:#0369a1; font-weight:700;">Rilis Resmi 15 Sep 2026</span>
           </div>
-          <p style="font-size: 14px; color:#f1f5f9; line-height:1.45;">
-            Model diskriminatif non-autoregressive (typed decisions) dengan skema terkunci dan zero hallucination. Melabeli ulang 5.808 opini menjadi data latih sentimen (3.978 neg, 1.315 pos, 515 netral).
+          <p style="font-size: 12px; color:#475569; line-height:1.45;">
+            Model diskriminatif non-autoregressive (typed decisions) dengan skema terkunci dan zero hallucination. Melabeli ulang 5.808 opini menjadi data latih terkalibrasi (3.978 negatif, 1.315 positif, 515 netral).
           </p>
         </div>
 
         <!-- Tahap 3: IndoBERT + R-Drop Produksi -->
-        <div class="arch-box" style="border-color:rgba(16,185,129,0.35); background:rgba(16,185,129,0.08);">
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span class="arch-badge prod">Produksi: IndoBERT + R-Drop</span>
-            <span style="font-size:12px; color:#4ade80; font-weight:700;">Akurasi Gold: 0,7882</span>
+        <div class="arch-box-exec" style="background:#f0fdf4; border-color:#bbf7d0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <span class="arch-badge-exec prod">Produksi: IndoBERT + R-Drop</span>
+            <span style="font-size:11px; color:#15803d; font-weight:800;">Akurasi Gold: 0,7882</span>
           </div>
-          <p style="font-size: 14px; color:#f1f5f9; line-height:1.45;">
-            Model klasifikasi akhir yang disetel pada data latih Jev (F1 Macro 0,7700 pada 85 baris gold set manusia), disajikan via serverless API Modal dan didukung XAI atensi &amp; LIME.
+          <p style="font-size: 12px; color:#166534; line-height:1.45;">
+            Model klasifikasi akhir yang disetel pada data latih Jev (F1 Macro 0,7700 pada gold set manusia), disajikan via serverless API Modal dan didukung XAI atensi &amp; LIME.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer Dashboard -->
-  <footer style="margin-top:20px; padding:18px 24px; background:#0f172a; color:#cbd5e1; border:1px solid #1e293b; border-radius:var(--radius-lg); display:flex; justify-content:space-between; align-items:center; font-size:12px; flex-wrap:wrap; gap:12px; box-shadow:var(--shadow-sm);">
+  <!-- Executive Footer -->
+  <footer class="dss-footer">
     <div>
-      <strong style="color:#f1f5f9; font-size: 14px; letter-spacing:0.3px;">Sistem Pendukung Keputusan (DSS) Analisis Sentimen SE2026</strong>
-      <p style="margin-top:3px; color:#94a3b8;">Kerja Praktik Badan Pusat Statistik (BPS) Kabupaten Sukoharjo • Pengembang: <strong style="color:#ffffff;">Anwar Rohmadi</strong> (NIM: 247411027)</p>
+      <strong>Sistem Pendukung Keputusan (DSS) Analisis Sentimen SE2026</strong> • BPS Kabupaten Sukoharjo
+      <div style="font-size:11px; color:#64748b; margin-top:2px;">Pengembang: <strong>Anwar Rohmadi</strong> (NIM: 247411027) • Program Studi Sains Data</div>
     </div>
-    <div style="display:flex; gap:16px; align-items:center;">
-      <span>Model: <strong style="color:#e2e8f0;">IndoBERT + Jev Weak Supervision</strong></span>
-      <span style="color:#38bdf8;">• Korpus: <strong style="color:#38bdf8;">8.352 Baris</strong></span>
-      <a href="https://github.com/anwarrohmadi2006/Lampiran-Magang-BPS" target="_blank" rel="noopener noreferrer" style="color:#60a5fa; text-decoration:none; font-weight:600; background:rgba(59,130,246,0.12); border:1px solid rgba(59,130,246,0.3); padding:5px 12px; border-radius:6px;">GitHub Repositori ↗</a>
+    <div style="display:flex; gap:14px; align-items:center;">
+      <span>Model: <strong>IndoBERT Base + R-Drop</strong></span>
+      <span style="color:#0284c7;">• Korpus: <strong>8.352 Opini</strong></span>
+      <a href="https://github.com/anwarrohmadi2006/Lampiran-Magang-BPS" target="_blank" rel="noopener noreferrer" style="color:#1d4ed8; text-decoration:none; font-weight:700; background:#eff6ff; border:1px solid #bfdbfe; padding:4px 10px; border-radius:6px;">GitHub Repositori ↗</a>
     </div>
   </footer>
 
@@ -1616,11 +1702,24 @@ function hideTip() {
 function drawTrenKeseluruhan() {
   const svg = document.getElementById('chart-tren-keseluruhan');
   const w = 680, h = 195;
-  const padL = 40, padR = 25, padT = 20, padB = 30;
+  const padL = 40, padR = 25, padT = 32, padB = 30;
   const chartW = w - padL - padR;
   const chartH = h - padT - padB;
 
   let html = '';
+
+  // Defs for gradients
+  html += `
+  <defs>
+    <linearGradient id="grad-neg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#dc2626" stop-opacity="0.00"/>
+    </linearGradient>
+    <linearGradient id="grad-pos" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16a34a" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#16a34a" stop-opacity="0.00"/>
+    </linearGradient>
+  </defs>`;
 
   // Y Grid & Labels (0% to 80%)
   for (let i = 0; i <= 4; i++) {
@@ -1630,23 +1729,26 @@ function drawTrenKeseluruhan() {
     html += `<text x="${padL - 6}" y="${y + 3.5}" text-anchor="end" class="axis">${val}%</text>`;
   }
 
-  // X Labels & Event Lines
+  // X Labels
   const xStep = chartW / (TIMELINE.length - 1);
   TIMELINE.forEach((t, i) => {
     const x = padL + i * xStep;
     html += `<text x="${x}" y="${h - 8}" text-anchor="middle" class="axis">${t}</text>`;
   });
 
-  // Event Annotations
+  // Event Annotations as clean top flag pills
   const events = [
-    { idx: 0, text: 'Peluncuran lapangan SE2026' },
-    { idx: 3, text: 'Puncak diskusi FASIH & pajak' },
-    { idx: 5, text: 'Sosialisasi & klarifikasi BPS' }
+    { idx: 0, text: 'Peluncuran SE2026' },
+    { idx: 3, text: 'Puncak Diskusi FASIH & Pajak' },
+    { idx: 5, text: 'Sosialisasi & Klarifikasi BPS' }
   ];
   events.forEach(ev => {
     const x = padL + ev.idx * xStep;
-    html += `<line x1="${x}" y1="${padT + 5}" x2="${x}" y2="${padT + chartH}" class="event-line" />`;
-    html += `<text x="${x + 4}" y="${padT + 12}" class="event-label">${ev.text}</text>`;
+    const flagW = ev.text.length * 6.2 + 14;
+    const flagX = Math.max(padL, Math.min(w - padR - flagW, x - flagW / 2));
+    html += `<line x1="${x}" y1="24" x2="${x}" y2="${padT + chartH}" class="event-flag-line" />`;
+    html += `<rect x="${flagX}" y="5" width="${flagW}" height="18" rx="4" class="event-flag-rect" />`;
+    html += `<text x="${flagX + flagW/2}" y="17.5" text-anchor="middle" class="event-flag-text">${ev.text}</text>`;
   });
 
   // Curves generator
@@ -1667,10 +1769,22 @@ function drawTrenKeseluruhan() {
     return d;
   }
 
-  // Draw lines
-  html += `<path d="${makePath(TREN_DATA.negatif)}" class="chart-line" stroke="var(--color-neg)" />`;
-  html += `<path d="${makePath(TREN_DATA.positif)}" class="chart-line" stroke="var(--color-pos)" />`;
-  html += `<path d="${makePath(TREN_DATA.netral)}" class="chart-line" stroke="var(--color-neu)" />`;
+  function makeArea(data) {
+    const lineD = makePath(data);
+    const lastX = padL + (data.length - 1) * xStep;
+    const bottomY = padT + chartH;
+    const firstX = padL;
+    return `${lineD} L ${lastX} ${bottomY} L ${firstX} ${bottomY} Z`;
+  }
+
+  // Draw area fills first (soft & subtle)
+  html += `<path d="${makeArea(TREN_DATA.negatif)}" fill="url(#grad-neg)" />`;
+  html += `<path d="${makeArea(TREN_DATA.positif)}" fill="url(#grad-pos)" />`;
+
+  // Draw lines with fill="none"
+  html += `<path d="${makePath(TREN_DATA.negatif)}" fill="none" class="chart-line" stroke="var(--color-neg)" />`;
+  html += `<path d="${makePath(TREN_DATA.positif)}" fill="none" class="chart-line" stroke="var(--color-pos)" />`;
+  html += `<path d="${makePath(TREN_DATA.netral)}" fill="none" class="chart-line" stroke="var(--color-neu)" />`;
 
   // Draw points
   TREN_DATA.negatif.forEach((val, i) => {
@@ -1705,8 +1819,8 @@ function drawPlatformSparks(mode) {
 
   platforms.forEach(p => {
     const svg = document.getElementById(p.id);
-    const w = 160, h = 150;
-    const padL = 26, padR = 10, padT = 12, padB = 22;
+    const w = 170, h = 145;
+    const padL = 34, padR = 8, padT = 12, padB = 22;
     const chartW = w - padL - padR;
     const chartH = h - padT - padB;
     const data = PLATFORM_SPARKS[p.key][mode];
@@ -1717,12 +1831,11 @@ function drawPlatformSparks(mode) {
       const val = Math.round(i * (p.maxVal / 2));
       const y = padT + chartH - (i / 2) * chartH;
       html += `<line x1="${padL}" y1="${y}" x2="${w - padR}" y2="${y}" class="grid-line" />`;
-      html += `<text x="${padL - 4}" y="${y + 3}" text-anchor="end" class="axis" style="font-size:12px;">${mode === 'prop' ? val + '%' : val}</text>`;
+      html += `<text x="${padL - 4}" y="${y + 3}" text-anchor="end" class="axis" style="font-size:10.5px;">${mode === 'prop' ? val + '%' : val}</text>`;
     }
 
     // X step
     const xStep = chartW / (TIMELINE.length - 1);
-    // Draw 3 lines
     function makeLine(arr, color) {
       let d = '';
       arr.forEach((val, i) => {
@@ -1739,10 +1852,11 @@ function drawPlatformSparks(mode) {
     html += makeLine(data.neu, 'var(--color-neu)');
 
     // X Labels
-    html += `<text x="${padL}" y="${h - 5}" class="axis" style="font-size:12px;">Jun</text>`;
-    html += `<text x="${padL + chartW / 2}" y="${h - 5}" text-anchor="middle" class="axis" style="font-size:12px;">Agu</text>`;
-    html += `<text x="${w - padR}" y="${h - 5}" text-anchor="end" class="axis" style="font-size:12px;">Sep</text>`;
+    html += `<text x="${padL}" y="${h - 5}" class="axis" style="font-size:11px;">15 Jun</text>`;
+    html += `<text x="${padL + chartW / 2}" y="${h - 5}" text-anchor="middle" class="axis" style="font-size:11px;">Agu</text>`;
+    html += `<text x="${w - padR}" y="${h - 5}" text-anchor="end" class="axis" style="font-size:11px;">14 Sep</text>`;
 
+    svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
     svg.innerHTML = html;
   });
 }
@@ -1758,8 +1872,8 @@ function togglePlatformTrend(mode) {
 function updateStackedBar() {
   const svg = document.getElementById('chart-stacked-platform');
   const mode = document.getElementById('select-vol-mode').value;
-  const w = 440, h = 250;
-  const padL = 40, padR = 20, padT = 20, padB = 32;
+  const w = 520, h = 230;
+  const padL = 48, padR = 24, padT = 24, padB = 32;
   const chartW = w - padL - padR;
   const chartH = h - padT - padB;
 
@@ -1778,7 +1892,7 @@ function updateStackedBar() {
       ];
 
   let html = '';
-  const maxVal = mode === 'persen' ? 100 : 8000;
+  const maxVal = mode === 'persen' ? 100 : 7000;
 
   // Grid
   const steps = 4;
@@ -1786,11 +1900,11 @@ function updateStackedBar() {
     const val = Math.round(i * (maxVal / steps));
     const y = padT + chartH - (i / steps) * chartH;
     html += `<line x1="${padL}" y1="${y}" x2="${w - padR}" y2="${y}" class="grid-line" />`;
-    html += `<text x="${padL - 4}" y="${y + 3}" text-anchor="end" class="axis">${val}${mode === 'persen' ? '%' : ''}</text>`;
+    html += `<text x="${padL - 6}" y="${y + 3.5}" text-anchor="end" class="axis">${val}${mode === 'persen' ? '%' : ''}</text>`;
   }
 
   // Bars
-  const barW = 54;
+  const barW = 76;
   const barGap = chartW / data.length;
 
   data.forEach((d, i) => {
@@ -1799,9 +1913,10 @@ function updateStackedBar() {
 
     let hNeg, hPos, hNeu;
     if (mode === 'persen') {
-      const pNeg = (d.neg / d.total) * 100;
-      const pPos = (d.pos / d.total) * 100;
-      const pNeu = (d.neu / d.total) * 100;
+      const sum = d.neg + d.pos + d.neu;
+      const pNeg = (d.neg / sum) * 100;
+      const pPos = (d.pos / sum) * 100;
+      const pNeu = (d.neu / sum) * 100;
       hNeg = (pNeg / 100) * chartH;
       hPos = (pPos / 100) * chartH;
       hNeu = (pNeu / 100) * chartH;
@@ -1816,23 +1931,25 @@ function updateStackedBar() {
     const yNeg = yPos - hNeg;
 
     // Negatif (bottom/red)
-    html += `<rect x="${x}" y="${yNeg}" width="${barW}" height="${hNeg}" fill="var(--color-neg)" rx="2"
-      onmousemove="showTip(event, '${d.name}<br>Negatif: ${d.neg} (${((d.neg/d.total)*100).toFixed(1)}%)')" onmouseout="hideTip()" />`;
+    html += `<rect x="${x}" y="${yNeg}" width="${barW}" height="${hNeg}" fill="var(--color-neg)" rx="3"
+      onmousemove="showTip(event, '<strong>${d.name}</strong><br>Negatif: ${d.neg.toLocaleString('id-ID')} (${((d.neg/d.total)*100).toFixed(1)}%)')" onmouseout="hideTip()" />`;
     // Positif (middle/green)
-    html += `<rect x="${x}" y="${yPos}" width="${barW}" height="${hPos}" fill="var(--color-pos)" rx="2"
-      onmousemove="showTip(event, '${d.name}<br>Positif: ${d.pos} (${((d.pos/d.total)*100).toFixed(1)}%)')" onmouseout="hideTip()" />`;
+    html += `<rect x="${x}" y="${yPos}" width="${barW}" height="${hPos}" fill="var(--color-pos)" rx="3"
+      onmousemove="showTip(event, '<strong>${d.name}</strong><br>Positif: ${d.pos.toLocaleString('id-ID')} (${((d.pos/d.total)*100).toFixed(1)}%)')" onmouseout="hideTip()" />`;
     // Netral (top/blue)
-    html += `<rect x="${x}" y="${yNeu}" width="${barW}" height="${hNeu}" fill="var(--color-neu)" rx="2"
-      onmousemove="showTip(event, '${d.name}<br>Netral: ${d.neu} (${((d.neu/d.total)*100).toFixed(1)}%)')" onmouseout="hideTip()" />`;
+    html += `<rect x="${x}" y="${yNeu}" width="${barW}" height="${hNeu}" fill="var(--color-neu)" rx="3"
+      onmousemove="showTip(event, '<strong>${d.name}</strong><br>Netral: ${d.neu.toLocaleString('id-ID')} (${((d.neu/d.total)*100).toFixed(1)}%)')" onmouseout="hideTip()" />`;
 
     // Total label on top
-    const totalTop = yNeg - 4;
-    html += `<text x="${cx}" y="${totalTop}" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">${d.total.toLocaleString('id-ID')}</text>`;
+    const totalTop = yNeg - 6;
+    const totalText = mode === 'persen' ? '100%' : d.total.toLocaleString('id-ID');
+    html += `<text x="${cx}" y="${totalTop}" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">${totalText}</text>`;
 
     // X label
-    html += `<text x="${cx}" y="${h - 8}" text-anchor="middle" class="axis" font-weight="600">${d.name}</text>`;
+    html += `<text x="${cx}" y="${h - 8}" text-anchor="middle" class="axis" font-weight="700">${d.name}</text>`;
   });
 
+  svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
   svg.innerHTML = html;
 }
 
@@ -1885,11 +2002,12 @@ function drawIssueTrend() {
     html += `<text x="${padL - 4}" y="${y + 3}" text-anchor="end" class="axis">${val}</text>`;
   }
 
-  // X Labels
+  // X Labels (concise & readable)
+  const shortLabels = ['15 Jun', '22 Jun', '6 Jul', '20 Jul', '3 Agu', '17 Agu', '31 Agu'];
   const xStep = chartW / (TIMELINE.length - 1);
-  TIMELINE.forEach((t, i) => {
+  shortLabels.forEach((label, i) => {
     const x = padL + i * xStep;
-    html += `<text x="${x}" y="${h - 6}" text-anchor="middle" class="axis" style="font-size:12px;">${t.split(' ')[0]}</text>`;
+    html += `<text x="${x}" y="${h - 6}" text-anchor="middle" class="axis" style="font-size:11px;">${label}</text>`;
   });
 
   const lines = [
