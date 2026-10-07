@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portal Resmi DSS &amp; Lampiran Magang BPS - Anwar Rohmadi</title>
+<meta name="description" content="Portal Resmi Sistem Pendukung Keputusan (DSS) Analisis Sentimen Sensus Ekonomi 2026 dan Aplikasi Fasih BPS Kabupaten Sukoharjo.">
+<meta http-equiv="refresh" content="0; url=dashboard_web/dss_trendline.html">
+<link rel="canonical" href="https://anwarrohmadi2006.github.io/Lampiran-Magang-BPS/dashboard_web/dss_trendline.html">
+<style>
+  :root {
+    --bg-main: #0f172a;
+    --text-white: #ffffff;
+    --text-muted: #94a3b8;
+    --accent-blue: #0284c7;
+    --accent-green: #10b981;
+    --accent-orange: #f59e0b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg-main);
+    color: var(--text-white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    text-align: center;
+  }
+  .portal-card {
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 36px 28px;
+    max-width: 620px;
+    width: 100%;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  }
+  .bps-logo {
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  p.sub {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  .btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .btn-portal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, #0284c7, #2563eb);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+  }
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #0369a1, #1d4ed8);
+    transform: translateY(-1px);
+  }
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.06);
+    color: #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+  .meta-info {
+    font-size: 11.5px;
+    color: #64748b;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 16px;
+  }
+  .spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-top-color: #38bdf8;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 12px;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+</style>
+<script>
+  window.location.replace("dashboard_web/dss_trendline.html");
+</script>
+</head>
+<body>
+
+<div class="portal-card">
+  <div class="bps-logo">
+    <svg width="48" height="48" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" rx="14" fill="#0f172a"/>
+      <path d="M22 72L50 24H36L8 72H22Z" fill="#0284c7"/>
+      <path d="M50 72L78 24H64L36 72H50Z" fill="#10b981"/>
+      <path d="M78 72L96 38H82L64 72H78Z" fill="#f59e0b"/>
+    </svg>
+  </div>
+
+  <div class="spinner" aria-hidden="true"></div>
+  <h1>Portal Sistem Pendukung Keputusan SE2026</h1>
+  <p class="sub">
+    Memuat antarmuka dasbor pemantauan opini publik Sensus Ekonomi 2026 &amp; audit penelusuran label Badan Pusat Statistik Kabupaten Sukoharjo...
+  </p>
+
+  <div class="btn-group">
+    <a href="dashboard_web/dss_trendline.html" class="btn-portal btn-primary">
+      <span>Masuk ke Dasbor Tren &amp; Rekomendasi DSS</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+    </a>
+    <a href="dashboard_web/index.html" class="btn-portal btn-secondary">
+      <span>Buka Sistem Penelusuran 8.352 Label &amp; Audit XAI</span>
+    </a>
+    <a href="https://github.com/anwarrohmadi2006/Lampiran-Magang-BPS" class="btn-portal btn-secondary" target="_blank" rel="noopener">
+      <span>Repositori Daring GitHub</span>
+    </a>
+  </div>
+
+  <div class="meta-info">
+    Kerja Praktik Badan Pusat Statistik Kabupaten Sukoharjo • Pengembang: <strong>Anwar Rohmadi</strong> (NIM: 247411027)
+  </div>
+</div>
+
+</body>
+</html>

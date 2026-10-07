@@ -252,11 +252,7 @@ body {
   grid-template-columns: 3fr 2fr;
   gap: 16px;
 }
-.grid-row-3 {
-  display: grid;
-  grid-template-columns: 2.2fr 2.8fr 3fr;
-  gap: 16px;
-}
+/* grid-row-3 updated */
 .grid-row-4 {
   display: grid;
   grid-template-columns: 3.5fr 3fr 2fr;
@@ -604,6 +600,83 @@ svg {
   .kpi-row { grid-template-columns: repeat(4, 1fr); }
   .grid-row-2, .grid-row-3, .grid-row-4, .grid-row-5 { grid-template-columns: 1fr; }
 }
+
+/* Row 3 layout without heatmap */
+.grid-row-3 {
+  display: grid;
+  grid-template-columns: 1.15fr 1.45fr;
+  gap: 16px;
+}
+@media (max-width: 1024px) {
+  .grid-row-3 { grid-template-columns: 1fr; }
+}
+.inline-svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+.gap-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.gap-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.gap-dot.pos { background: #10b981; }
+.gap-dot.neu { background: #94a3b8; }
+.gap-dot.neg { background: #ef4444; }
+.topic-rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: #e2e8f0;
+  color: #334155;
+  font-size: 10px;
+  font-weight: 700;
+  margin-right: 6px;
+}
+.architecture-card {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 18px 22px;
+  margin-top: 8px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #334155;
+}
+.arch-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 12px;
+}
+@media (max-width: 900px) {
+  .arch-grid { grid-template-columns: 1fr; }
+}
+.arch-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.arch-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.arch-badge.sys1 { background: #0284c7; color: #ffffff; }
+.arch-badge.sys2 { background: #8b5cf6; color: #ffffff; }
+
 </style>
 </head>
 <body>
@@ -641,7 +714,7 @@ svg {
   <!-- Row 1: KPI Stats Ribbon -->
   <section class="kpi-row" aria-label="Statistik Utama">
     <div class="kpi-card">
-      <div class="kpi-icon blue">💬</div>
+      <div class="kpi-icon blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
       <div class="kpi-info">
         <span class="kpi-label">Total Korpus</span>
         <span class="kpi-val">8.352</span>
@@ -649,7 +722,7 @@ svg {
       </div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-icon red">😞</div>
+      <div class="kpi-icon red"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div>
       <div class="kpi-info">
         <span class="kpi-label">Negatif</span>
         <span class="kpi-val" style="color:#ef4444;">3.978</span>
@@ -657,7 +730,7 @@ svg {
       </div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-icon green">😊</div>
+      <div class="kpi-icon green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
       <div class="kpi-info">
         <span class="kpi-label">Positif</span>
         <span class="kpi-val" style="color:#10b981;">1.315</span>
@@ -665,7 +738,7 @@ svg {
       </div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-icon grey">😐</div>
+      <div class="kpi-icon grey"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg></div>
       <div class="kpi-info">
         <span class="kpi-label">Netral</span>
         <span class="kpi-val" style="color:#0284c7;">515</span>
@@ -673,7 +746,7 @@ svg {
       </div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-icon yt">▶</div>
+      <div class="kpi-icon yt"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" fill="#dc2626"/><path d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#FFFFFF"/></svg></div>
       <div class="kpi-info">
         <span class="kpi-label">YouTube</span>
         <span class="kpi-val">6.727</span>
@@ -681,7 +754,7 @@ svg {
       </div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-icon gp">▶</div>
+      <div class="kpi-icon gp"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.609 1.813A2.08 2.08 0 0 0 3 3.328v17.344c0 .594.227 1.14.609 1.515l9.313-9.312L3.609 1.813z" fill="#0086F8"/><path d="M16.594 9.203l-3.672 3.672 3.672 3.672 4.14-2.359a1.5 1.5 0 0 0 0-2.625l-4.14-2.36z" fill="#FFD400"/><path d="M12.922 12.875L3.609 22.188c.453.453 1.188.547 1.828.188l11.156-6.375-3.671-3.125z" fill="#FF3333"/><path d="M5.438 1.625C4.797 1.266 4.062 1.36 3.61 1.812l9.312 9.313 3.672-3.125L5.438 1.625z" fill="#00C853"/></svg></div>
       <div class="kpi-info">
         <span class="kpi-label">Google Play</span>
         <span class="kpi-val">1.366</span>
@@ -689,7 +762,7 @@ svg {
       </div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-icon th">@</div>
+      <div class="kpi-icon th"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="5" fill="#0f172a"/><path d="M12.186 5.5c-4.142 0-6.686 2.646-6.686 6.55 0 3.969 2.68 6.45 6.686 6.45 2.502 0 4.417-1.077 5.253-2.946l-1.637-.962c-.572 1.282-1.921 1.996-3.616 1.996-2.67 0-4.475-1.62-4.636-4.228h9.897c.071-.448.113-.918.113-1.41 0-3.21-2.193-5.45-5.374-5.45zm-3.05 5.23c.277-2.008 1.57-3.15 3.05-3.15 1.48 0 2.773 1.142 3.05 3.15H9.136z" fill="#FFFFFF"/></svg></div>
       <div class="kpi-info">
         <span class="kpi-label">Threads</span>
         <span class="kpi-val">259</span>
@@ -758,53 +831,31 @@ svg {
     </div>
   </section>
 
-  <!-- Row 3: Platform Breakdown, Heatmap, Top Topics -->
+  <!-- Row 3: Platform Breakdown & Top Topics (Heatmap Removed) -->
   <section class="grid-row-3">
     <!-- Volume & Sentimen per Platform -->
     <div class="dss-card">
       <div class="card-header">
-        <div class="card-title">Volume dan Sentimen per Platform</div>
+        <div class="card-title">Volume dan Komposisi Sentimen per Platform</div>
         <select class="select-filter" id="select-vol-mode" onchange="updateStackedBar()">
           <option value="opini">Jumlah opini</option>
           <option value="persen">Proporsi 100%</option>
         </select>
       </div>
-      <div class="chart-container" style="height: 220px;">
-        <svg id="chart-stacked-platform" width="100%" height="220" viewBox="0 0 320 220"></svg>
+      <div class="chart-container" style="height: 250px;">
+        <svg id="chart-stacked-platform" width="100%" height="250" viewBox="0 0 440 250"></svg>
+      </div>
+      <div class="legend-inline" style="justify-content:center; margin-top:10px;">
+        <div class="legend-item"><div class="legend-dot neg"></div> Negatif</div>
+        <div class="legend-item"><div class="legend-dot pos"></div> Positif</div>
+        <div class="legend-item"><div class="legend-dot neu"></div> Netral</div>
       </div>
     </div>
 
-    <!-- Heatmap Sentimen per Platform dan Tema -->
+    <!-- Top Tema Berdasarkan Volume Opini & Distribusi Sentimen -->
     <div class="dss-card">
       <div class="card-header">
-        <div class="card-title">Heatmap Sentimen per Platform dan Tema</div>
-      </div>
-      <div style="overflow-x: auto;">
-        <table class="heatmap-table">
-          <thead>
-            <tr>
-              <th>Tema Isu</th>
-              <th>YouTube</th>
-              <th>Google Play</th>
-              <th>Threads</th>
-            </tr>
-          </thead>
-          <tbody id="heatmap-body">
-            <!-- Populated by JS -->
-          </tbody>
-        </table>
-      </div>
-      <div class="heatmap-legend-wrap">
-        <span>Lebih negatif</span>
-        <div class="heatmap-gradient-bar"></div>
-        <span>Lebih positif</span>
-      </div>
-    </div>
-
-    <!-- Top Tema Berdasarkan Volume Opini -->
-    <div class="dss-card">
-      <div class="card-header">
-        <div class="card-title">Top Tema Berdasarkan Volume Opini</div>
+        <div class="card-title">Top Tema Isu Berdasarkan Volume Opini</div>
         <select class="select-filter" id="select-top-platform" onchange="updateTopTopics()">
           <option value="all">Semua Platform</option>
           <option value="yt">YouTube</option>
@@ -954,16 +1005,16 @@ svg {
       <div class="card-header">
         <div class="card-title">Sentiment Gap per Platform</div>
       </div>
-      <div style="display: flex; gap: 8px; font-size: 10px; color: #64748b; margin-bottom: 12px; justify-content: center;">
-        <span>🟢 Gap positif</span>
-        <span>⚪ Seimbang</span>
-        <span>🔴 Gap negatif</span>
+      <div style="display: flex; gap: 12px; font-size: 10.5px; color: #64748b; margin-bottom: 12px; justify-content: center;">
+        <span class="gap-legend"><span class="gap-dot pos"></span> Gap positif</span>
+        <span class="gap-legend"><span class="gap-dot neu"></span> Seimbang</span>
+        <span class="gap-legend"><span class="gap-dot neg"></span> Gap negatif</span>
       </div>
 
       <!-- YouTube -->
       <div class="gap-item">
         <div class="gap-header">
-          <span class="gap-platform"><span style="color:#dc2626;">▶</span> YouTube</span>
+          <span class="gap-platform" style="display:inline-flex; align-items:center; gap:6px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" fill="#dc2626"/><path d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#FFFFFF"/></svg> YouTube</span>
           <span class="gap-val neg">-28,5 pp</span>
         </div>
         <div class="gap-meter-wrap">
@@ -977,7 +1028,7 @@ svg {
       <!-- Google Play -->
       <div class="gap-item">
         <div class="gap-header">
-          <span class="gap-platform"><span style="color:#059669;">▶</span> Google Play</span>
+          <span class="gap-platform" style="display:inline-flex; align-items:center; gap:6px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.609 1.813A2.08 2.08 0 0 0 3 3.328v17.344c0 .594.227 1.14.609 1.515l9.313-9.312L3.609 1.813z" fill="#0086F8"/><path d="M16.594 9.203l-3.672 3.672 3.672 3.672 4.14-2.359a1.5 1.5 0 0 0 0-2.625l-4.14-2.36z" fill="#FFD400"/><path d="M12.922 12.875L3.609 22.188c.453.453 1.188.547 1.828.188l11.156-6.375-3.671-3.125z" fill="#FF3333"/><path d="M5.438 1.625C4.797 1.266 4.062 1.36 3.61 1.812l9.312 9.313 3.672-3.125L5.438 1.625z" fill="#00C853"/></svg> Google Play</span>
           <span class="gap-val neg" style="color:#ea580c;">-12,3 pp</span>
         </div>
         <div class="gap-meter-wrap">
@@ -991,7 +1042,7 @@ svg {
       <!-- Threads -->
       <div class="gap-item">
         <div class="gap-header">
-          <span class="gap-platform"><span style="color:#0f172a;">@</span> Threads</span>
+          <span class="gap-platform" style="display:inline-flex; align-items:center; gap:6px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="5" fill="#0f172a"/><path d="M12.186 5.5c-4.142 0-6.686 2.646-6.686 6.55 0 3.969 2.68 6.45 6.686 6.45 2.502 0 4.417-1.077 5.253-2.946l-1.637-.962c-.572 1.282-1.921 1.996-3.616 1.996-2.67 0-4.475-1.62-4.636-4.228h9.897c.071-.448.113-.918.113-1.41 0-3.21-2.193-5.45-5.374-5.45zm-3.05 5.23c.277-2.008 1.57-3.15 3.05-3.15 1.48 0 2.773 1.142 3.05 3.15H9.136z" fill="#FFFFFF"/></svg> Threads</span>
           <span class="gap-val neg" style="color:#f59e0b;">-8,1 pp</span>
         </div>
         <div class="gap-meter-wrap">
@@ -1394,8 +1445,8 @@ function togglePlatformTrend(mode) {
 function updateStackedBar() {
   const svg = document.getElementById('chart-stacked-platform');
   const mode = document.getElementById('select-vol-mode').value;
-  const w = 320, h = 220;
-  const padL = 36, padR = 20, padT = 15, padB = 30;
+  const w = 440, h = 250;
+  const padL = 40, padR = 20, padT = 20, padB = 32;
   const chartW = w - padL - padR;
   const chartH = h - padT - padB;
 
@@ -1426,7 +1477,7 @@ function updateStackedBar() {
   }
 
   // Bars
-  const barW = 38;
+  const barW = 54;
   const barGap = chartW / data.length;
 
   data.forEach((d, i) => {
@@ -1472,39 +1523,7 @@ function updateStackedBar() {
   svg.innerHTML = html;
 }
 
-// 4. Heatmap Rendering
-function renderHeatmap() {
-  const tbody = document.getElementById('heatmap-body');
-  let html = '';
-
-  function getColor(score) {
-    // 0.0 (green) to 1.0 (red)
-    if (score >= 0.8) return { bg: '#fee2e2', text: '#991b1b', label: 'Tinggi' };
-    if (score >= 0.6) return { bg: '#ffedd5', text: '#9a3412', label: 'Sedang' };
-    if (score >= 0.45) return { bg: '#fef3c7', text: '#b45309', label: 'Cukup' };
-    if (score >= 0.3) return { bg: '#dcfce7', text: '#15803d', label: 'Rendah' };
-    return { bg: '#bbf7d0', text: '#166534', label: 'Sangat rendah' };
-  }
-
-  HEATMAP_DATA.forEach(row => {
-    const cYt = getColor(row.yt);
-    const cGp = getColor(row.gp);
-    const cTh = getColor(row.th);
-    html += `
-      <tr>
-        <td>${row.nama}</td>
-        <td style="background:${cYt.bg}; color:${cYt.text};"
-          onmousemove="showTip(event, '${row.nama} di YouTube<br>Indeks Negativitas: ${(row.yt*100).toFixed(0)}%')" onmouseout="hideTip()">${(row.yt*100).toFixed(0)}%</td>
-        <td style="background:${cGp.bg}; color:${cGp.text};"
-          onmousemove="showTip(event, '${row.nama} di Google Play<br>Indeks Negativitas: ${(row.gp*100).toFixed(0)}%')" onmouseout="hideTip()">${(row.gp*100).toFixed(0)}%</td>
-        <td style="background:${cTh.bg}; color:${cTh.text};"
-          onmousemove="showTip(event, '${row.nama} di Threads<br>Indeks Negativitas: ${(row.th*100).toFixed(0)}%')" onmouseout="hideTip()">${(row.th*100).toFixed(0)}%</td>
-      </tr>
-    `;
-  });
-
-  tbody.innerHTML = html;
-}
+// Heatmap dihapus sesuai arahan pengambil keputusan (digantikan visualisasi terpilah yang lebih bersih)
 
 // 5. Top Topics Horizontal Bar Chart
 function updateTopTopics() {
@@ -1516,14 +1535,15 @@ function updateTopTopics() {
   let html = '';
   list.forEach(item => {
     const widthPct = Math.round((item.val / maxVal) * 100);
+    const rank = list.indexOf(item) + 1;
     html += `
       <div class="topic-bar-item" onmousemove="showTip(event, '${item.nama}<br>${item.val.toLocaleString('id-ID')} opini (${item.pct})')" onmouseout="hideTip()">
         <div class="topic-bar-info">
-          <span class="topic-bar-name">${item.nama}</span>
-          <span class="topic-bar-val">${item.val.toLocaleString('id-ID')} (${item.pct})</span>
+          <span class="topic-bar-name"><span class="topic-rank-badge">#${rank}</span>${item.nama}</span>
+          <span class="topic-bar-val">${item.val.toLocaleString('id-ID')} <small style="color:#64748b; font-weight:500;">(${item.pct})</small></span>
         </div>
         <div class="topic-bar-track">
-          <div class="topic-bar-fill" style="width: ${widthPct}%; background: ${item.col};"></div>
+          <div class="topic-bar-fill" style="width: ${widthPct}%; background: linear-gradient(90deg, ${item.col}, #38bdf8);"></div>
         </div>
       </div>
     `;
@@ -1616,7 +1636,6 @@ window.addEventListener('DOMContentLoaded', () => {
   drawTrenKeseluruhan();
   drawPlatformSparks('prop');
   updateStackedBar();
-  renderHeatmap();
   updateTopTopics();
   drawIssueTrend();
 });

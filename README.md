@@ -3,6 +3,7 @@
 [![Python 3.13](https://img.shields.io/badge/Python-3.13-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c.svg)](https://pytorch.org/)
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Transformers-yellow.svg)](https://huggingface.co/)
+[![Live DSS](https://img.shields.io/badge/Live%20DSS-GitHub%20Pages-blueviolet.svg)](https://anwarrohmadi2006.github.io/Lampiran-Magang-BPS/dashboard_web/dss_trendline.html)
 [![Akurasi Uji](https://img.shields.io/badge/Akurasi%20Data%20Uji-0%2C7882-success.svg)](#hasil-evaluasi)
 [![Macro F1](https://img.shields.io/badge/Macro%20F1-0%2C7713-brightgreen.svg)](#hasil-evaluasi)
 [![Lisensi MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -174,6 +175,58 @@ Untuk memastikan bahwa model klasifikasi tidak menjadi "kotak hitam" (*black box
    - Menghitung kontribusi leksikal setiap kata terhadap pergeseran probabilitas logit kelas prediksi.
    - Membuktikan bahwa model IndoBERT mengambil keputusan berdasarkan semantik kata kunci kontekstual, bukan bias panjang kalimat atau nama platform.
    - Laporan visual LIME tersimpan pada folder `artefak_visual/lime/`.
+
+---
+
+---
+
+## 🧠 Kerangka Kognitif Dua Tingkat: TypeSafe AI Jev & Google Gemma 4 12B IT
+
+Penelitian ini memadukan dua paradigma kecerdasan buatan komplementer untuk mewujudkan sistem pemrosesan opini publik yang cepat, akurat, dan dapat dijelaskan secara rasional:
+
+`	ext
+[8.352 Opini Mentah]
+       │
+       ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ System 1: TypeSafe AI Jev (Dirilis Resmi 15 September 2026)      │
+│ • Model diskriminatif non-autoregressive (typed decisions)       │
+│ • Zero hallucination matematis (skema biner & enum terkunci)     │
+│ • Latensi sub-detik (70–500 ms) | Biaya efisien (,042/1M tok)  │
+│ • Fungsi: Triase topik, klasifikasi tipe teks, skor probabilitas│
+└─────────────────────────────────────────────────────────────────┘
+       │
+       ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ System 2: Google Gemma 4 12B IT (Unsloth QAT / GGUF)            │
+│ • Model LLM encoder-free unified multimodal/teks generasi 2026  │
+│ • Kuantisasi 4-bit Unsloth (GGUF lokal & QAT W4A16 cloud vLLM)  │
+│ • Deliberate reasoning & penalaran wacana informal Indonesia    │
+│ • Fungsi: Analisis kausalitas XAI & rekomendasi kebijakan BPS   │
+└─────────────────────────────────────────────────────────────────┘
+       │
+       ▼
+[Dasbor DSS & Rekomendasi Mitigasi Kebijakan BPS]
+`
+
+### 1. Model Jev dari TypeSafe AI (Rilis 15 September 2026)
+- **Sumber Resmi**: [TypeSafe AI Official Portal](https://typesafe.ai) (TypeSafe AI, 2026).
+- **Latar Belakang**: Dikembangkan oleh TypeSafe AI (didirikan oleh Diogo Almeida—mantan periset OpenAI yang ikut merancang InstructGPT, ChatGPT, dan GPT-4—bersama Erik Gafni dan Sasha Sheng, dengan pendanaan awal US juta dari DCVC).
+- **Karakteristik Kunci**:
+  - Mengadopsi konsep psikologi kognitif Daniel Kahneman mengenai *System 1* (berpikir cepat, intuitif, dan deterministik).
+  - Merupakan model diskriminatif non-autoregressive yang **tidak menghasilkan teks narasi/chat**, melainkan langsung mengembalikan nilai bertipe (*typed values*) sesuai skema tipe data ketat.
+  - **Mathematically Zero Hallucination**: Ruang kemungkinan jawaban dibatasi secara kaku oleh skema pengguna, sehingga mustahil terjadi halusinasi format atau nilai di luar batas.
+  - **Efisiensi Ekstrem**: Berjalan 40x sampai 200x lebih cepat daripada model generatif frontier (latensi 70–500 milidetik) dengan biaya hanya ~,042 per 1 juta token.
+  - **Peran di Penelitian**: Bertindak sebagai mesin triase kilat untuk 8.352 entri, mengklasifikasikan kepatuhan topik, memisahkan opini vs non-opini, dan menghasilkan estimasi probabilitas terkalibrasi tanpa risiko galat sintaksis.
+
+### 2. Model Gemma 4 12B IT (Unsloth QAT / GGUF)
+- **Sumber Resmi**: [Hugging Face Repository: unsloth/gemma-4-12b-it-GGUF](https://huggingface.co/unsloth/gemma-4-12b-it-GGUF) & [Unsloth Documentation](https://unsloth.ai/docs/models/gemma-4) (Unsloth AI, 2026).
+- **Latar Belakang**: Bagian dari keluarga model Gemma 4 yang dirilis oleh Google DeepMind pada pertengahan 2026, kemudian dioptimasi dan dikuantisasi oleh tim Unsloth.
+- **Karakteristik Kunci**:
+  - Mengusung *encoder-free unified architecture* yang menelan teks secara langsung ke ruang representasi embedding LLM.
+  - Varian GGUF (unsloth/gemma-4-12b-it-GGUF) mendukung inferensi lokal berkecepatan tinggi pada CPU/laptop melalui llama.cpp, sementara varian QAT W4A16 (unsloth/gemma-4-12B-it-qat-w4a16) dijalankan pada kluster serverless vLLM/Modal.
+  - Berfungsi sebagai *System 2* (*deliberate reasoning*): memiliki pemahaman semantik mendalam terhadap wacana bahasa Indonesia santai, sindiran/sarkasme, dan percampuran bahasa daerah (Jawa/Sunda).
+  - **Peran di Penelitian**: Menghasilkan penalaran sebab-akibat (*root cause reasoning*), bukti leksikal pemicu (*trigger evidence*), dan sintesis poin rekomendasi kebijakan operasional untuk unit kerja BPS.
 
 ---
 
