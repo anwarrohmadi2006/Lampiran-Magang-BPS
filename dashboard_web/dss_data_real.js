@@ -335,230 +335,230 @@ const DSS_REAL_DATA = {
   ],
   "top_topics": {
     "all": [
-      {
-        "nama": "Kendala teknis FASIH",
-        "val": 1632,
-        "pct": "28,1%",
-        "col": "#f97316"
-      },
-      {
-        "nama": "Apresiasi digitalisasi & petugas",
-        "val": 1032,
-        "pct": "17,8%",
-        "col": "#ec4899"
-      },
-      {
-        "nama": "Skeptisisme & persepsi manfaat",
-        "val": 829,
-        "pct": "14,3%",
-        "col": "#ef4444"
-      },
-      {
-        "nama": "Disinformasi / narasi hoaks",
-        "val": 582,
-        "pct": "10,0%",
-        "col": "#84cc16"
-      },
-      {
-        "nama": "Dinamika lapangan & petugas",
-        "val": 531,
-        "pct": "9,1%",
-        "col": "#fb923c"
-      },
-      {
-        "nama": "Kekhawatiran penarikan pajak",
-        "val": 471,
-        "pct": "8,1%",
-        "col": "#10b981"
-      },
-      {
-        "nama": "Privasi & kerahasiaan data",
-        "val": 371,
-        "pct": "6,4%",
-        "col": "#3b82f6"
-      },
-      {
-        "nama": "Beban ekonomi & honor mitra",
-        "val": 360,
-        "pct": "6,2%",
-        "col": "#06b6d4"
-      },
-      {
-        "nama": "Pertanyaan prosedural sensus",
-        "val": 0,
-        "pct": "0,0%",
-        "col": "#8b5cf6"
-      }
+        {
+            "nama": "Skeptisisme & persepsi manfaat",
+            "val": 1549,
+            "pct": "26,7%",
+            "col": "#ef4444"
+        },
+        {
+            "nama": "Kendala teknis FASIH",
+            "val": 1215,
+            "pct": "20,9%",
+            "col": "#f97316"
+        },
+        {
+            "nama": "Dinamika lapangan & petugas",
+            "val": 677,
+            "pct": "11,7%",
+            "col": "#fb923c"
+        },
+        {
+            "nama": "Disinformasi / narasi hoaks",
+            "val": 523,
+            "pct": "9,0%",
+            "col": "#84cc16"
+        },
+        {
+            "nama": "Pertanyaan prosedural sensus",
+            "val": 515,
+            "pct": "8,9%",
+            "col": "#8b5cf6"
+        },
+        {
+            "nama": "Kekhawatiran penarikan pajak",
+            "val": 400,
+            "pct": "6,9%",
+            "col": "#10b981"
+        },
+        {
+            "nama": "Beban ekonomi & honor mitra",
+            "val": 335,
+            "pct": "5,8%",
+            "col": "#06b6d4"
+        },
+        {
+            "nama": "Privasi & kerahasiaan data",
+            "val": 310,
+            "pct": "5,3%",
+            "col": "#3b82f6"
+        },
+        {
+            "nama": "Apresiasi digitalisasi & petugas",
+            "val": 284,
+            "pct": "4,9%",
+            "col": "#ec4899"
+        }
     ],
     "yt": [
-      {
-        "nama": "Apresiasi digitalisasi & petugas",
-        "val": 979,
-        "pct": "22,4%",
-        "col": "#ec4899"
-      },
-      {
-        "nama": "Skeptisisme & persepsi manfaat",
-        "val": 811,
-        "pct": "18,6%",
-        "col": "#ef4444"
-      },
-      {
-        "nama": "Disinformasi / narasi hoaks",
-        "val": 576,
-        "pct": "13,2%",
-        "col": "#84cc16"
-      },
-      {
-        "nama": "Dinamika lapangan & petugas",
-        "val": 479,
-        "pct": "11,0%",
-        "col": "#fb923c"
-      },
-      {
-        "nama": "Kekhawatiran penarikan pajak",
-        "val": 470,
-        "pct": "10,8%",
-        "col": "#10b981"
-      },
-      {
-        "nama": "Privasi & kerahasiaan data",
-        "val": 352,
-        "pct": "8,1%",
-        "col": "#3b82f6"
-      },
-      {
-        "nama": "Kendala teknis FASIH",
-        "val": 350,
-        "pct": "8,0%",
-        "col": "#f97316"
-      },
-      {
-        "nama": "Beban ekonomi & honor mitra",
-        "val": 345,
-        "pct": "7,9%",
-        "col": "#06b6d4"
-      },
-      {
-        "nama": "Pertanyaan prosedural sensus",
-        "val": 0,
-        "pct": "0,0%",
-        "col": "#8b5cf6"
-      }
+        {
+            "nama": "Skeptisisme & persepsi manfaat",
+            "val": 1512,
+            "pct": "34,7%",
+            "col": "#ef4444"
+        },
+        {
+            "nama": "Dinamika lapangan & petugas",
+            "val": 627,
+            "pct": "14,4%",
+            "col": "#fb923c"
+        },
+        {
+            "nama": "Disinformasi / narasi hoaks",
+            "val": 508,
+            "pct": "11,6%",
+            "col": "#84cc16"
+        },
+        {
+            "nama": "Pertanyaan prosedural sensus",
+            "val": 497,
+            "pct": "11,4%",
+            "col": "#8b5cf6"
+        },
+        {
+            "nama": "Kekhawatiran penarikan pajak",
+            "val": 397,
+            "pct": "9,1%",
+            "col": "#10b981"
+        },
+        {
+            "nama": "Beban ekonomi & honor mitra",
+            "val": 320,
+            "pct": "7,3%",
+            "col": "#06b6d4"
+        },
+        {
+            "nama": "Privasi & kerahasiaan data",
+            "val": 290,
+            "pct": "6,6%",
+            "col": "#3b82f6"
+        },
+        {
+            "nama": "Apresiasi digitalisasi & petugas",
+            "val": 211,
+            "pct": "4,8%",
+            "col": "#ec4899"
+        },
+        {
+            "nama": "Kendala teknis FASIH",
+            "val": 0,
+            "pct": "0,0%",
+            "col": "#f97316"
+        }
     ],
     "gp": [
-      {
-        "nama": "Kendala teknis FASIH",
-        "val": 1245,
-        "pct": "96,1%",
-        "col": "#f97316"
-      },
-      {
-        "nama": "Apresiasi digitalisasi & petugas",
-        "val": 40,
-        "pct": "3,1%",
-        "col": "#ec4899"
-      },
-      {
-        "nama": "Beban ekonomi & honor mitra",
-        "val": 4,
-        "pct": "0,3%",
-        "col": "#06b6d4"
-      },
-      {
-        "nama": "Skeptisisme & persepsi manfaat",
-        "val": 3,
-        "pct": "0,2%",
-        "col": "#ef4444"
-      },
-      {
-        "nama": "Dinamika lapangan & petugas",
-        "val": 2,
-        "pct": "0,2%",
-        "col": "#fb923c"
-      },
-      {
-        "nama": "Privasi & kerahasiaan data",
-        "val": 1,
-        "pct": "0,1%",
-        "col": "#3b82f6"
-      },
-      {
-        "nama": "Disinformasi / narasi hoaks",
-        "val": 0,
-        "pct": "0,0%",
-        "col": "#84cc16"
-      },
-      {
-        "nama": "Kekhawatiran penarikan pajak",
-        "val": 0,
-        "pct": "0,0%",
-        "col": "#10b981"
-      },
-      {
-        "nama": "Pertanyaan prosedural sensus",
-        "val": 0,
-        "pct": "0,0%",
-        "col": "#8b5cf6"
-      }
+        {
+            "nama": "Kendala teknis FASIH",
+            "val": 1195,
+            "pct": "92,3%",
+            "col": "#f97316"
+        },
+        {
+            "nama": "Apresiasi digitalisasi & petugas",
+            "val": 58,
+            "pct": "4,5%",
+            "col": "#ec4899"
+        },
+        {
+            "nama": "Skeptisisme & persepsi manfaat",
+            "val": 15,
+            "pct": "1,2%",
+            "col": "#ef4444"
+        },
+        {
+            "nama": "Pertanyaan prosedural sensus",
+            "val": 14,
+            "pct": "1,1%",
+            "col": "#8b5cf6"
+        },
+        {
+            "nama": "Dinamika lapangan & petugas",
+            "val": 5,
+            "pct": "0,4%",
+            "col": "#fb923c"
+        },
+        {
+            "nama": "Beban ekonomi & honor mitra",
+            "val": 4,
+            "pct": "0,3%",
+            "col": "#06b6d4"
+        },
+        {
+            "nama": "Privasi & kerahasiaan data",
+            "val": 2,
+            "pct": "0,2%",
+            "col": "#3b82f6"
+        },
+        {
+            "nama": "Disinformasi / narasi hoaks",
+            "val": 1,
+            "pct": "0,1%",
+            "col": "#84cc16"
+        },
+        {
+            "nama": "Kekhawatiran penarikan pajak",
+            "val": 1,
+            "pct": "0,1%",
+            "col": "#10b981"
+        }
     ],
     "th": [
-      {
-        "nama": "Dinamika lapangan & petugas",
-        "val": 50,
-        "pct": "33,1%",
-        "col": "#fb923c"
-      },
-      {
-        "nama": "Kendala teknis FASIH",
-        "val": 37,
-        "pct": "24,5%",
-        "col": "#f97316"
-      },
-      {
-        "nama": "Privasi & kerahasiaan data",
-        "val": 18,
-        "pct": "11,9%",
-        "col": "#3b82f6"
-      },
-      {
-        "nama": "Skeptisisme & persepsi manfaat",
-        "val": 15,
-        "pct": "9,9%",
-        "col": "#ef4444"
-      },
-      {
-        "nama": "Apresiasi digitalisasi & petugas",
-        "val": 13,
-        "pct": "8,6%",
-        "col": "#ec4899"
-      },
-      {
-        "nama": "Beban ekonomi & honor mitra",
-        "val": 11,
-        "pct": "7,3%",
-        "col": "#06b6d4"
-      },
-      {
-        "nama": "Disinformasi / narasi hoaks",
-        "val": 6,
-        "pct": "4,0%",
-        "col": "#84cc16"
-      },
-      {
-        "nama": "Kekhawatiran penarikan pajak",
-        "val": 1,
-        "pct": "0,7%",
-        "col": "#10b981"
-      },
-      {
-        "nama": "Pertanyaan prosedural sensus",
-        "val": 0,
-        "pct": "0,0%",
-        "col": "#8b5cf6"
-      }
+        {
+            "nama": "Dinamika lapangan & petugas",
+            "val": 45,
+            "pct": "29,8%",
+            "col": "#fb923c"
+        },
+        {
+            "nama": "Skeptisisme & persepsi manfaat",
+            "val": 22,
+            "pct": "14,6%",
+            "col": "#ef4444"
+        },
+        {
+            "nama": "Kendala teknis FASIH",
+            "val": 20,
+            "pct": "13,2%",
+            "col": "#f97316"
+        },
+        {
+            "nama": "Privasi & kerahasiaan data",
+            "val": 18,
+            "pct": "11,9%",
+            "col": "#3b82f6"
+        },
+        {
+            "nama": "Apresiasi digitalisasi & petugas",
+            "val": 15,
+            "pct": "9,9%",
+            "col": "#ec4899"
+        },
+        {
+            "nama": "Disinformasi / narasi hoaks",
+            "val": 14,
+            "pct": "9,3%",
+            "col": "#84cc16"
+        },
+        {
+            "nama": "Beban ekonomi & honor mitra",
+            "val": 11,
+            "pct": "7,3%",
+            "col": "#06b6d4"
+        },
+        {
+            "nama": "Pertanyaan prosedural sensus",
+            "val": 4,
+            "pct": "2,6%",
+            "col": "#8b5cf6"
+        },
+        {
+            "nama": "Kekhawatiran penarikan pajak",
+            "val": 2,
+            "pct": "1,3%",
+            "col": "#10b981"
+        }
     ]
-  },
+},
   "sentiment_gaps": {
     "yt": {
       "name": "YouTube",
