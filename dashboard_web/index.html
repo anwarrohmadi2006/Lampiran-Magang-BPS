@@ -1,90 +1,16 @@
 <!DOCTYPE html>
-<html lang="id" data-tema="terang">
+<html lang="id">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Penelusuran Label Sentimen SE2026 &amp; Fasih BPS</title>
-<meta name="description" content="Web decision support penelitian analisis sentimen Sensus Ekonomi 2026 dan aplikasi Fasih BPS. Seluruh label dapat ditelusuri sampai bukti, alasan, dan penjelasan modelnya.">
-<link rel="stylesheet" href="gaya.css">
+<title>Sistem Pendukung Keputusan (DSS) Sentimen Sensus Ekonomi 2026 - BPS</title>
+<meta http-equiv="refresh" content="0; url=dss_trendline.html">
+<link rel="canonical" href="dss_trendline.html">
+<script>
+  window.location.replace("dss_trendline.html");
+</script>
 </head>
-<body>
-<a class="lewati" href="#utama">Lewati ke isi utama</a>
-
-<header class="kepala">
-  <div class="kepala-dalam">
-    <div class="merek">
-      <svg width="26" height="26" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius:4px; vertical-align:middle; margin-right:4px; flex-shrink:0;">
-        <rect width="100" height="100" rx="14" fill="#0f172a"/>
-        <path d="M22 72L50 24H36L8 72H22Z" fill="#0284c7"/>
-        <path d="M50 72L78 24H64L36 72H50Z" fill="#10b981"/>
-        <path d="M78 72L96 38H82L64 72H78Z" fill="#f59e0b"/>
-      </svg>
-      <span class="merek-teks">
-        <h1 style="font-size:15.5px; font-weight:700; margin:0; line-height:1.2; white-space:nowrap;">Penelusuran Label &amp; Audit XAI</h1>
-        <small style="display:block; font-size:11px; color:var(--tinta-samar); white-space:nowrap;">BPS Sukoharjo • Anwar Rohmadi</small>
-      </span>
-    </div>
-
-    <nav class="tab" id="tab" aria-label="Bagian laporan">
-      <button type="button" class="tab-tombol" data-panel="ringkasan" aria-current="page">Ringkasan</button>
-      <button type="button" class="tab-tombol" data-panel="alur">Alur</button>
-      <button type="button" class="tab-tombol" data-panel="label">Label</button>
-      <button type="button" class="tab-tombol" data-panel="mutu">Mutu</button>
-      <button type="button" class="tab-tombol" data-panel="model">Model</button>
-      <button type="button" class="tab-tombol" data-panel="banding">Banding</button>
-      <button type="button" class="tab-tombol" data-panel="keputusan">Keputusan</button>
-      <a href="dss_trendline.html" class="tombol-dss-link" title="Buka Dasbor Eksekutif Tren Sentimen DSS"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg> Dasbor DSS</a>
-    </nav>
-
-    <button type="button" class="tombol-tema" id="tombol-tema" aria-pressed="false">
-      <span class="tema-teks">Gelap</span>
-      <span class="ikon" id="ikon-tema" aria-hidden="true"></span>
-    </button>
-  </div>
-</header>
-
-<main id="utama" tabindex="-1">
-  <noscript>
-    <p class="catatan-kosong">Halaman ini memerlukan JavaScript untuk membaca berkas data di sebelahnya.</p>
-  </noscript>
-
-  <section class="panel" id="panel-ringkasan" data-panel="ringkasan" aria-labelledby="judul-ringkasan"></section>
-  <section class="panel" id="panel-alur" data-panel="alur" aria-labelledby="judul-alur" hidden></section>
-  <section class="panel" id="panel-label" data-panel="label" aria-labelledby="judul-label" hidden></section>
-  <section class="panel" id="panel-mutu" data-panel="mutu" aria-labelledby="judul-mutu" hidden></section>
-  <section class="panel" id="panel-model" data-panel="model" aria-labelledby="judul-model" hidden></section>
-  <section class="panel" id="panel-banding" data-panel="banding" aria-labelledby="judul-banding" hidden></section>
-  <section class="panel" id="panel-keputusan" data-panel="keputusan" aria-labelledby="judul-keputusan" hidden></section>
-</main>
-
-<footer class="kaki">
-  <div class="kaki-dalam">
-    <p id="kaki-keterangan"></p>
-    <p id="kaki-capaian" class="kaki-berkas"></p>
-    <p class="kaki-berkas">Berkas data: <code>data.js</code> · <code>label.js</code> · Kerja Praktik Badan Pusat Statistik Kabupaten Sukoharjo</p>
-    <p style="margin-top:6px; font-size:12px; color:var(--tinta-samar, #475569);">Pengembang: <strong>Anwar Rohmadi</strong> (NIM: 247411027) • Program Studi Sains Data</p>
-  </div>
-</footer>
-
-<div class="tabir" id="tabir" hidden></div>
-
-<aside class="laci" id="laci" aria-label="Rincian baris" hidden>
-  <div class="laci-kepala">
-    <div>
-      <h2 id="laci-judul">Rincian baris</h2>
-      <p class="laci-uid" id="laci-uid"></p>
-    </div>
-    <button type="button" class="tombol-tutup" id="tombol-tutup" aria-label="Tutup rincian">
-      <span class="ikon" id="ikon-tutup" aria-hidden="true"></span>
-      <span>Tutup</span>
-    </button>
-  </div>
-  <div class="laci-isi" id="laci-isi"></div>
-</aside>
-
-<script src="data.js"></script>
-<script src="label.js"></script>
-<script src="konfigurasi.js"></script>
-<script src="app.js"></script>
+<body style="background:#0b192c;color:#eef2f6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;">
+  <p>Mengarahkan ke <a href="dss_trendline.html" style="color:#f59e0b;font-weight:600;text-decoration:none;">Dasbor Eksekutif DSS Sensus Ekonomi 2026</a>...</p>
 </body>
 </html>
