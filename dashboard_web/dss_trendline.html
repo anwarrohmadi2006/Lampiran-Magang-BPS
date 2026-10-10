@@ -9,34 +9,65 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  /* Design Tokens - Executive Statistical Intelligence */
-  --bg-page: #f8fafc;
-  --bg-card: #ffffff;
-  --bg-header: #0f172a;
-  --border-subtle: #e2e8f0;
-  --border-medium: #cbd5e1;
-  --border-strong: #94a3b8;
-  
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --text-light: #64748b;
-  --text-white: #ffffff;
+  /* =========================================================================
+     1. SOVEREIGN BPS NAVY (Otoritas & Integritas Statistik)
+     ========================================================================= */
+  --bps-navy-950: #050b17; /* Canvas gelap / header cockpit terpekat */
+  --bps-navy-900: #081226; /* Background header eksekutif */
+  --bps-navy-800: #0f2347; /* Border penegas / kartu metrik institusi */
+  --bps-navy-700: #1a3668; /* Status netral kuat */
+  --bps-navy-100: #e8eef8; /* Tint latar institusional */
+  --bps-navy-50:  #f3f6fc; /* Hover state permukaan */
 
-  --navy-brand: #1e3a8a;
-  --navy-accent: #2563eb;
-  --navy-subtle: #eff6ff;
+  /* =========================================================================
+     2. SENSUS EKONOMI RADIANT AMBER (Aksen Branding Utama SE2026)
+     ========================================================================= */
+  --se-amber-700: #c2410c; /* Deep terracotta untuk teks kontras tinggi (AAA) */
+  --se-amber-600: #ea580c; /* Warna primer Sensus Ekonomi: tombol, penanda aktif */
+  --se-amber-500: #f97316; /* Gradien highlight & pilar sorotan */
+  --se-amber-400: #fb923c; /* Aksen grafik sekunder */
+  --se-amber-100: #ffedd5; /* Badge background berbobot hangat */
+  --se-amber-50:  #fff7ed; /* Card surface tint */
 
-  --color-neg: #dc2626;
-  --color-neg-bg: #fef2f2;
+  /* =========================================================================
+     3. ECONOMIC GOLD & PROSPERITY (Pertumbuhan Nilai & UMKM)
+     ========================================================================= */
+  --se-gold-600:  #d97706; /* Peringkat teratas, apresiasi aset */
+  --se-gold-500:  #f59e0b; /* Sparkline highlight */
+  --se-gold-100:  #fef3c7; /* Chip latar keemasan */
+
+  /* =========================================================================
+     4. EDITORIAL SURFACE & NEUTRALS (Kanvas Kedinasan BPS)
+     ========================================================================= */
+  --bg-page:        #f8fafc; /* Warm off-white, anti silau */
+  --bg-card:        #ffffff; /* Pure crisp surface */
+  --border-subtle:  #e2e8f0; /* Hairline border 1px */
+  --border-medium:  #cbd5e1; /* Pemisah zona visual */
+  --border-brand:   #fed7aa; /* Hairline aksen khusus Sensus Ekonomi */
+  --text-main:      #0a1526; /* Tinta obsidian pekat (rasio kontras 15.8:1) */
+  --text-muted:     #475569; /* Keterangan sekunder (rasio kontras 6.2:1) */
+  --text-light:     #64748b; /* Metadata & stempel waktu */
+  --text-white:     #ffffff;
+
+  /* =========================================================================
+     5. STATISTICAL SENTIMENT PILLARS (Strict Data Semantics)
+     ========================================================================= */
+  --color-neg:        #dc2626; /* Ruby Crimson: Keluhan/Kendala Teknis */
+  --color-neg-bg:     #fef2f2;
   --color-neg-border: #fca5a5;
 
-  --color-pos: #16a34a;
-  --color-pos-bg: #f0fdf4;
-  --color-pos-border: #86efac;
+  --color-neu:        #2563eb; /* BPS Royal Blue: Pertanyaan Prosedural & Faktual */
+  --color-neu-bg:     #eff6ff;
+  --color-neu-border: #bfdbfe;
 
-  --color-neu: #0284c7;
-  --color-neu-bg: #f0f9ff;
-  --color-neu-border: #7dd3fc;
+  --color-pos:        #059669; /* Emerald Mint: Apresiasi & Kebermanfaatan */
+  --color-pos-bg:     #ecfdf5;
+  --color-pos-border: #a7f3d0;
+
+  /* Brand Aliases for Component Harmony */
+  --navy-brand: var(--bps-navy-900);
+  --navy-accent: var(--se-amber-600);
+  --navy-subtle: var(--se-amber-100);
 
   --color-yt: #dc2626;
   --color-gp: #0284c7;
@@ -47,9 +78,9 @@
   --radius-lg: 14px;
   --radius-xl: 18px;
 
-  --shadow-subtle: 0 1px 3px 0 rgba(15, 23, 42, 0.05);
-  --shadow-card: 0 4px 6px -1px rgba(15, 23, 42, 0.06), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
-  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+  --shadow-subtle: 0 1px 3px 0 rgba(10, 21, 38, 0.05);
+  --shadow-card: 0 4px 10px -1px rgba(10, 21, 38, 0.07), 0 2px 4px -2px rgba(10, 21, 38, 0.04);
+  --shadow-lg: 0 12px 20px -3px rgba(10, 21, 38, 0.1), 0 4px 6px -4px rgba(10, 21, 38, 0.04);
 
   --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -68,15 +99,16 @@ body {
   overflow-x: hidden;
 }
 
-/* Executive Brand Header */
+/* Executive Brand Header - Sovereign BPS Navy with Sensus Radiant Amber */
 .dss-header {
-  background: linear-gradient(135deg, #0b1329 0%, #0f172a 60%, #1e293b 100%);
+  background: linear-gradient(135deg, var(--bps-navy-950) 0%, var(--bps-navy-900) 55%, var(--bps-navy-800) 100%);
   color: var(--text-white);
   padding: 16px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid #2563eb;
+  border-bottom: 3px solid var(--se-amber-600);
+  box-shadow: 0 4px 20px rgba(5, 11, 23, 0.45), 0 2px 0 0 rgba(249, 115, 22, 0.4);
   gap: 20px;
   flex-wrap: wrap;
 }
@@ -95,8 +127,8 @@ body {
   justify-content: center;
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 12px rgba(234, 88, 12, 0.2);
   flex-shrink: 0;
 }
 
@@ -124,8 +156,8 @@ body {
 }
 
 .dss-period-tag {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(8, 18, 38, 0.85);
+  border: 1px solid rgba(245, 158, 11, 0.3);
   padding: 6px 14px;
   border-radius: 9999px;
   font-size: 11.5px;
@@ -133,10 +165,11 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .dss-period-tag strong {
-  color: #38bdf8;
+  color: var(--se-gold-500);
   font-weight: 700;
 }
 
@@ -144,7 +177,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #2563eb;
+  background: linear-gradient(135deg, var(--se-amber-600) 0%, var(--se-amber-500) 100%);
   color: #ffffff;
   padding: 8px 16px;
   border-radius: 8px;
@@ -152,15 +185,15 @@ body {
   font-size: 13px;
   font-weight: 700;
   text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
   transition: all 0.15s ease;
 }
 
 .nav-explorer-btn:hover {
-  background: #1d4ed8;
+  background: linear-gradient(135deg, var(--se-amber-700) 0%, var(--se-amber-600) 100%);
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.5);
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.55);
 }
 
 /* Dashboard Shell */
@@ -498,10 +531,22 @@ body {
   font-family: var(--font-mono);
   font-size: 10.5px;
   font-weight: 700;
-  color: var(--navy-accent);
-  background: var(--navy-subtle);
+  color: var(--se-amber-700);
+  background: var(--se-amber-100);
+  border: 1px solid var(--border-brand);
   padding: 1px 6px;
   border-radius: 4px;
+}
+.topic-bar-item.rank-1 {
+  background: var(--se-amber-50);
+  border-left: 3px solid var(--se-amber-600);
+  padding-left: 8px;
+  border-radius: 0 6px 6px 0;
+}
+.topic-bar-item.rank-1 .topic-rank-badge {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--se-amber-600), var(--se-gold-600));
+  border-color: var(--se-amber-600);
 }
 .topic-bar-val {
   font-family: var(--font-mono);
@@ -613,6 +658,16 @@ body {
 .badge-status.green { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
 .badge-status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 
+@keyframes alertPulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.25); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+.badge-status.orange .badge-status-dot,
+.badge-status.red .badge-status-dot {
+  animation: alertPulse 2s infinite ease-in-out;
+}
+
 /* Reskinned Executive Decision Matrix (No more black box) */
 .exec-matrix-table {
   width: 100%;
@@ -697,10 +752,10 @@ body {
 }
 .xai-tab-btn:hover { background: #e2e8f0; color: var(--text-main); }
 .xai-tab-btn.active {
-  background: var(--navy-brand);
+  background: var(--bps-navy-900);
   color: #ffffff;
-  border-color: var(--navy-brand);
-  box-shadow: var(--shadow-subtle);
+  border-color: var(--se-amber-600);
+  box-shadow: 0 2px 6px rgba(8, 18, 38, 0.35);
 }
 
 .xai-sequence-box {
@@ -817,21 +872,22 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #2563eb;
+  background: linear-gradient(135deg, var(--se-amber-600) 0%, var(--se-amber-500) 100%);
   color: #ffffff;
   padding: 8px 18px;
   border-radius: 8px;
   font-family: var(--font-display);
   font-size: 13px;
   font-weight: 700;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.35);
   transition: all 0.15s ease;
 }
 .live-btn-submit:hover {
-  background: #1d4ed8;
+  background: linear-gradient(135deg, var(--se-amber-700) 0%, var(--se-amber-600) 100%);
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.45);
 }
 
 /* Reskinned Executive Tri-Model Architecture (No more black box) */
@@ -1966,14 +2022,18 @@ function updateTopTopics() {
   list.forEach(item => {
     const widthPct = Math.round((item.val / maxVal) * 100);
     const rank = list.indexOf(item) + 1;
+    const isRank1 = rank === 1;
+    const fillGradient = isRank1 
+      ? 'linear-gradient(90deg, #ea580c, #f59e0b)' 
+      : `linear-gradient(90deg, ${item.col}, #fb923c)`;
     html += `
-      <div class="topic-bar-item" onmousemove="showTip(event, '${item.nama}<br>${item.val.toLocaleString('id-ID')} opini (${item.pct})')" onmouseout="hideTip()">
+      <div class="topic-bar-item ${isRank1 ? 'rank-1' : ''}" onmousemove="showTip(event, '${item.nama}<br>${item.val.toLocaleString('id-ID')} opini (${item.pct})')" onmouseout="hideTip()">
         <div class="topic-bar-info">
           <span class="topic-bar-name"><span class="topic-rank-badge">#${rank}</span>${item.nama}</span>
           <span class="topic-bar-val">${item.val.toLocaleString('id-ID')} <small style="color:#64748b; font-weight:500;">(${item.pct})</small></span>
         </div>
         <div class="topic-bar-track">
-          <div class="topic-bar-fill" style="width: ${widthPct}%; background: linear-gradient(90deg, ${item.col}, #38bdf8);"></div>
+          <div class="topic-bar-fill" style="width: ${widthPct}%; background: ${fillGradient};"></div>
         </div>
       </div>
     `;

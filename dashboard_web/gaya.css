@@ -59,38 +59,58 @@
 }
 
 :root {
-  --latar: #fbfbfc;
+  /* =========================================================================
+     TRIDHARMA WARNA SENSUS EKONOMI (BPS) DESIGN TOKENS
+     ========================================================================= */
+  --bps-navy-950: #050b17;
+  --bps-navy-900: #081226;
+  --bps-navy-800: #0f2347;
+  --bps-navy-700: #1a3668;
+  --bps-navy-100: #e8eef8;
+  --bps-navy-50:  #f3f6fc;
+
+  --se-amber-700: #c2410c;
+  --se-amber-600: #ea580c;
+  --se-amber-500: #f97316;
+  --se-amber-400: #fb923c;
+  --se-amber-100: #ffedd5;
+  --se-amber-50:  #fff7ed;
+
+  --se-gold-600:  #d97706;
+  --se-gold-500:  #f59e0b;
+  --se-gold-100:  #fef3c7;
+
+  --latar: #f8fafc;
   --latar-naik: #ffffff;
-  --latar-turun: #f1f2f4;
-  --latar-sel: #f7f8f9;
-  --garis: #e4e6ea;
-  --garis-kuat: #ced2d9;
-  --tinta: #17181c;
-  --tinta-lemah: #565b64;
-  /* Teks samar banyak dipakai pada ukuran 11 sampai 12 piksel, sehingga ambang
-     kontrasnya 4,5:1, bukan 3:1. Nilainya digelapkan sampai lulus terhadap
-     permukaan paling gelap yang ditempatinya, yaitu --latar-turun. */
-  --tinta-samar: #475569;
+  --latar-turun: #f1f5f9;
+  --latar-sel: #f8fafc;
+  --garis: #e2e8f0;
+  --garis-kuat: #cbd5e1;
+  --garis-brand: #fed7aa;
+  --tinta: #0a1526;
+  --tinta-lemah: #475569;
+  --tinta-samar: #64748b;
 
-  --aksen: #1d4f9e;
-  --aksen-kuat: #163c79;
-  --aksen-lemah: #e9eff9;
-  --aksen-garis: #b7c9e8;
+  /* Primary Accent: Sensus Radiant Amber */
+  --aksen: #ea580c;
+  --aksen-kuat: #c2410c;
+  --aksen-lemah: #ffedd5;
+  --aksen-garis: #fed7aa;
 
-  --neg: #a3342d;
-  --neg-lemah: #faecea;
-  --net: #6a6f78;
-  --net-lemah: #f0f1f3;
-  --pos: #2a6f50;
-  --pos-lemah: #e9f4ee;
-  --rel: #8a6224;
-  --rel-lemah: #faf1e1;
+  --neg: #dc2626;
+  --neg-lemah: #fef2f2;
+  --net: #2563eb;
+  --net-lemah: #eff6ff;
+  --pos: #059669;
+  --pos-lemah: #ecfdf5;
+  --rel: #d97706;
+  --rel-lemah: #fef3c7;
 
   --r-panel: 12px;
   --r-kendali: 8px;
   --r-penanda: 4px;
 
-  --bayang: 0 1px 2px rgba(23, 24, 28, .05), 0 10px 24px -18px rgba(23, 24, 28, .3);
+  --bayang: 0 1px 3px rgba(10, 21, 38, .06), 0 10px 24px -16px rgba(10, 21, 38, .18);
 
   --font: "BPS Sans", ui-sans-serif, "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif;
   --mono: "BPS Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
@@ -100,33 +120,32 @@
 }
 
 [data-tema="gelap"] {
-  --latar: #101114;
-  --latar-naik: #17191e;
-  --latar-turun: #0b0c0e;
-  --latar-sel: #14161a;
-  --garis: #272a31;
-  --garis-kuat: #363a43;
-  --tinta: #eceef2;
-  --tinta-lemah: #a7acb6;
-  /* Pada mode gelap arahnya berlawanan: teks samar diterangkan sampai lulus
-     terhadap permukaan paling terang yang ditempatinya, yaitu --latar-naik. */
-  --tinta-samar: #8b919d;
+  --latar: #050b17;
+  --latar-naik: #081226;
+  --latar-turun: #03070f;
+  --latar-sel: #0c1830;
+  --garis: #1a2942;
+  --garis-kuat: #2a3c5d;
+  --garis-brand: #7c2d12;
+  --tinta: #f8fafc;
+  --tinta-lemah: #cbd5e1;
+  --tinta-samar: #94a3b8;
 
-  --aksen: #7ea9ef;
-  --aksen-kuat: #a7c5f7;
-  --aksen-lemah: #15233a;
-  --aksen-garis: #2c4570;
+  --aksen: #f97316;
+  --aksen-kuat: #fb923c;
+  --aksen-lemah: #2c1407;
+  --aksen-garis: #7c2d12;
 
-  --neg: #e08b81;
-  --neg-lemah: #2a1a19;
-  --net: #9aa0aa;
-  --net-lemah: #1d1f24;
-  --pos: #77bd97;
-  --pos-lemah: #14251d;
-  --rel: #d8ae6c;
-  --rel-lemah: #271f13;
+  --neg: #f87171;
+  --neg-lemah: #301010;
+  --net: #60a5fa;
+  --net-lemah: #0f2347;
+  --pos: #34d399;
+  --pos-lemah: #092c1e;
+  --rel: #fbbf24;
+  --rel-lemah: #312306;
 
-  --bayang: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 28px -18px rgba(0, 0, 0, .7);
+  --bayang: 0 1px 3px rgba(0, 0, 0, .5), 0 12px 28px -18px rgba(0, 0, 0, .8);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -1047,19 +1066,21 @@ table.matriks tfoot td { border-top: 1px solid var(--garis-kuat); font-size: 12p
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #1e3a8a;
+  background: linear-gradient(135deg, var(--se-amber-600) 0%, var(--se-amber-500) 100%);
   color: #ffffff !important;
   font-weight: 700;
   border-radius: 6px;
   padding: 6px 14px;
   margin-left: 8px;
-  box-shadow: 0 2px 4px rgba(30, 58, 138, 0.25);
-  transition: background 0.15s ease, transform 0.15s ease;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.35);
+  transition: all 0.15s ease;
 }
 .tombol-dss-link:hover, .tombol-dss-link:focus {
-  background: #1d4ed8 !important;
+  background: linear-gradient(135deg, var(--se-amber-700) 0%, var(--se-amber-600) 100%) !important;
   color: #ffffff !important;
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.45);
 }
 
 /* Keadaan memuat berbentuk kerangka dengan bentuk yang sama seperti hasil
